@@ -1,6 +1,6 @@
 {
   "stats": {
-    "totalVisits": 1482,
+    "totalVisits": 1497,
     "commandsExecuted": 1,
     "messagesReceived": 2,
     "guestbookEntries": 3,
@@ -15,9 +15,9 @@
     "linkedinUrl": "https://www.linkedin.com/in/john-franklin-mejia-chamaya/",
     "email": "johnmejia@example.com",
     "whatsapp": "+51 900 000 000",
-    "avatarUrl": "./images/personaje.webp",
     "cvUrl": "./CV_Damian_Alexander_Aceves_Navarrete.pdf",
-    "adminPin": "1995"
+    "adminPin": "1995",
+    "avatarUrl": "./images/personaje.webp"
   },
   "projects": [
     {
