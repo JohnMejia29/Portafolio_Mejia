@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio profesional de John Franklin Mejia Chamaya, Ingeniero de Sistemas y Desarrollador Full-Stack.">
+  <meta name="description"
+    content="Portafolio profesional de John Franklin Mejia Chamaya, Ingeniero de Sistemas y Desarrollador Full-Stack.">
   <title>John Franklin Mejia Chamaya | Portafolio Profesional</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Pixelify+Sans:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Pixelify+Sans:wght@400;500;600;700&family=VT323&display=swap"
+    rel="stylesheet">
 
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="./css/main.css">
@@ -17,6 +21,7 @@
   <link rel="stylesheet" href="./css/sections.css">
   <link rel="stylesheet" href="./css/modal-project.css">
 </head>
+
 <body>
 
   <!-- ==========================================================================
@@ -26,7 +31,8 @@
     <div class="retro-titlebar">
       <div class="titlebar-left">
         <span class="titlebar-icon">
-          <img src="./images/windows.webp" alt="Windows Logo" width="22" height="22" style="image-rendering: pixelated; object-fit: contain;">
+          <img src="./images/windows.webp" alt="Windows Logo" width="22" height="22"
+            style="image-rendering: pixelated; object-fit: contain;">
         </span>
       </div>
       <div class="titlebar-controls">
@@ -42,7 +48,8 @@
       </a>
 
       <!-- Hamburger Button (only visible on mobile) -->
-      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav-dropdown">
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="mobile-nav-dropdown">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -71,7 +78,7 @@
         </a>
       </nav>
       <button id="lang-toggle-btn" class="lang-toggle-btn" title="Change language to English">
-        <img id="lang-icon" class="lang-flag-icon" src="./images/USA.webp" alt="Bandera">
+        <img id="lang-icon" class="lang-flag-icon" src="./images/USA.webp" alt="Cambiar a inglés">
         <span id="lang-label">EN</span>
       </button>
     </div>
@@ -106,80 +113,83 @@
     </div>
   </header>
 
-    <!-- Retro Desktop Background Ambient Circuit Trace & Particles -->
-    <div class="desktop-ambient-layer" aria-hidden="true">
-      <svg class="desktop-circuit-svg" viewBox="0 0 1440 900" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,80 L220,80 L260,120 L580,120 M1440,160 L1200,160 L1150,210 L850,210 M0,480 L180,480 L230,530 L450,530 M1440,650 L1250,650 L1190,710 L920,710" stroke="rgba(56, 239, 125, 0.12)" stroke-width="1.5" fill="none" stroke-dasharray="4 4"/>
-        <circle cx="260" cy="120" r="3" fill="#38ef7d" opacity="0.3"/>
-        <circle cx="1150" cy="210" r="3" fill="#38ef7d" opacity="0.3"/>
-        <circle cx="230" cy="530" r="3" fill="#38ef7d" opacity="0.3"/>
-        <circle cx="1190" cy="710" r="3" fill="#38ef7d" opacity="0.3"/>
-      </svg>
-    </div>
+  <!-- Retro Desktop Background Ambient Circuit Trace & Particles -->
+  <div class="desktop-ambient-layer" aria-hidden="true">
+    <svg class="desktop-circuit-svg" viewBox="0 0 1440 900" preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0,80 L220,80 L260,120 L580,120 M1440,160 L1200,160 L1150,210 L850,210 M0,480 L180,480 L230,530 L450,530 M1440,650 L1250,650 L1190,710 L920,710"
+        stroke="rgba(56, 239, 125, 0.12)" stroke-width="1.5" fill="none" stroke-dasharray="4 4" />
+      <circle cx="260" cy="120" r="3" fill="#38ef7d" opacity="0.3" />
+      <circle cx="1150" cy="210" r="3" fill="#38ef7d" opacity="0.3" />
+      <circle cx="230" cy="530" r="3" fill="#38ef7d" opacity="0.3" />
+      <circle cx="1190" cy="710" r="3" fill="#38ef7d" opacity="0.3" />
+    </svg>
+  </div>
 
-    <!-- Retro Desktop Shortcut Icons (Unique Desktop Utilities) -->
-    <div class="desktop-shortcuts-bar" aria-label="Iconos de escritorio">
-      <button class="desktop-shortcut" id="desktop-shortcut-arcade" title="Abrir Juegos Arcade">
-        <div class="shortcut-icon-box">
-          <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">🕹️</span>
-        </div>
-        <span class="shortcut-label">ARCADE.EXE</span>
-      </button>
-      <button class="desktop-shortcut" id="desktop-shortcut-logs" title="Abrir Registros del Sistema">
-        <div class="shortcut-icon-box">
-          <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">📜</span>
-        </div>
-        <span class="shortcut-label">SYS_LOGS.EXE</span>
-      </button>
-      <button class="desktop-shortcut" id="desktop-shortcut-cv" title="Ver Perfil y Hoja de Vida">
-        <div class="shortcut-icon-box">
-          <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">📄</span>
-        </div>
-        <span class="shortcut-label">CV_RESUME.PDF</span>
-      </button>
-      <button class="desktop-shortcut" id="desktop-shortcut-admin" title="Panel de Control de Administrador">
-        <div class="shortcut-icon-box">
-          <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">🔐</span>
-        </div>
-        <span class="shortcut-label">ADMIN.EXE</span>
-      </button>
-      <button class="desktop-shortcut" id="desktop-shortcut-trash" title="Papelera de Reciclaje">
-        <div class="shortcut-icon-box">
-          <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">🗑️</span>
-        </div>
-        <span class="shortcut-label">RECYCLE.BIN</span>
-      </button>
-    </div>
+  <!-- Retro Desktop Shortcut Icons (Unique Desktop Utilities) -->
+  <div class="desktop-shortcuts-bar" aria-label="Iconos de escritorio">
+    <button class="desktop-shortcut" id="desktop-shortcut-arcade" title="Abrir Juegos Arcade">
+      <div class="shortcut-icon-box">
+        <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">🕹️</span>
+      </div>
+      <span class="shortcut-label">ARCADE.EXE</span>
+    </button>
+    <button class="desktop-shortcut" id="desktop-shortcut-logs" title="Abrir Registros del Sistema">
+      <div class="shortcut-icon-box">
+        <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">📜</span>
+      </div>
+      <span class="shortcut-label">SYS_LOGS.EXE</span>
+    </button>
+    <button class="desktop-shortcut" id="desktop-shortcut-cv" title="Ver Perfil y Hoja de Vida">
+      <div class="shortcut-icon-box">
+        <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">📄</span>
+      </div>
+      <span class="shortcut-label">CV_RESUME.PDF</span>
+    </button>
+    <button class="desktop-shortcut" id="desktop-shortcut-admin" title="Panel de Control de Administrador">
+      <div class="shortcut-icon-box">
+        <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">🔐</span>
+      </div>
+      <span class="shortcut-label">ADMIN.EXE</span>
+    </button>
+    <button class="desktop-shortcut" id="desktop-shortcut-trash" title="Papelera de Reciclaje">
+      <div class="shortcut-icon-box">
+        <span style="font-size: 26px; line-height: 1; image-rendering: pixelated;">🗑️</span>
+      </div>
+      <span class="shortcut-label">RECYCLE.BIN</span>
+    </button>
+  </div>
 
-    <!-- Retro System Status Widget (CPU, MEM, NET) -->
-    <aside class="desktop-system-status-widget" id="desktop-status-widget" aria-label="Monitor de sistema">
-      <div class="status-widget-header">
-        <div class="status-widget-title">
-          <span class="status-widget-icon">⚡</span>
-          <span>SYSTEM_STATUS.SYS</span>
-        </div>
-        <div class="status-widget-controls">
-          <button class="status-minimize-btn" id="status-widget-toggle" title="Minimizar / Expandir">_</button>
-        </div>
+  <!-- Retro System Status Widget (CPU, MEM, NET) -->
+  <aside class="desktop-system-status-widget" id="desktop-status-widget" aria-label="Monitor de sistema">
+    <div class="status-widget-header">
+      <div class="status-widget-title">
+        <span class="status-widget-icon">⚡</span>
+        <span>SYSTEM_STATUS.SYS</span>
       </div>
-      <div class="status-widget-body" id="status-widget-content">
-        <div class="status-metric-row">
-          <span class="metric-tag">CPU:</span>
-          <span class="metric-meter" id="status-cpu-meter">██████░░░░</span>
-          <span class="metric-val" id="status-cpu-val">60%</span>
-        </div>
-        <div class="status-metric-row">
-          <span class="metric-tag">MEM:</span>
-          <span class="metric-meter" id="status-mem-meter">███████░░░</span>
-          <span class="metric-val" id="status-mem-val">70%</span>
-        </div>
-        <div class="status-metric-row">
-          <span class="metric-tag">NET:</span>
-          <span class="metric-status-online">ONLINE</span>
-          <span class="metric-live-blink">●</span>
-        </div>
+      <div class="status-widget-controls">
+        <button class="status-minimize-btn" id="status-widget-toggle" title="Minimizar / Expandir">_</button>
       </div>
-    </aside>
+    </div>
+    <div class="status-widget-body" id="status-widget-content">
+      <div class="status-metric-row">
+        <span class="metric-tag">CPU:</span>
+        <span class="metric-meter" id="status-cpu-meter">██████░░░░</span>
+        <span class="metric-val" id="status-cpu-val">60%</span>
+      </div>
+      <div class="status-metric-row">
+        <span class="metric-tag">MEM:</span>
+        <span class="metric-meter" id="status-mem-meter">███████░░░</span>
+        <span class="metric-val" id="status-mem-val">70%</span>
+      </div>
+      <div class="status-metric-row">
+        <span class="metric-tag">NET:</span>
+        <span class="metric-status-online">ONLINE</span>
+        <span class="metric-live-blink">●</span>
+      </div>
+    </div>
+  </aside>
 
   <main class="container">
     <!-- ==========================================================================
@@ -187,13 +197,14 @@
          ========================================================================== -->
     <section id="inicio" class="section-wrapper hero-section">
       <div class="hero-grid">
-        
+
         <!-- Left Hero Profile Window -->
         <div class="retro-window">
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/sobre_mi.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/sobre_mi.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">USER_PROFILE.SYS</span>
             </div>
@@ -208,18 +219,18 @@
               <div class="profile-avatar-frame">
                 <!-- Retro Avatar Pixel Art -->
                 <svg class="profile-avatar-img" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="64" height="64" fill="#175244"/>
+                  <rect width="64" height="64" fill="#175244" />
                   <!-- Retro Pixel Face Art -->
-                  <rect x="20" y="16" width="24" height="24" fill="#fbd38d"/>
-                  <rect x="20" y="12" width="24" height="8" fill="#2d3748"/>
-                  <rect x="16" y="16" width="4" height="12" fill="#2d3748"/>
-                  <rect x="44" y="16" width="4" height="12" fill="#2d3748"/>
-                  <rect x="24" y="24" width="4" height="4" fill="#1a202c"/>
-                  <rect x="36" y="24" width="4" height="4" fill="#1a202c"/>
-                  <rect x="28" y="32" width="8" height="2" fill="#e53e3e"/>
-                  <rect x="14" y="40" width="36" height="24" fill="#2b6cb0"/>
-                  <rect x="28" y="40" width="8" height="24" fill="#fff"/>
-                  <rect x="30" y="44" width="4" height="16" fill="#e53e3e"/>
+                  <rect x="20" y="16" width="24" height="24" fill="#fbd38d" />
+                  <rect x="20" y="12" width="24" height="8" fill="#2d3748" />
+                  <rect x="16" y="16" width="4" height="12" fill="#2d3748" />
+                  <rect x="44" y="16" width="4" height="12" fill="#2d3748" />
+                  <rect x="24" y="24" width="4" height="4" fill="#1a202c" />
+                  <rect x="36" y="24" width="4" height="4" fill="#1a202c" />
+                  <rect x="28" y="32" width="8" height="2" fill="#e53e3e" />
+                  <rect x="14" y="40" width="36" height="24" fill="#2b6cb0" />
+                  <rect x="28" y="40" width="8" height="24" fill="#fff" />
+                  <rect x="30" y="44" width="4" height="16" fill="#e53e3e" />
                 </svg>
               </div>
               <div class="profile-info">
@@ -232,19 +243,25 @@
               </div>
             </div>
             <p class="profile-bio" data-i18n="hero_bio">
-              Ingeniero de Sistemas con sólida experiencia en el desarrollo de soluciones empresariales e institucionales reales (Plataforma Académica Colegio Jesús Divino Maestro, Sistemas POS Móvil, Minimarket, Hotelería, Restaurantes, Gimnasios y Panaderías). Especializado en arquitectura Full-Stack, bases de datos SQL y software robusto de alto rendimiento.
+              Ingeniero de Sistemas con sólida experiencia en el desarrollo de soluciones empresariales e
+              institucionales reales (Plataforma Académica Colegio Jesús Divino Maestro, Sistemas POS Móvil, Minimarket,
+              Hotelería, Restaurantes, Gimnasios y Panaderías). Especializado en arquitectura Full-Stack, bases de datos
+              SQL y software robusto de alto rendimiento.
             </p>
             <div class="hero-actions">
               <a href="#proyectos" class="retro-btn btn-primary" data-i18n="btn_ver_proyectos">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="vertical-align: middle; margin-right: 4px;">
                 Ver proyectos
               </a>
               <a href="#contacto" class="retro-btn" data-i18n="btn_contactar">
-                <img src="./header_icons/contacto.webp" alt="" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                <img src="./header_icons/contacto.webp" alt="" width="16" height="16"
+                  style="vertical-align: middle; margin-right: 4px;">
                 Contactar
               </a>
               <a href="#sobre-mi" class="retro-btn" data-i18n="btn_cv">
-                <img src="./header_icons/inicio.webp" alt="" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                <img src="./header_icons/inicio.webp" alt="" width="16" height="16"
+                  style="vertical-align: middle; margin-right: 4px;">
                 Ver Perfil / CV
               </a>
             </div>
@@ -258,7 +275,8 @@
             <div class="retro-titlebar">
               <div class="titlebar-left">
                 <span class="titlebar-icon">
-                  <img src="./images/icono_header.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                  <img src="./images/icono_header.webp" alt="" width="16" height="16"
+                    style="image-rendering: pixelated;">
                 </span>
                 <span class="titlebar-title">john@portfolio: ~</span>
               </div>
@@ -294,7 +312,8 @@
               <div class="retro-titlebar">
                 <div class="titlebar-left">
                   <span class="titlebar-icon">
-                    <img src="./header_icons/tecnologias.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                    <img src="./header_icons/tecnologias.webp" alt="" width="16" height="16"
+                      style="image-rendering: pixelated;">
                   </span>
                   <span class="titlebar-title">paisaje.webp</span>
                 </div>
@@ -304,13 +323,13 @@
               </div>
               <div class="image-viewer-content">
                 <svg viewBox="0 0 160 80" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="160" height="80" fill="#0f172a"/>
-                  <circle cx="130" cy="24" r="14" fill="#fef08a"/>
-                  <polygon points="10,80 45,35 80,80" fill="#1e293b"/>
-                  <polygon points="50,80 85,25 125,80" fill="#334155"/>
-                  <polygon points="100,80 135,40 160,80" fill="#1e293b"/>
-                  <rect y="70" width="160" height="10" fill="#059669"/>
-                  <rect y="75" width="160" height="5" fill="#047857"/>
+                  <rect width="160" height="80" fill="#0f172a" />
+                  <circle cx="130" cy="24" r="14" fill="#fef08a" />
+                  <polygon points="10,80 45,35 80,80" fill="#1e293b" />
+                  <polygon points="50,80 85,25 125,80" fill="#334155" />
+                  <polygon points="100,80 135,40 160,80" fill="#1e293b" />
+                  <rect y="70" width="160" height="10" fill="#059669" />
+                  <rect y="75" width="160" height="5" fill="#047857" />
                 </svg>
               </div>
             </div>
@@ -331,7 +350,8 @@
             <img class="section-pixel-icon" src="./header_icons/proyectos.webp" alt="">
             <h2 class="section-title" data-i18n="projects_title">Proyectos</h2>
           </div>
-          <p class="section-subtitle" data-i18n="projects_sub">Selección de proyectos destacados desarrollados con buenas prácticas y foco en calidad.</p>
+          <p class="section-subtitle" data-i18n="projects_sub">Selección de proyectos destacados desarrollados con
+            buenas prácticas y foco en calidad.</p>
         </div>
 
         <!-- Retro Cassette-Style Filter Bar -->
@@ -350,13 +370,14 @@
 
       <!-- Projects Grid -->
       <div id="projects-grid" class="projects-grid">
-        
+
         <!-- Project 1: Colegio Jesús Divino Maestro (Web) -->
         <article class="retro-window project-card" data-category="web">
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">COLEGIO_JESUS_DIVINO_MAESTRO.EXE</span>
             </div>
@@ -366,25 +387,32 @@
             </div>
           </div>
           <div class="project-preview">
-            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="Colegio Jesús Divino Maestro Preview" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80"
+              alt="Colegio Jesús Divino Maestro Preview" loading="lazy">
             <span class="project-badge" style="background: #1e3a8a; color: #93c5fd;">Web · En Producción</span>
           </div>
           <div class="project-body">
             <div>
               <h3 class="project-name">Colegio Jesús Divino Maestro</h3>
-              <p class="project-desc">Plataforma institucional y aula virtual para la I.E. Nº 16957, con control de notas, asistencia, tareas y comunicados escolares.</p>
+              <p class="project-desc">Plataforma institucional y aula virtual para la I.E. Nº 16957, con control de
+                notas, asistencia, tareas y comunicados escolares.</p>
               <div class="project-tags">
-                <span class="tag-pill"><img src="./stack_icons/node.svg" width="14" height="14" alt="" style="vertical-align: middle;"> PHP / Laravel</span>
-                <span class="tag-pill"><img src="./stack_icons/javascript.svg" width="14" height="14" alt="" style="vertical-align: middle;"> JavaScript</span>
-                <span class="tag-pill"><img src="./stack_icons/sql.svg" width="14" height="14" alt="" style="vertical-align: middle;"> MySQL / Postgres</span>
+                <span class="tag-pill"><img src="./stack_icons/node.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> PHP / Laravel</span>
+                <span class="tag-pill"><img src="./stack_icons/javascript.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> JavaScript</span>
+                <span class="tag-pill"><img src="./stack_icons/sql.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> MySQL / Postgres</span>
                 <span class="tag-pill">Aula Virtual</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="retro-btn btn-primary view-project-trigger" data-project-id="colegio" data-i18n="btn_view_project">
+              <button class="retro-btn btn-primary view-project-trigger" data-project-id="colegio"
+                data-i18n="btn_view_project">
                 Ver proyecto ▶
               </button>
-              <a href="https://www.colegiojesusdivinomaestro.com/" target="_blank" rel="noopener noreferrer" class="retro-btn" style="color: #4ade80;">
+              <a href="https://www.colegiojesusdivinomaestro.com/" target="_blank" rel="noopener noreferrer"
+                class="retro-btn" style="color: #4ade80;">
                 🌐 En Vivo
               </a>
             </div>
@@ -396,7 +424,8 @@
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">SISTEMA_POS_MOVIL.EXE</span>
             </div>
@@ -412,20 +441,27 @@
           <div class="project-body">
             <div>
               <h3 class="project-name">Sistema POS Móvil</h3>
-              <p class="project-desc">Punto de venta móvil rápido para cobros, emisión de comprobantes térmicos e inventario con sincronización offline/online.</p>
+              <p class="project-desc">Punto de venta móvil rápido para cobros, emisión de comprobantes térmicos e
+                inventario con sincronización offline/online.</p>
               <div class="project-tags">
-                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt="" style="vertical-align: middle;"> React Native</span>
-                <span class="tag-pill"><img src="./stack_icons/typescript.svg" width="14" height="14" alt="" style="vertical-align: middle;"> TypeScript</span>
-                <span class="tag-pill"><img src="./stack_icons/sql.svg" width="14" height="14" alt="" style="vertical-align: middle;"> SQLite / Postgres</span>
+                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> React Native</span>
+                <span class="tag-pill"><img src="./stack_icons/typescript.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> TypeScript</span>
+                <span class="tag-pill"><img src="./stack_icons/sql.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> SQLite / Postgres</span>
                 <span class="tag-pill">Offline-First</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="retro-btn btn-primary view-project-trigger" data-project-id="pos_movil" data-i18n="btn_view_project">
+              <button class="retro-btn btn-primary view-project-trigger" data-project-id="pos_movil"
+                data-i18n="btn_view_project">
                 Ver proyecto ▶
               </button>
-              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn">
-                <img src="./stack_icons/github.svg" width="14" height="14" alt="" style="vertical-align: middle; margin-right: 4px;">
+              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer"
+                class="retro-btn">
+                <img src="./stack_icons/github.svg" width="14" height="14" alt=""
+                  style="vertical-align: middle; margin-right: 4px;">
                 Repo
               </a>
             </div>
@@ -437,7 +473,8 @@
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">SISTEMA_MINIMARKET.EXE</span>
             </div>
@@ -447,25 +484,33 @@
             </div>
           </div>
           <div class="project-preview">
-            <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=600&q=80" alt="Sistema Minimarket Preview" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=600&q=80"
+              alt="Sistema Minimarket Preview" loading="lazy">
             <span class="project-badge">Web</span>
           </div>
           <div class="project-body">
             <div>
               <h3 class="project-name">Sistema Minimarket & Ventas</h3>
-              <p class="project-desc">Gestión comercial de ventas con código de barras, control de inventario por lotes, compras a proveedores y arqueo de caja.</p>
+              <p class="project-desc">Gestión comercial de ventas con código de barras, control de inventario por lotes,
+                compras a proveedores y arqueo de caja.</p>
               <div class="project-tags">
-                <span class="tag-pill"><img src="./stack_icons/nextjs.svg" width="14" height="14" alt="" style="vertical-align: middle;"> Next.js</span>
-                <span class="tag-pill"><img src="./stack_icons/node.svg" width="14" height="14" alt="" style="vertical-align: middle;"> Node.js</span>
-                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt="" style="vertical-align: middle;"> PostgreSQL</span>
+                <span class="tag-pill"><img src="./stack_icons/nextjs.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> Next.js</span>
+                <span class="tag-pill"><img src="./stack_icons/node.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> Node.js</span>
+                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> PostgreSQL</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="retro-btn btn-primary view-project-trigger" data-project-id="minimarket" data-i18n="btn_view_project">
+              <button class="retro-btn btn-primary view-project-trigger" data-project-id="minimarket"
+                data-i18n="btn_view_project">
                 Ver proyecto ▶
               </button>
-              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn">
-                <img src="./stack_icons/github.svg" width="14" height="14" alt="" style="vertical-align: middle; margin-right: 4px;">
+              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer"
+                class="retro-btn">
+                <img src="./stack_icons/github.svg" width="14" height="14" alt=""
+                  style="vertical-align: middle; margin-right: 4px;">
                 Repo
               </a>
             </div>
@@ -477,7 +522,8 @@
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">SISTEMA_RESTAURANTE.EXE</span>
             </div>
@@ -487,26 +533,34 @@
             </div>
           </div>
           <div class="project-preview">
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Sistema Restaurante Preview" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80"
+              alt="Sistema Restaurante Preview" loading="lazy">
             <span class="project-badge">Web</span>
           </div>
           <div class="project-body">
             <div>
               <h3 class="project-name">Sistema para Restaurante & KDS</h3>
-              <p class="project-desc">Comandera digital en tiempo real para meseros, pantalla de cocina (KDS), mapa de mesas y facturación dividida.</p>
+              <p class="project-desc">Comandera digital en tiempo real para meseros, pantalla de cocina (KDS), mapa de
+                mesas y facturación dividida.</p>
               <div class="project-tags">
-                <span class="tag-pill"><img src="./stack_icons/nextjs.svg" width="14" height="14" alt="" style="vertical-align: middle;"> Next.js</span>
-                <span class="tag-pill"><img src="./stack_icons/node.svg" width="14" height="14" alt="" style="vertical-align: middle;"> Node.js</span>
-                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt="" style="vertical-align: middle;"> PostgreSQL</span>
+                <span class="tag-pill"><img src="./stack_icons/nextjs.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> Next.js</span>
+                <span class="tag-pill"><img src="./stack_icons/node.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> Node.js</span>
+                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> PostgreSQL</span>
                 <span class="tag-pill">WebSockets</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="retro-btn btn-primary view-project-trigger" data-project-id="restaurante" data-i18n="btn_view_project">
+              <button class="retro-btn btn-primary view-project-trigger" data-project-id="restaurante"
+                data-i18n="btn_view_project">
                 Ver proyecto ▶
               </button>
-              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn">
-                <img src="./stack_icons/github.svg" width="14" height="14" alt="" style="vertical-align: middle; margin-right: 4px;">
+              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer"
+                class="retro-btn">
+                <img src="./stack_icons/github.svg" width="14" height="14" alt=""
+                  style="vertical-align: middle; margin-right: 4px;">
                 Repo
               </a>
             </div>
@@ -518,7 +572,8 @@
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">SISTEMA_HOTEL.EXE</span>
             </div>
@@ -528,25 +583,33 @@
             </div>
           </div>
           <div class="project-preview">
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Sistema Hotel Preview" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80"
+              alt="Sistema Hotel Preview" loading="lazy">
             <span class="project-badge">Web</span>
           </div>
           <div class="project-body">
             <div>
               <h3 class="project-name">Sistema Hotelero & Reservas PMS</h3>
-              <p class="project-desc">Gestión integral de reservas, mapa de habitaciones en tiempo real, estados de limpieza, consumos adicionales y check-in/out.</p>
+              <p class="project-desc">Gestión integral de reservas, mapa de habitaciones en tiempo real, estados de
+                limpieza, consumos adicionales y check-in/out.</p>
               <div class="project-tags">
-                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt="" style="vertical-align: middle;"> React</span>
-                <span class="tag-pill"><img src="./stack_icons/typescript.svg" width="14" height="14" alt="" style="vertical-align: middle;"> TypeScript</span>
-                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt="" style="vertical-align: middle;"> PostgreSQL</span>
+                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> React</span>
+                <span class="tag-pill"><img src="./stack_icons/typescript.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> TypeScript</span>
+                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> PostgreSQL</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="retro-btn btn-primary view-project-trigger" data-project-id="hotel" data-i18n="btn_view_project">
+              <button class="retro-btn btn-primary view-project-trigger" data-project-id="hotel"
+                data-i18n="btn_view_project">
                 Ver proyecto ▶
               </button>
-              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn">
-                <img src="./stack_icons/github.svg" width="14" height="14" alt="" style="vertical-align: middle; margin-right: 4px;">
+              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer"
+                class="retro-btn">
+                <img src="./stack_icons/github.svg" width="14" height="14" alt=""
+                  style="vertical-align: middle; margin-right: 4px;">
                 Repo
               </a>
             </div>
@@ -558,7 +621,8 @@
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">SISTEMA_GYM.EXE</span>
             </div>
@@ -568,25 +632,33 @@
             </div>
           </div>
           <div class="project-preview">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80" alt="Sistema Gym Preview" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80"
+              alt="Sistema Gym Preview" loading="lazy">
             <span class="project-badge">Web</span>
           </div>
           <div class="project-body">
             <div>
               <h3 class="project-name">Sistema de Gestión de Gimnasios</h3>
-              <p class="project-desc">Control de membresías de socios, control de acceso peatonal, planes periódicos, venta de suplementos y caja diaria.</p>
+              <p class="project-desc">Control de membresías de socios, control de acceso peatonal, planes periódicos,
+                venta de suplementos y caja diaria.</p>
               <div class="project-tags">
-                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt="" style="vertical-align: middle;"> React</span>
-                <span class="tag-pill"><img src="./stack_icons/typescript.svg" width="14" height="14" alt="" style="vertical-align: middle;"> TypeScript</span>
-                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt="" style="vertical-align: middle;"> PostgreSQL</span>
+                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> React</span>
+                <span class="tag-pill"><img src="./stack_icons/typescript.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> TypeScript</span>
+                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> PostgreSQL</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="retro-btn btn-primary view-project-trigger" data-project-id="gym" data-i18n="btn_view_project">
+              <button class="retro-btn btn-primary view-project-trigger" data-project-id="gym"
+                data-i18n="btn_view_project">
                 Ver proyecto ▶
               </button>
-              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn">
-                <img src="./stack_icons/github.svg" width="14" height="14" alt="" style="vertical-align: middle; margin-right: 4px;">
+              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer"
+                class="retro-btn">
+                <img src="./stack_icons/github.svg" width="14" height="14" alt=""
+                  style="vertical-align: middle; margin-right: 4px;">
                 Repo
               </a>
             </div>
@@ -598,7 +670,8 @@
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">SISTEMA_PANADERIA.EXE</span>
             </div>
@@ -608,25 +681,33 @@
             </div>
           </div>
           <div class="project-preview">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Sistema Panadería Preview" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
+              alt="Sistema Panadería Preview" loading="lazy">
             <span class="project-badge">Web</span>
           </div>
           <div class="project-body">
             <div>
               <h3 class="project-name">Sistema Panadería & Costeo</h3>
-              <p class="project-desc">Costeo de recetas e insumos, programación de turnos de horneado, ventas rápidas al mostrador y control de mermas.</p>
+              <p class="project-desc">Costeo de recetas e insumos, programación de turnos de horneado, ventas rápidas al
+                mostrador y control de mermas.</p>
               <div class="project-tags">
-                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt="" style="vertical-align: middle;"> React</span>
-                <span class="tag-pill"><img src="./stack_icons/node.svg" width="14" height="14" alt="" style="vertical-align: middle;"> Node.js</span>
-                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt="" style="vertical-align: middle;"> PostgreSQL</span>
+                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> React</span>
+                <span class="tag-pill"><img src="./stack_icons/node.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> Node.js</span>
+                <span class="tag-pill"><img src="./stack_icons/postgresql.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> PostgreSQL</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="retro-btn btn-primary view-project-trigger" data-project-id="panaderia" data-i18n="btn_view_project">
+              <button class="retro-btn btn-primary view-project-trigger" data-project-id="panaderia"
+                data-i18n="btn_view_project">
                 Ver proyecto ▶
               </button>
-              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn">
-                <img src="./stack_icons/github.svg" width="14" height="14" alt="" style="vertical-align: middle; margin-right: 4px;">
+              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer"
+                class="retro-btn">
+                <img src="./stack_icons/github.svg" width="14" height="14" alt=""
+                  style="vertical-align: middle; margin-right: 4px;">
                 Repo
               </a>
             </div>
@@ -638,7 +719,8 @@
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">GASTO.EXE</span>
             </div>
@@ -654,20 +736,27 @@
           <div class="project-body">
             <div>
               <h3 class="project-name">Gasto - Finanzas Personales</h3>
-              <p class="project-desc">Aplicación multiplataforma de finanzas personales con funcionamiento offline y sincronización automática.</p>
+              <p class="project-desc">Aplicación multiplataforma de finanzas personales con funcionamiento offline y
+                sincronización automática.</p>
               <div class="project-tags">
-                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt="" style="vertical-align: middle;"> React Native</span>
-                <span class="tag-pill"><img src="./stack_icons/typescript.svg" width="14" height="14" alt="" style="vertical-align: middle;"> TypeScript</span>
-                <span class="tag-pill"><img src="./stack_icons/supabase.svg" width="14" height="14" alt="" style="vertical-align: middle;"> Supabase</span>
+                <span class="tag-pill"><img src="./stack_icons/react.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> React Native</span>
+                <span class="tag-pill"><img src="./stack_icons/typescript.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> TypeScript</span>
+                <span class="tag-pill"><img src="./stack_icons/supabase.svg" width="14" height="14" alt=""
+                    style="vertical-align: middle;"> Supabase</span>
                 <span class="tag-pill">Offline First</span>
               </div>
             </div>
             <div class="project-footer">
-              <button class="retro-btn btn-primary view-project-trigger" data-project-id="gasto" data-i18n="btn_view_project">
+              <button class="retro-btn btn-primary view-project-trigger" data-project-id="gasto"
+                data-i18n="btn_view_project">
                 Ver proyecto ▶
               </button>
-              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn">
-                <img src="./stack_icons/github.svg" width="14" height="14" alt="" style="vertical-align: middle; margin-right: 4px;">
+              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer"
+                class="retro-btn">
+                <img src="./stack_icons/github.svg" width="14" height="14" alt=""
+                  style="vertical-align: middle; margin-right: 4px;">
                 Repo
               </a>
             </div>
@@ -693,12 +782,13 @@
             <img class="section-pixel-icon" src="./header_icons/tecnologias.webp" alt="">
             <h2 class="section-title" data-i18n="tech_title">Tecnologías</h2>
           </div>
-          <p class="section-subtitle" data-i18n="tech_frameworks_sub">Herramientas y tecnologías con las que construyo soluciones eficientes.</p>
+          <p class="section-subtitle" data-i18n="tech_frameworks_sub">Herramientas y tecnologías con las que construyo
+            soluciones eficientes.</p>
         </div>
       </div>
 
       <div class="tech-stack-grid">
-        
+
         <!-- 01 / Lenguajes (Floppy Disk 3.5") -->
         <div class="floppy-card">
           <div class="floppy-shutter">
@@ -730,12 +820,16 @@
             </h3>
             <span class="pixel-text" style="color: #4ade80;">02 /</span>
           </div>
-          
+
           <div class="cassette-tape-window">
             <div class="tape-spools">
-              <div class="tape-spool"><div class="spool-inner"></div></div>
+              <div class="tape-spool">
+                <div class="spool-inner"></div>
+              </div>
               <span class="pixel-text" style="color: #4ade80;">100 50 0</span>
-              <div class="tape-spool"><div class="spool-inner"></div></div>
+              <div class="tape-spool">
+                <div class="spool-inner"></div>
+              </div>
             </div>
             <div class="tape-counter">AUDIO TAPE 120 MIN - STEREO</div>
           </div>
@@ -853,16 +947,17 @@
       </div>
 
       <div class="about-grid" style="display: flex; flex-direction: column; gap: 2.5rem;">
-        
+
         <!-- Descripción.txt Window (Matches Screenshot 1 with 3D Character Illustration) -->
         <article class="description-window">
           <header class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <svg viewBox="0 0 16 16" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" style="image-rendering: pixelated; vertical-align: middle;">
-                  <path d="M3 1h7l4 4v10H3V1z" fill="#fff" stroke="#175244" stroke-width="1.5"/>
-                  <path d="M10 1v4h4" fill="#cbd5e1" stroke="#175244" stroke-width="1.5"/>
-                  <path d="M5 6h4M5 9h6M5 12h6" stroke="#175244" stroke-width="1.5" stroke-linecap="round"/>
+                <svg viewBox="0 0 16 16" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="image-rendering: pixelated; vertical-align: middle;">
+                  <path d="M3 1h7l4 4v10H3V1z" fill="#fff" stroke="#175244" stroke-width="1.5" />
+                  <path d="M10 1v4h4" fill="#cbd5e1" stroke="#175244" stroke-width="1.5" />
+                  <path d="M5 6h4M5 9h6M5 12h6" stroke="#175244" stroke-width="1.5" stroke-linecap="round" />
                 </svg>
               </span>
               <span class="titlebar-title" data-i18n="about_notepad_title">Descripción.txt</span>
@@ -873,21 +968,25 @@
               <button class="window-btn btn-close">✕</button>
             </div>
           </header>
-          
+
           <div class="description-body">
             <figure class="character">
-              <img id="about-character-img" src="./images/personaje.webp" alt="Personaje desarrollador con audífonos y café" width="220" height="220" loading="lazy">
+              <img id="about-character-img" src="./images/personaje.webp"
+                alt="Personaje desarrollador con audífonos y café" width="220" height="220" loading="lazy">
             </figure>
             <div class="notepad-text">
               <p data-i18n="about_p1">
-                Soy Ingeniero en Sistemas Computacionales y desarrollador web y móvil, con interés en seguir creciendo como full-stack. Me gusta participar en todo el proceso de construcción de un producto: entender la necesidad, plantear una solución y convertirla en una experiencia clara y funcional para el usuario.
+                Soy Ingeniero en Sistemas Computacionales y desarrollador web y móvil, con interés en seguir creciendo
+                como full-stack. Me gusta participar en todo el proceso de construcción de un producto: entender la
+                necesidad, plantear una solución y convertirla en una experiencia clara y funcional para el usuario.
               </p>
               <p data-i18n="about_p2">
-                Me considero una persona curiosa, autodidacta y responsable, siempre con disposición para aprender nuevas herramientas y mejorar con cada proyecto.
+                Me considero una persona curiosa, autodidacta y responsable, siempre con disposición para aprender
+                nuevas herramientas y mejorar con cada proyecto.
               </p>
             </div>
           </div>
-          
+
           <footer class="window-status" aria-label="Estado del archivo">
             <span class="status-light" aria-hidden="true"></span>
             <span data-i18n="about_ready">LISTO</span>
@@ -901,17 +1000,18 @@
             <li class="timeline-item timeline-item--work">
               <span class="timeline-node" aria-hidden="true"></span>
               <div class="date-stamp">
-                <svg class="calendar-icon" viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <rect x="2" y="4" width="16" height="14" rx="1" fill="#fbf8f2" stroke="#175244" stroke-width="1.8"/>
-                  <rect x="2" y="4" width="16" height="4" fill="#923a24"/>
-                  <rect x="5" y="2" width="2" height="3" fill="#175244"/>
-                  <rect x="13" y="2" width="2" height="3" fill="#175244"/>
-                  <rect x="5" y="11" width="2" height="2" fill="#175244"/>
-                  <rect x="9" y="11" width="2" height="2" fill="#175244"/>
-                  <rect x="13" y="11" width="2" height="2" fill="#175244"/>
-                  <rect x="5" y="14" width="2" height="2" fill="#175244"/>
-                  <rect x="9" y="14" width="2" height="2" fill="#175244"/>
-                  <rect x="13" y="14" width="2" height="2" fill="#175244"/>
+                <svg class="calendar-icon" viewBox="0 0 20 20" width="18" height="18" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="2" y="4" width="16" height="14" rx="1" fill="#fbf8f2" stroke="#175244" stroke-width="1.8" />
+                  <rect x="2" y="4" width="16" height="4" fill="#923a24" />
+                  <rect x="5" y="2" width="2" height="3" fill="#175244" />
+                  <rect x="13" y="2" width="2" height="3" fill="#175244" />
+                  <rect x="5" y="11" width="2" height="2" fill="#175244" />
+                  <rect x="9" y="11" width="2" height="2" fill="#175244" />
+                  <rect x="13" y="11" width="2" height="2" fill="#175244" />
+                  <rect x="5" y="14" width="2" height="2" fill="#175244" />
+                  <rect x="9" y="14" width="2" height="2" fill="#175244" />
+                  <rect x="13" y="14" width="2" height="2" fill="#175244" />
                 </svg>
                 <time data-i18n="timeline_exp_date">MAY 2025 — ACTUALIDAD</time>
               </div>
@@ -923,7 +1023,8 @@
                 <h4 data-i18n="timeline_exp_title">Prácticas profesionales</h4>
                 <p class="entry-place" data-i18n="timeline_exp_place">Vianko Mex S.A. de C.V. · Cosaif Logistics</p>
                 <p class="entry-description" data-i18n="timeline_exp_desc">
-                  Participé en el desarrollo web y móvil de una plataforma ferroviaria, integrando mejoras de interfaz, lógica de negocio, comunicación en tiempo real y trabajo con APIs y PostgreSQL.
+                  Participé en el desarrollo web y móvil de una plataforma ferroviaria, integrando mejoras de interfaz,
+                  lógica de negocio, comunicación en tiempo real y trabajo con APIs y PostgreSQL.
                 </p>
               </article>
             </li>
@@ -932,17 +1033,18 @@
             <li class="timeline-item timeline-item--education">
               <span class="timeline-node" aria-hidden="true"></span>
               <div class="date-stamp">
-                <svg class="calendar-icon" viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <rect x="2" y="4" width="16" height="14" rx="1" fill="#fbf8f2" stroke="#991b1b" stroke-width="1.8"/>
-                  <rect x="2" y="4" width="16" height="4" fill="#991b1b"/>
-                  <rect x="5" y="2" width="2" height="3" fill="#991b1b"/>
-                  <rect x="13" y="2" width="2" height="3" fill="#991b1b"/>
-                  <rect x="5" y="11" width="2" height="2" fill="#991b1b"/>
-                  <rect x="9" y="11" width="2" height="2" fill="#991b1b"/>
-                  <rect x="13" y="11" width="2" height="2" fill="#991b1b"/>
-                  <rect x="5" y="14" width="2" height="2" fill="#991b1b"/>
-                  <rect x="9" y="14" width="2" height="2" fill="#991b1b"/>
-                  <rect x="13" y="14" width="2" height="2" fill="#991b1b"/>
+                <svg class="calendar-icon" viewBox="0 0 20 20" width="18" height="18" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="2" y="4" width="16" height="14" rx="1" fill="#fbf8f2" stroke="#991b1b" stroke-width="1.8" />
+                  <rect x="2" y="4" width="16" height="4" fill="#991b1b" />
+                  <rect x="5" y="2" width="2" height="3" fill="#991b1b" />
+                  <rect x="13" y="2" width="2" height="3" fill="#991b1b" />
+                  <rect x="5" y="11" width="2" height="2" fill="#991b1b" />
+                  <rect x="9" y="11" width="2" height="2" fill="#991b1b" />
+                  <rect x="13" y="11" width="2" height="2" fill="#991b1b" />
+                  <rect x="5" y="14" width="2" height="2" fill="#991b1b" />
+                  <rect x="9" y="14" width="2" height="2" fill="#991b1b" />
+                  <rect x="13" y="14" width="2" height="2" fill="#991b1b" />
                 </svg>
                 <time data-i18n="timeline_edu_date">AGO 2021 — ENE 2026</time>
               </div>
@@ -952,9 +1054,11 @@
                 </div>
                 <p class="entry-type" data-i18n="timeline_edu_type">FORMACION_01.LOG</p>
                 <h4 data-i18n="timeline_edu_title">Ingeniería en Sistemas Computacionales</h4>
-                <p class="entry-place" data-i18n="timeline_edu_place">Instituto Tecnológico José Mario Molina Pasquel y Henríquez</p>
+                <p class="entry-place" data-i18n="timeline_edu_place">Instituto Tecnológico José Mario Molina Pasquel y
+                  Henríquez</p>
                 <p class="entry-description" data-i18n="timeline_edu_desc">
-                  Finalicé mi formación profesional, consolidando bases en desarrollo de software, bases de datos, análisis de sistemas y resolución de problemas.
+                  Finalicé mi formación profesional, consolidando bases en desarrollo de software, bases de datos,
+                  análisis de sistemas y resolución de problemas.
                 </p>
               </article>
             </li>
@@ -975,7 +1079,8 @@
             <img class="section-pixel-icon" src="./header_icons/contacto.webp" alt="">
             <h2 class="section-title" data-i18n="contact_title">Contacto</h2>
           </div>
-          <p class="section-subtitle" data-i18n="contact_sub">¿Tienes un proyecto en mente o una propuesta profesional? Conectemos.</p>
+          <p class="section-subtitle" data-i18n="contact_sub">¿Tienes un proyecto en mente o una propuesta profesional?
+            Conectemos.</p>
         </div>
       </div>
 
@@ -985,7 +1090,8 @@
           <div class="retro-titlebar titlebar-purple">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/proyectos.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">GITHUB.EXE</span>
             </div>
@@ -996,7 +1102,8 @@
               <h4>GitHub</h4>
               <p class="mono-text">github.com/JohnFranklinMejia</p>
             </div>
-            <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn btn-primary" style="width: 100%;">
+            <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer"
+              class="retro-btn btn-primary" style="width: 100%;">
               Visitar perfil →
             </a>
           </div>
@@ -1007,7 +1114,8 @@
           <div class="retro-titlebar titlebar-crimson">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/contacto.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/contacto.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">CORREO.EXE</span>
             </div>
@@ -1018,7 +1126,8 @@
               <h4>Correo Directo</h4>
               <p>Escríbeme directamente a mi buzón</p>
             </div>
-            <a href="mailto:johnfranklin.mejia@gmail.com?subject=Contacto%20desde%20tu%20portafolio" class="retro-btn btn-primary" style="width: 100%;">
+            <a href="mailto:johnfranklin.mejia@gmail.com?subject=Contacto%20desde%20tu%20portafolio"
+              class="retro-btn btn-primary" style="width: 100%;">
               Enviar correo →
             </a>
           </div>
@@ -1029,7 +1138,8 @@
           <div class="retro-titlebar titlebar-blue">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/sobre_mi.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/sobre_mi.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">LINKEDIN.EXE</span>
             </div>
@@ -1040,7 +1150,8 @@
               <h4>LinkedIn</h4>
               <p>Conectemos profesionalmente</p>
             </div>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="retro-btn btn-primary" style="width: 100%;">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="retro-btn btn-primary"
+              style="width: 100%;">
               Ver perfil →
             </a>
           </div>
@@ -1051,13 +1162,14 @@
            INTERACTIVE CONTACT FORM & GUESTBOOK RETRO WINDOWS
            ====================================================================== -->
       <div class="contact-interactive-layout">
-        
+
         <!-- Contact Form Window -->
         <div class="retro-window">
           <div class="retro-titlebar">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/contacto.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/contacto.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">MENSAJE_NUEVO.EXE - Formulario Backend</span>
             </div>
@@ -1077,15 +1189,18 @@
             </div>
             <div class="form-group">
               <label class="form-label" for="contact-subject">Asunto:</label>
-              <input type="text" id="contact-subject" class="retro-input" placeholder="Propuesta de proyecto / Consulta">
+              <input type="text" id="contact-subject" class="retro-input"
+                placeholder="Propuesta de proyecto / Consulta">
             </div>
             <div class="form-group">
               <label class="form-label" for="contact-message">Mensaje:</label>
-              <textarea id="contact-message" class="retro-textarea" rows="4" placeholder="Escribe aquí los detalles de tu consulta..." required></textarea>
+              <textarea id="contact-message" class="retro-textarea" rows="4"
+                placeholder="Escribe aquí los detalles de tu consulta..." required></textarea>
             </div>
             <div id="contact-form-status" class="contact-status-box"></div>
             <button type="submit" id="contact-submit-btn" class="retro-btn btn-primary" style="align-self: flex-start;">
-              <img src="./images/windows.webp" width="16" height="16" alt="" style="vertical-align: middle; margin-right: 4px;">
+              <img src="./images/windows.webp" width="16" height="16" alt=""
+                style="vertical-align: middle; margin-right: 4px;">
               ENVIAR MENSAJE.DAT
             </button>
           </form>
@@ -1096,7 +1211,8 @@
           <div class="retro-titlebar titlebar-purple">
             <div class="titlebar-left">
               <span class="titlebar-icon">
-                <img src="./header_icons/sobre_mi.webp" alt="" width="16" height="16" style="image-rendering: pixelated;">
+                <img src="./header_icons/sobre_mi.webp" alt="" width="16" height="16"
+                  style="image-rendering: pixelated;">
               </span>
               <span class="titlebar-title">LIBRO_VISITAS.EXE - Firmas en Vivo</span>
             </div>
@@ -1108,10 +1224,13 @@
           <div class="guestbook-container">
             <!-- Left form side -->
             <div class="guestbook-form-side">
-              <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #fce7cf; margin-bottom: 4px;">Dejar una firma retro</h4>
+              <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #fce7cf; margin-bottom: 4px;">Dejar
+                una firma retro</h4>
               <form id="guestbook-form" style="display: flex; flex-direction: column; gap: 8px;">
-                <input type="text" id="guestbook-name" class="retro-input" placeholder="Tu nombre / alias" maxlength="30" required>
-                <input type="text" id="guestbook-badge" class="retro-input" placeholder="Tu rol (ej: Frontend Dev)" maxlength="20">
+                <input type="text" id="guestbook-name" class="retro-input" placeholder="Tu nombre / alias"
+                  maxlength="30" required>
+                <input type="text" id="guestbook-badge" class="retro-input" placeholder="Tu rol (ej: Frontend Dev)"
+                  maxlength="20">
                 <div>
                   <span class="form-label" style="font-size: 0.95rem; margin-bottom: 4px;">Elige tu icono:</span>
                   <div class="avatar-picker">
@@ -1133,10 +1252,12 @@
                   </div>
                   <input type="hidden" id="guestbook-avatar-val" value="terminal">
                 </div>
-                <textarea id="guestbook-message" class="retro-textarea" rows="2" placeholder="Deja tu mensaje profesional en el registro..." maxlength="280" required></textarea>
+                <textarea id="guestbook-message" class="retro-textarea" rows="2"
+                  placeholder="Deja tu mensaje profesional en el registro..." maxlength="280" required></textarea>
                 <div id="guestbook-status" class="contact-status-box"></div>
                 <button type="submit" id="guestbook-submit-btn" class="retro-btn btn-primary" style="margin-top: 4px;">
-                  <img src="./header_icons/inicio.webp" width="16" height="16" alt="" style="vertical-align: middle; margin-right: 4px;">
+                  <img src="./header_icons/inicio.webp" width="16" height="16" alt=""
+                    style="vertical-align: middle; margin-right: 4px;">
                   FIRMAR LIBRO
                 </button>
               </form>
@@ -1144,7 +1265,8 @@
 
             <!-- Right list side -->
             <div class="guestbook-list-side">
-              <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #38ef7d; margin-bottom: 8px;">Firmas Recientes:</h4>
+              <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #38ef7d; margin-bottom: 8px;">Firmas
+                Recientes:</h4>
               <div id="guestbook-entries-list" class="guestbook-entries-scroll">
                 <!-- Entries loaded dynamically -->
               </div>
@@ -1175,7 +1297,8 @@
   <!-- ==========================================================================
        FLOATING WINDOW: ARCADE.EXE (SNAKE.EXE & FOOTBALL.EXE)
        ========================================================================== -->
-  <div id="arcade-window" class="retro-window floating-window" data-window data-floating="true" data-win-id="arcade_win" data-win-title="ARCADE.EXE" style="display: none;">
+  <div id="arcade-window" class="retro-window floating-window" data-window data-floating="true" data-win-id="arcade_win"
+    data-win-title="ARCADE.EXE" style="display: none;">
     <div class="retro-titlebar">
       <div class="titlebar-left">
         <span class="titlebar-icon">
@@ -1189,7 +1312,7 @@
         <button class="window-btn btn-close">✕</button>
       </div>
     </div>
-    
+
     <div class="arcade-tabs">
       <button class="arcade-tab-btn active" data-arcade-tab="snake">
         <span>🎮</span> SNAKE.EXE
@@ -1272,7 +1395,8 @@
         </div>
         <div class="touch-action-btns">
           <button id="football-kick-btn" class="touch-kick-btn" aria-label="Patear">⚽<br><small>KICK</small></button>
-          <button id="football-shoot-btn" class="touch-shoot-btn" aria-label="Cargar Tiro">💥<br><small>SHOOT</small></button>
+          <button id="football-shoot-btn" class="touch-shoot-btn"
+            aria-label="Cargar Tiro">💥<br><small>SHOOT</small></button>
         </div>
       </div>
     </div>
@@ -1281,7 +1405,8 @@
   <!-- ==========================================================================
        FLOATING WINDOW: SYSTEM_LOGS.EXE
        ========================================================================== -->
-  <div id="system-logs-window" class="retro-window floating-window" data-window data-floating="true" data-win-id="system_logs_win" data-win-title="SYSTEM_LOGS.EXE" style="display: none;">
+  <div id="system-logs-window" class="retro-window floating-window" data-window data-floating="true"
+    data-win-id="system_logs_win" data-win-title="SYSTEM_LOGS.EXE" style="display: none;">
     <div class="retro-titlebar">
       <div class="titlebar-left">
         <span class="titlebar-icon">
@@ -1295,7 +1420,7 @@
         <button class="window-btn btn-close">✕</button>
       </div>
     </div>
-    
+
     <div class="system-logs-body">
       <div id="system-logs-stats" class="system-logs-telemetry">
         <span>TELEMETRÍA DEL SISTEMA</span>
@@ -1314,7 +1439,8 @@
   <!-- ==========================================================================
        FLOATING WINDOW: ADMIN_CONTROL_PANEL.EXE (INBOX, CMS & SETTINGS)
        ========================================================================== -->
-  <div id="admin-window" class="retro-window floating-window" data-window data-floating="true" data-win-id="admin_win" data-win-title="ADMIN_CONTROL_PANEL.EXE" style="display: none; width: 92%; max-width: 780px;">
+  <div id="admin-window" class="retro-window floating-window" data-window data-floating="true" data-win-id="admin_win"
+    data-win-title="ADMIN_CONTROL_PANEL.EXE" style="display: none; width: 92%; max-width: 780px;">
     <div class="retro-titlebar" style="background: linear-gradient(90deg, #1e3a8a, #065f46);">
       <div class="titlebar-left">
         <span class="titlebar-icon">
@@ -1331,13 +1457,17 @@
 
     <!-- Login View (When not authenticated) -->
     <div id="admin-login-view" style="padding: 2rem; background: #0b1f19; text-align: center;">
-      <div style="display: inline-block; background: #102620; border: 2px solid #286053; padding: 1.5rem 2rem; border-radius: 4px; max-width: 380px; width: 100%;">
+      <div
+        style="display: inline-block; background: #102620; border: 2px solid #286053; padding: 1.5rem 2rem; border-radius: 4px; max-width: 380px; width: 100%;">
         <div style="font-size: 2.2rem; margin-bottom: 8px;">🔐</div>
         <h3 style="color: #4ade80; font-family: var(--font-pixel); margin-bottom: 6px;">PORTFOLIO.EXE SECURITY</h3>
-        <p style="color: #8dafa4; font-size: 0.88rem; margin-bottom: 14px;">Ingresa el PIN de Administrador para gestionar mensajes, proyectos y redes.</p>
+        <p style="color: #8dafa4; font-size: 0.88rem; margin-bottom: 14px;">Ingresa el PIN de Administrador para
+          gestionar mensajes, proyectos y redes.</p>
         <form id="admin-login-form">
-          <input type="password" id="admin-pin-input" class="retro-input" placeholder="PIN de acceso (ej: 1995)" style="text-align: center; letter-spacing: 4px; font-size: 1.2rem; margin-bottom: 10px;" required>
-          <div id="admin-login-msg" style="color: #fef08a; font-size: 0.85rem; margin-bottom: 10px; min-height: 18px;"></div>
+          <input type="password" id="admin-pin-input" class="retro-input" placeholder="PIN de acceso (ej: 1995)"
+            style="text-align: center; letter-spacing: 4px; font-size: 1.2rem; margin-bottom: 10px;" required>
+          <div id="admin-login-msg" style="color: #fef08a; font-size: 0.85rem; margin-bottom: 10px; min-height: 18px;">
+          </div>
           <button type="submit" class="retro-btn btn-primary" style="width: 100%; padding: 6px;">
             🔓 Iniciar Sesión
           </button>
@@ -1349,7 +1479,8 @@
     <div id="admin-dashboard-view" class="admin-window-body" style="display: none;">
       <div class="admin-tabs">
         <button class="admin-tab-btn active" data-admin-tab="inbox">
-          📬 Mensajes <span id="admin-unread-count" class="tag-pill" style="font-size: 0.75rem; background: #166534; color: #86efac; margin-left: 4px;">0</span>
+          📬 Mensajes <span id="admin-unread-count" class="tag-pill"
+            style="font-size: 0.75rem; background: #166534; color: #86efac; margin-left: 4px;">0</span>
         </button>
         <button class="admin-tab-btn" data-admin-tab="projects">
           📁 Proyectos (CMS)
@@ -1360,7 +1491,8 @@
         <button class="admin-tab-btn" data-admin-tab="guestbook">
           📖 Libro de Visitas
         </button>
-        <button id="admin-logout-btn" class="retro-btn" style="margin-left: auto; padding: 2px 8px; font-size: 0.8rem; color: #ff6b6b;">
+        <button id="admin-logout-btn" class="retro-btn"
+          style="margin-left: auto; padding: 2px 8px; font-size: 0.8rem; color: #ff6b6b;">
           🔒 Salir
         </button>
       </div>
@@ -1368,7 +1500,8 @@
       <!-- Tab 1: Inbox -->
       <div id="admin-tab-inbox" class="admin-tab-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-          <h4 style="color: #38ef7d; font-family: var(--font-pixel); margin: 0;">BANDEJA DE ENTRADA (MENSAJE_NUEVO.EXE)</h4>
+          <h4 style="color: #38ef7d; font-family: var(--font-pixel); margin: 0;">BANDEJA DE ENTRADA (MENSAJE_NUEVO.EXE)
+          </h4>
           <span style="color: #8dafa4; font-size: 0.8rem;">Sincronizado con base de datos</span>
         </div>
         <div id="admin-messages-list"></div>
@@ -1376,9 +1509,11 @@
 
       <!-- Tab 2: Projects CMS -->
       <div id="admin-tab-projects" class="admin-tab-content" style="display: none;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
           <h4 style="color: #38ef7d; font-family: var(--font-pixel); margin: 0;">GESTOR DE PROYECTOS</h4>
-          <button id="admin-new-project-btn" class="retro-btn btn-primary" style="padding: 4px 10px; font-size: 0.88rem;">
+          <button id="admin-new-project-btn" class="retro-btn btn-primary"
+            style="padding: 4px 10px; font-size: 0.88rem;">
             + Nuevo Proyecto
           </button>
         </div>
@@ -1387,24 +1522,30 @@
 
       <!-- Tab 3: Profile & Links Settings -->
       <div id="admin-tab-profile" class="admin-tab-content" style="display: none;">
-        <h4 style="color: #38ef7d; font-family: var(--font-pixel); margin-bottom: 12px;">CONFIGURACIÓN DE PERFIL, FOTO Y CV</h4>
+        <h4 style="color: #38ef7d; font-family: var(--font-pixel); margin-bottom: 12px;">CONFIGURACIÓN DE PERFIL, FOTO Y
+          CV</h4>
         <form id="admin-profile-form" style="display: flex; flex-direction: column; gap: 12px;">
-          
+
           <!-- Avatar / Profile Picture Upload -->
           <div style="background: #061511; border: 1px solid #175244; padding: 10px; border-radius: 4px;">
             <label class="form-label" style="color: #4ade80; font-weight: bold;">🖼️ Foto de Perfil / Avatar:</label>
             <div style="display: flex; gap: 12px; align-items: center; margin-top: 6px; flex-wrap: wrap;">
-              <div style="width: 64px; height: 64px; border: 2px solid #286053; background: #102620; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px;">
-                <img id="cfg-avatar-preview" src="./images/personaje.webp" alt="Preview Avatar" style="width: 100%; height: 100%; object-fit: cover;">
+              <div
+                style="width: 64px; height: 64px; border: 2px solid #286053; background: #102620; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px;">
+                <img id="cfg-avatar-preview" src="./images/personaje.webp" alt="Preview Avatar"
+                  style="width: 100%; height: 100%; object-fit: cover;">
               </div>
               <div style="flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 6px;">
-                <input type="text" id="cfg-avatar" class="retro-input" placeholder="./images/personaje.webp o /uploads/..." style="font-size: 0.85rem;">
+                <input type="text" id="cfg-avatar" class="retro-input"
+                  placeholder="./images/personaje.webp o /uploads/..." style="font-size: 0.85rem;">
                 <div style="display: flex; gap: 8px;">
-                  <label class="retro-btn btn-primary" style="cursor: pointer; padding: 4px 10px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px;">
+                  <label class="retro-btn btn-primary"
+                    style="cursor: pointer; padding: 4px 10px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px;">
                     📁 Subir Imagen
                     <input type="file" id="cfg-avatar-file" accept="image/*" style="display: none;">
                   </label>
-                  <button type="button" id="cfg-avatar-reset" class="retro-btn" style="padding: 4px 8px; font-size: 0.82rem;">
+                  <button type="button" id="cfg-avatar-reset" class="retro-btn"
+                    style="padding: 4px 8px; font-size: 0.82rem;">
                     Restaurar Original
                   </button>
                 </div>
@@ -1414,19 +1555,25 @@
 
           <!-- Curriculum Vitae (CV PDF) Upload -->
           <div style="background: #061511; border: 1px solid #175244; padding: 10px; border-radius: 4px;">
-            <label class="form-label" style="color: #38bdf8; font-weight: bold;">📄 Archivo Curriculum Vitae (CV PDF):</label>
+            <label class="form-label" style="color: #38bdf8; font-weight: bold;">📄 Archivo Curriculum Vitae (CV
+              PDF):</label>
             <div style="display: flex; gap: 10px; align-items: center; margin-top: 6px; flex-wrap: wrap;">
-              <input type="text" id="cfg-cv" class="retro-input" placeholder="./CV_Damian_Alexander_Aceves_Navarrete.pdf o /uploads/cv.pdf" style="flex: 1; min-width: 220px; font-size: 0.85rem;">
-              <label class="retro-btn btn-primary" style="cursor: pointer; padding: 4px 10px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">
+              <input type="text" id="cfg-cv" class="retro-input"
+                placeholder="./CV_Damian_Alexander_Aceves_Navarrete.pdf o /uploads/cv.pdf"
+                style="flex: 1; min-width: 220px; font-size: 0.85rem;">
+              <label class="retro-btn btn-primary"
+                style="cursor: pointer; padding: 4px 10px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">
                 📄 Subir PDF CV
                 <input type="file" id="cfg-cv-file" accept=".pdf,application/pdf" style="display: none;">
               </label>
-              <a id="cfg-cv-test-link" href="#" target="_blank" class="retro-btn" style="padding: 4px 8px; font-size: 0.82rem; text-decoration: none; color: #fef08a; display: inline-flex; align-items: center; gap: 4px;">
+              <a id="cfg-cv-test-link" href="#" target="_blank" class="retro-btn"
+                style="padding: 4px 8px; font-size: 0.82rem; text-decoration: none; color: #fef08a; display: inline-flex; align-items: center; gap: 4px;">
                 👁️ Ver CV Actual
               </a>
             </div>
             <span style="font-size: 0.78rem; color: #8dafa4; margin-top: 4px; display: block;">
-              Al subir el archivo PDF, los visitantes podrán visualizarlo y descargarlo automáticamente desde el botón CV_RESUME.PDF.
+              Al subir el archivo PDF, los visitantes podrán visualizarlo y descargarlo automáticamente desde el botón
+              CV_RESUME.PDF.
             </span>
           </div>
 
@@ -1436,7 +1583,8 @@
           </div>
           <div>
             <label class="form-label">LinkedIn URL:</label>
-            <input type="url" id="cfg-linkedin" class="retro-input" placeholder="https://www.linkedin.com/in/tu-perfil" required>
+            <input type="url" id="cfg-linkedin" class="retro-input" placeholder="https://www.linkedin.com/in/tu-perfil"
+              required>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
             <div>
@@ -1456,7 +1604,8 @@
             <label class="form-label">PIN de Seguridad Administrador:</label>
             <input type="text" id="cfg-pin" class="retro-input" style="max-width: 160px;" required>
           </div>
-          <button type="submit" class="retro-btn btn-primary" style="align-self: flex-start; padding: 6px 16px; margin-top: 6px;">
+          <button type="submit" class="retro-btn btn-primary"
+            style="align-self: flex-start; padding: 6px 16px; margin-top: 6px;">
             💾 Guardar Cambios de Perfil
           </button>
         </form>
@@ -1464,7 +1613,8 @@
 
       <!-- Tab 4: Guestbook Moderation -->
       <div id="admin-tab-guestbook" class="admin-tab-content" style="display: none;">
-        <h4 style="color: #38ef7d; font-family: var(--font-pixel); margin-bottom: 10px;">MODERACIÓN DE FIRMAS (LIBRO DE VISITAS)</h4>
+        <h4 style="color: #38ef7d; font-family: var(--font-pixel); margin-bottom: 10px;">MODERACIÓN DE FIRMAS (LIBRO DE
+          VISITAS)</h4>
         <div id="admin-guestbook-list"></div>
       </div>
     </div>
@@ -1484,7 +1634,8 @@
           <button id="proj-editor-close" class="window-btn btn-close">✕</button>
         </div>
       </div>
-      <form id="admin-project-form" style="padding: 1.25rem; background: #0b1f19; display: flex; flex-direction: column; gap: 10px;">
+      <form id="admin-project-form"
+        style="padding: 1.25rem; background: #0b1f19; display: flex; flex-direction: column; gap: 10px;">
         <input type="hidden" id="proj-edit-is-new" value="1">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
           <div>
@@ -1524,8 +1675,10 @@
         <div>
           <label class="form-label">Portada / Imagen (URL o Subir archivo):</label>
           <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-            <input type="text" id="proj-edit-cover" class="retro-input" placeholder="https://... o /uploads/..." style="flex: 1;" required>
-            <label class="retro-btn" style="cursor: pointer; padding: 4px 8px; font-size: 0.85rem; white-space: nowrap;">
+            <input type="text" id="proj-edit-cover" class="retro-input" placeholder="https://... o /uploads/..."
+              style="flex: 1;" required>
+            <label class="retro-btn"
+              style="cursor: pointer; padding: 4px 8px; font-size: 0.85rem; white-space: nowrap;">
               📁 Subir Imagen
               <input type="file" id="proj-img-file" accept="image/*" style="display: none;">
             </label>
@@ -1536,11 +1689,13 @@
         </div>
         <div>
           <label class="form-label">Características (una por línea):</label>
-          <textarea id="proj-edit-features" class="retro-textarea" rows="3" placeholder="Módulo de calificaciones&#10;Control de asistencia&#10;Aula virtual"></textarea>
+          <textarea id="proj-edit-features" class="retro-textarea" rows="3"
+            placeholder="Módulo de calificaciones&#10;Control de asistencia&#10;Aula virtual"></textarea>
         </div>
         <div>
           <label class="form-label">Tecnologías Stack (separadas por comas):</label>
-          <input type="text" id="proj-edit-stack" class="retro-input" placeholder="React, Node.js, PostgreSQL, Tailwind CSS">
+          <input type="text" id="proj-edit-stack" class="retro-input"
+            placeholder="React, Node.js, PostgreSQL, Tailwind CSS">
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
           <div>
@@ -1570,40 +1725,49 @@
     </div>
     <div class="start-menu-items">
       <a href="#inicio" class="start-menu-item">
-        <img src="./header_icons/inicio.webp" width="16" height="16" alt="" style="margin-right: 6px; image-rendering: pixelated;">
+        <img src="./header_icons/inicio.webp" width="16" height="16" alt=""
+          style="margin-right: 6px; image-rendering: pixelated;">
         Inicio
       </a>
       <a href="#proyectos" class="start-menu-item">
-        <img src="./header_icons/proyectos.webp" width="16" height="16" alt="" style="margin-right: 6px; image-rendering: pixelated;">
+        <img src="./header_icons/proyectos.webp" width="16" height="16" alt=""
+          style="margin-right: 6px; image-rendering: pixelated;">
         Proyectos
       </a>
       <a href="#stack" class="start-menu-item">
-        <img src="./header_icons/tecnologias.webp" width="16" height="16" alt="" style="margin-right: 6px; image-rendering: pixelated;">
+        <img src="./header_icons/tecnologias.webp" width="16" height="16" alt=""
+          style="margin-right: 6px; image-rendering: pixelated;">
         Tecnologías
       </a>
       <a href="#sobre-mi" class="start-menu-item">
-        <img src="./header_icons/sobre_mi.webp" width="16" height="16" alt="" style="margin-right: 6px; image-rendering: pixelated;">
+        <img src="./header_icons/sobre_mi.webp" width="16" height="16" alt=""
+          style="margin-right: 6px; image-rendering: pixelated;">
         Sobre mí
       </a>
       <a href="#contacto" class="start-menu-item">
-        <img src="./header_icons/contacto.webp" width="16" height="16" alt="" style="margin-right: 6px; image-rendering: pixelated;">
+        <img src="./header_icons/contacto.webp" width="16" height="16" alt=""
+          style="margin-right: 6px; image-rendering: pixelated;">
         Contactar
       </a>
       <div class="start-menu-item-divider"></div>
       <a href="#terminal" data-start-action="terminal" class="start-menu-item">
-        <img src="./images/icono_header.webp" width="16" height="16" alt="" style="margin-right: 6px; image-rendering: pixelated;">
+        <img src="./images/icono_header.webp" width="16" height="16" alt=""
+          style="margin-right: 6px; image-rendering: pixelated;">
         Terminal
       </a>
       <a href="#arcade" data-start-action="arcade" class="start-menu-item">
-        <img src="./header_icons/proyectos.webp" width="16" height="16" alt="" style="margin-right: 6px; image-rendering: pixelated;">
+        <img src="./header_icons/proyectos.webp" width="16" height="16" alt=""
+          style="margin-right: 6px; image-rendering: pixelated;">
         ARCADE.EXE
       </a>
       <a href="#logs" data-start-action="logs" class="start-menu-item">
-        <img src="./header_icons/tecnologias.webp" width="16" height="16" alt="" style="margin-right: 6px; image-rendering: pixelated;">
+        <img src="./header_icons/tecnologias.webp" width="16" height="16" alt=""
+          style="margin-right: 6px; image-rendering: pixelated;">
         SYSTEM_LOGS.EXE
       </a>
       <a href="#admin" data-start-action="admin" class="start-menu-item" style="color: #4ade80;">
-        <img src="./images/icono_windows.webp" width="16" height="16" alt="" style="margin-right: 6px; image-rendering: pixelated;">
+        <img src="./images/icono_windows.webp" width="16" height="16" alt=""
+          style="margin-right: 6px; image-rendering: pixelated;">
         ADMIN_PANEL.EXE
       </a>
       <div class="start-menu-item-divider"></div>
@@ -1617,7 +1781,8 @@
   <div class="retro-taskbar">
     <div class="taskbar-left">
       <div class="taskbar-status">
-        <img src="./images/icono_header.webp" width="16" height="16" alt="" style="margin-right: 4px; image-rendering: pixelated;">
+        <img src="./images/icono_header.webp" width="16" height="16" alt=""
+          style="margin-right: 4px; image-rendering: pixelated;">
         <span>PORTFOLIO.EXE</span>
         <span id="visitor-count-badge" class="visitor-counter-badge" style="margin-left: 8px;">VISITANTE #001420</span>
       </div>
@@ -1628,7 +1793,10 @@
     <div class="taskbar-right">
       <div class="system-tray">
         <span id="sound-toggle" class="tray-icon" title="Sonido">
-          <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+          </svg>
         </span>
         <span id="clock-display">12:00 PM</span>
       </div>
@@ -1651,50 +1819,68 @@
           <button class="window-btn btn-close" id="modal-close-btn">✕</button>
         </div>
       </div>
-      
+
       <div class="modal-content-scroll" style="background: #fbf8f2; padding: 1.5rem;">
         <!-- Status & Title Banner -->
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #b8ab94; padding-bottom: 0.75rem; margin-bottom: 1rem;">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #b8ab94; padding-bottom: 0.75rem; margin-bottom: 1rem;">
           <div>
-            <h3 id="modal-project-title" class="pixel-text" style="font-size: 1.6rem; color: #175244; margin-bottom: 4px;">Nombre del Proyecto</h3>
-            <p id="modal-project-desc" style="font-size: 0.95rem; color: #334155; margin: 0;">Resumen del proyecto...</p>
+            <h3 id="modal-project-title" class="pixel-text"
+              style="font-size: 1.6rem; color: #175244; margin-bottom: 4px;">Nombre del Proyecto</h3>
+            <p id="modal-project-desc" style="font-size: 0.95rem; color: #334155; margin: 0;">Resumen del proyecto...
+            </p>
           </div>
           <div style="text-align: right;">
-            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748b; display: block;">ESTADO:</span>
-            <span id="modal-status-badge" style="font-family: var(--font-pixel); font-size: 1.15rem; background: #064e3b; color: #38ef7d; padding: 2px 10px; border: 1px solid #10b981; border-radius: 2px; box-shadow: 0 0 8px rgba(56, 239, 125, 0.4);">ONLINE</span>
+            <span
+              style="font-family: var(--font-mono); font-size: 0.75rem; color: #64748b; display: block;">ESTADO:</span>
+            <span id="modal-status-badge"
+              style="font-family: var(--font-pixel); font-size: 1.15rem; background: #064e3b; color: #38ef7d; padding: 2px 10px; border: 1px solid #10b981; border-radius: 2px; box-shadow: 0 0 8px rgba(56, 239, 125, 0.4);">ONLINE</span>
           </div>
         </div>
 
         <!-- Cover Preview -->
-        <div style="margin-bottom: 1.25rem; border: 2px solid #7a705e; box-shadow: inset 1px 1px 0 #fff; max-height: 240px; overflow: hidden; background: #000;">
-          <img id="modal-main-image" src="" alt="Project Cover" style="width: 100%; height: 240px; object-fit: cover; display: block;">
+        <div
+          style="margin-bottom: 1.25rem; border: 2px solid #7a705e; box-shadow: inset 1px 1px 0 #fff; max-height: 240px; overflow: hidden; background: #000;">
+          <img id="modal-main-image" src="" alt="Project Cover"
+            style="width: 100%; height: 240px; object-fit: cover; display: block;">
         </div>
 
         <!-- Technologies Used -->
         <div style="margin-bottom: 1.25rem;">
-          <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #175244; margin-bottom: 8px;">Tecnologías utilizadas:</h4>
+          <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #175244; margin-bottom: 8px;">
+            Tecnologías utilizadas:</h4>
           <div id="modal-stack-container" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
         </div>
 
         <!-- Key Features -->
         <div style="margin-bottom: 1.25rem;">
-          <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #175244; margin-bottom: 8px;">Funciones principales:</h4>
-          <ul id="modal-features-list" style="font-family: var(--font-mono); font-size: 0.9rem; color: #1e293b; line-height: 1.6; padding-left: 1rem;"></ul>
+          <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #175244; margin-bottom: 8px;">Funciones
+            principales:</h4>
+          <ul id="modal-features-list"
+            style="font-family: var(--font-mono); font-size: 0.9rem; color: #1e293b; line-height: 1.6; padding-left: 1rem;">
+          </ul>
         </div>
 
         <!-- Architecture -->
         <div style="margin-bottom: 1.5rem;">
-          <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #175244; margin-bottom: 8px;">Arquitectura:</h4>
-          <p id="modal-project-arch" style="font-family: var(--font-mono); font-size: 0.9rem; color: #334155; line-height: 1.6; background: #f0ebe1; padding: 10px 12px; border: 1px inset #d4c8af; border-radius: 2px;"></p>
+          <h4 style="font-family: var(--font-pixel); font-size: 1.25rem; color: #175244; margin-bottom: 8px;">
+            Arquitectura:</h4>
+          <p id="modal-project-arch"
+            style="font-family: var(--font-mono); font-size: 0.9rem; color: #334155; line-height: 1.6; background: #f0ebe1; padding: 10px 12px; border: 1px inset #d4c8af; border-radius: 2px;">
+          </p>
         </div>
 
         <!-- Action Buttons: [DEMO] [GITHUB] [CERRAR] -->
-        <div style="display: flex; gap: 12px; justify-content: flex-end; border-top: 2px solid #b8ab94; padding-top: 1rem;">
-          <a id="modal-demo-link" href="#" target="_blank" rel="noopener noreferrer" class="retro-btn btn-primary" style="font-size: 1.15rem; padding: 6px 16px;">
+        <div
+          style="display: flex; gap: 12px; justify-content: flex-end; border-top: 2px solid #b8ab94; padding-top: 1rem;">
+          <a id="modal-demo-link" href="#" target="_blank" rel="noopener noreferrer" class="retro-btn btn-primary"
+            style="font-size: 1.15rem; padding: 6px 16px;">
             ▶ DEMO
           </a>
-          <a id="modal-repo-link" href="#" target="_blank" rel="noopener noreferrer" class="retro-btn" style="font-size: 1.15rem; padding: 6px 16px;">
-            <img src="./stack_icons/github.svg" width="16" height="16" alt="" style="vertical-align: middle; margin-right: 4px;">
+          <a id="modal-repo-link" href="#" target="_blank" rel="noopener noreferrer" class="retro-btn"
+            style="font-size: 1.15rem; padding: 6px 16px;">
+            <img src="./stack_icons/github.svg" width="16" height="16" alt=""
+              style="vertical-align: middle; margin-right: 4px;">
             GITHUB
           </a>
           <button id="modal-close-footer" class="retro-btn" style="font-size: 1.15rem; padding: 6px 16px;">
@@ -1708,4 +1894,5 @@
   <!-- JavaScript Modules -->
   <script type="module" src="./js/app.js"></script>
 </body>
+
 </html>

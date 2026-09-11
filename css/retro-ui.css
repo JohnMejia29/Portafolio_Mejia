@@ -775,6 +775,22 @@
   font-size: 0.95rem;
   line-height: 1.6;
   cursor: pointer;
+  animation: bootFailsafe 3.4s ease-out forwards;
+}
+
+@keyframes bootFailsafe {
+
+  0%,
+  88% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .boot-fade-out {

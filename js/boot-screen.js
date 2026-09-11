@@ -9,9 +9,35 @@ export function initBootScreen() {
   const bootOverlay = document.getElementById('boot-screen-overlay');
   if (!bootOverlay) return;
 
+  let finished = false;
+  let finishTimer;
+
+  const hideOverlay = () => {
+    bootOverlay.classList.add('boot-fade-out');
+    bootOverlay.setAttribute('aria-hidden', 'true');
+    sessionStorage.setItem('portfolio_booted', 'true');
+    clearTimeout(finishTimer);
+    finishTimer = setTimeout(() => {
+      bootOverlay.style.display = 'none';
+    }, 400);
+  };
+
+  const finishBoot = () => {
+    if (finished) return;
+    finished = true;
+    hideOverlay();
+    window.removeEventListener('keydown', skipHandler);
+    bootOverlay.removeEventListener('click', skipHandler);
+  };
+
+  const skipHandler = () => finishBoot();
+
+  finishTimer = setTimeout(finishBoot, 3000);
+
   // Check if user already booted in this session to prevent annoyance on refresh
   const bootedBefore = sessionStorage.getItem('portfolio_booted');
   if (bootedBefore) {
+    finished = true;
     bootOverlay.style.display = 'none';
     return;
   }
@@ -50,29 +76,13 @@ export function initBootScreen() {
       }
       consoleEl.appendChild(lineDiv);
       lineIdx++;
-      setTimeout(printNextLine, 120);
+      setTimeout(printNextLine, 45);
     } else {
-      setTimeout(finishBoot, 400);
+      setTimeout(finishBoot, 150);
     }
-  }
-
-  function finishBoot() {
-    bootOverlay.classList.add('boot-fade-out');
-    sessionStorage.setItem('portfolio_booted', 'true');
-    setTimeout(() => {
-      bootOverlay.style.display = 'none';
-    }, 400);
   }
 
   // Allow clicking or pressing any key to skip immediately
-  const skipHandler = (e) => {
-    if (bootOverlay.style.display !== 'none') {
-      finishBoot();
-      window.removeEventListener('keydown', skipHandler);
-      bootOverlay.removeEventListener('click', skipHandler);
-    }
-  };
-
   window.addEventListener('keydown', skipHandler);
   bootOverlay.addEventListener('click', skipHandler);
 

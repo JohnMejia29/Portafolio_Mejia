@@ -105,6 +105,22 @@ export function initI18n() {
   const langIcon = document.getElementById('lang-icon');
   let currentLang = 'es';
 
+  const languageIcons = {
+    es: './images/MEX.webp',
+    en: './images/USA.webp'
+  };
+
+  Object.values(languageIcons).forEach(src => {
+    const image = new Image();
+    image.src = src;
+  });
+
+  if (langIcon) {
+    langIcon.addEventListener('error', () => {
+      langIcon.src = languageIcons[currentLang];
+    });
+  }
+
   function applyLanguage(lang) {
     const data = TRANSLATIONS[lang];
     if (!data) return;
@@ -119,11 +135,13 @@ export function initI18n() {
     if (langLabel && langIcon) {
       if (lang === 'es') {
         langLabel.textContent = 'EN';
-        langIcon.src = './images/USA.webp';
+        langIcon.alt = 'Cambiar a inglés';
+        langIcon.src = languageIcons.en;
         langToggleBtn.title = 'Change language to English';
       } else {
         langLabel.textContent = 'ES';
-        langIcon.src = './images/SPAIN.webp';
+        langIcon.alt = 'Cambiar a español';
+        langIcon.src = languageIcons.es;
         langToggleBtn.title = 'Cambiar idioma a Español';
       }
     }
