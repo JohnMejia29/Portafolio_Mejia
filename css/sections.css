@@ -1556,6 +1556,41 @@
     box-sizing: border-box;
   }
 
+  .hero-grid>*,
+  .projects-grid>*,
+  .tech-stack-grid>*,
+  .contact-grid>*,
+  .contact-interactive-layout>*,
+  .guestbook-container>*,
+  .timeline-item>*,
+  .retro-window,
+  .description-window,
+  .floppy-card,
+  .cassette-card {
+    min-width: 0;
+  }
+
+  .retro-titlebar,
+  .titlebar-left,
+  .titlebar-controls {
+    min-width: 0;
+  }
+
+  .titlebar-left {
+    flex: 1 1 auto;
+  }
+
+  .titlebar-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .titlebar-controls {
+    flex-shrink: 0;
+  }
+
   /* Collapse hero grid to 1 column */
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1652,6 +1687,36 @@
     padding: 1rem;
   }
 
+  .date-stamp {
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .entry-place,
+  .entry-description,
+  .project-name,
+  .project-desc,
+  .contact-info,
+  .notepad-text {
+    overflow-wrap: anywhere;
+  }
+
+  .retro-form,
+  .guestbook-container,
+  .contact-card-body,
+  .description-body {
+    min-width: 0;
+  }
+
+  .retro-input,
+  .retro-textarea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
   /* Filter buttons wrap */
   .filter-bar {
     flex-wrap: wrap;
@@ -1738,5 +1803,10 @@
   /* Retro window padding inside on small screens */
   .hero-card {
     padding: 0.85rem;
+  }
+
+  .date-stamp {
+    font-size: 0.95rem;
+    padding: 6px 10px;
   }
 }

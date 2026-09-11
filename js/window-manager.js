@@ -16,7 +16,7 @@ class WindowManagerClass {
 
   init() {
     this.taskbarContainer = document.getElementById('taskbar-windows-container');
-    
+
     // Register all elements with class .retro-window or [data-window]
     const windowEls = document.querySelectorAll('.retro-window, [data-window]');
     windowEls.forEach((el, index) => {
@@ -138,7 +138,7 @@ class WindowManagerClass {
       if (e.target.closest('button, .window-btn, .window-control, a')) return;
       // Don't drag on mobile/touch devices — windows are full-screen there
       if (window.innerWidth <= 860) return;
-      
+
       this.focusWindow(id);
       if (winData.isMaximized) return; // Don't drag while maximized
 
@@ -235,6 +235,16 @@ class WindowManagerClass {
       }
     }
     if (!winData) return;
+
+    if (winData.isFloating && window.innerWidth <= 860) {
+      this.windows.forEach((otherWin) => {
+        if (otherWin.id === winData.id || !otherWin.isFloating || otherWin.isClosed) return;
+        otherWin.el.classList.remove('window-opening', 'window-focused', 'window-inactive', 'is-minimized');
+        otherWin.el.style.display = 'none';
+        otherWin.isClosed = true;
+        otherWin.isMinimized = false;
+      });
+    }
 
     winData.isClosed = false;
     winData.isMinimized = false;

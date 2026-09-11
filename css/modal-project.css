@@ -32,16 +32,23 @@
   border-left: 2px solid var(--bevel-light);
   border-right: 2px solid var(--bevel-darker);
   border-bottom: 2px solid var(--bevel-darker);
-  box-shadow: 
-    inset 1px 1px 0px var(--bevel-light-soft), 
+  box-shadow:
+    inset 1px 1px 0px var(--bevel-light-soft),
     inset -1px -1px 0px var(--bevel-dark),
     0 10px 30px rgba(0, 0, 0, 0.6);
   animation: modalPop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @keyframes modalPop {
-  0% { transform: scale(0.92); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .modal-content-scroll {
@@ -83,6 +90,19 @@
 }
 
 @media (max-width: 768px) {
+
+  .project-modal-window,
+  .modal-content-scroll,
+  .modal-gallery-box,
+  .modal-details-grid>* {
+    min-width: 0;
+  }
+
+  .modal-gallery-header {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
   .modal-main-image-frame {
     height: 220px;
   }
@@ -137,7 +157,8 @@
   transition: opacity 0.15s, border-color 0.15s;
 }
 
-.modal-thumb.active, .modal-thumb:hover {
+.modal-thumb.active,
+.modal-thumb:hover {
   opacity: 1;
   border: 2px solid var(--accent-green-bright);
 }

@@ -27,14 +27,15 @@
   border-left: 2px solid var(--bevel-light);
   border-right: 2px solid var(--bevel-darker);
   border-bottom: 2px solid var(--bevel-darker);
-  box-shadow: 
-    inset 1px 1px 0px var(--bevel-light-soft), 
+  box-shadow:
+    inset 1px 1px 0px var(--bevel-light-soft),
     inset -1px -1px 0px var(--bevel-dark),
     var(--shadow-retro-window);
   border-radius: 2px;
   position: relative;
   overflow: hidden;
-  max-width: 100%;       /* never wider than container */
+  max-width: 100%;
+  /* never wider than container */
   box-sizing: border-box;
 }
 
@@ -211,7 +212,8 @@
   width: 100%;
   max-width: 100%;
   gap: clamp(8px, 1.2vw, 20px);
-  overflow: hidden; /* prevent the bar from expanding beyond viewport */
+  overflow: hidden;
+  /* prevent the bar from expanding beyond viewport */
 }
 
 .header-brand {
@@ -288,7 +290,7 @@
   border-left: 2px solid #5a5244;
   border-right: 2px solid #ffffff;
   border-bottom: 2px solid #ffffff;
-  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
   font-weight: bold;
 }
 
@@ -379,7 +381,8 @@
   background-color: var(--retro-surface-light);
 }
 
-.retro-btn:active, .retro-btn.active {
+.retro-btn:active,
+.retro-btn.active {
   border-top: 2px solid var(--bevel-darker);
   border-left: 2px solid var(--bevel-darker);
   border-right: 2px solid var(--bevel-light);
@@ -504,7 +507,8 @@
   cursor: pointer;
 }
 
-.start-btn:active, .start-btn.active {
+.start-btn:active,
+.start-btn.active {
   border-top: 2px solid var(--bevel-darker);
   border-left: 2px solid var(--bevel-darker);
   border-right: 2px solid var(--bevel-light);
@@ -577,8 +581,8 @@
   border-left: 2px solid var(--bevel-light);
   border-right: 2px solid var(--bevel-darker);
   border-bottom: 2px solid var(--bevel-darker);
-  box-shadow: 
-    inset 1px 1px 0px var(--bevel-light-soft), 
+  box-shadow:
+    inset 1px 1px 0px var(--bevel-light-soft),
     inset -1px -1px 0px var(--bevel-dark),
     4px -4px 10px rgba(0, 0, 0, 0.4);
   z-index: 1001;
@@ -666,6 +670,7 @@
     transform: scale(0.92);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -677,6 +682,7 @@
     transform: scale(1);
     opacity: 1;
   }
+
   to {
     transform: scale(0.94);
     opacity: 0;
@@ -704,8 +710,8 @@
   width: min(92vw, 680px);
   max-height: 85vh;
   z-index: 500;
-  box-shadow: 
-    inset 1px 1px 0px var(--bevel-light-soft), 
+  box-shadow:
+    inset 1px 1px 0px var(--bevel-light-soft),
     inset -1px -1px 0px var(--bevel-dark),
     0 16px 32px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -996,6 +1002,7 @@
 .mobile-only {
   display: none !important;
 }
+
 .desktop-only {
   display: inline !important;
 }
@@ -1004,6 +1011,7 @@
   .mobile-only {
     display: flex !important;
   }
+
   .desktop-only {
     display: none !important;
   }
@@ -1054,10 +1062,12 @@
 .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
+
 .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
+
 .mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
@@ -1084,8 +1094,15 @@
 }
 
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mobile-nav-link {
@@ -1127,12 +1144,14 @@
     padding: 6px 12px;
     gap: 8px;
   }
+
   .header-nav {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     max-width: 100%;
   }
+
   .header-nav::-webkit-scrollbar {
     display: none;
   }
@@ -1148,32 +1167,48 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
   .brand-icon {
     width: 28px;
     height: 28px;
     flex-shrink: 0;
   }
+
   .retro-header-bar {
     min-height: 56px;
     padding: 4px 10px;
     flex-wrap: nowrap;
   }
+
   /* Hide desktop nav on mobile */
   #desktop-nav {
     display: none !important;
   }
+
   /* Hide desktop lang button on mobile */
-  .retro-header-bar > #lang-toggle-btn {
+  .retro-header-bar>#lang-toggle-btn {
     display: none !important;
   }
+
   /* Show hamburger button */
   .mobile-menu-btn {
     display: flex;
     flex-shrink: 0;
   }
+
   .retro-header-window {
     position: sticky;
     overflow: visible;
+  }
+
+  #admin-project-form>div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .admin-window-body,
+  .admin-tabs,
+  .admin-tab-content {
+    min-width: 0;
   }
 }
 
@@ -1182,12 +1217,15 @@
   .header-brand {
     font-size: 1rem;
   }
+
   .brand-icon {
     width: 24px;
     height: 24px;
   }
+
   .brand-name-accent {
-    display: none; /* Hide ".EXE" on very small screens to save space */
+    display: none;
+    /* Hide ".EXE" on very small screens to save space */
   }
 }
 
@@ -1196,13 +1234,16 @@
     height: 38px;
     padding: 2px 4px;
   }
+
   .start-btn {
     font-size: 1.15rem;
     padding: 2px 6px;
   }
+
   .taskbar-status {
     display: none;
   }
+
   .system-tray {
     padding: 2px 4px;
     gap: 6px;
@@ -1255,22 +1296,27 @@
     padding: 0.75rem 0.5rem;
     overflow-y: auto;
   }
+
   .arcade-score-bar {
     font-size: 0.95rem;
     padding: 4px 8px;
     flex-wrap: wrap;
     gap: 4px;
   }
+
   .arcade-canvas-wrap {
     width: 100%;
   }
+
   .arcade-canvas-wrap canvas {
     width: 100%;
     height: auto;
   }
+
   .arcade-controls-row {
     max-width: 100%;
   }
+
   .arcade-action-btn {
     padding: 8px 14px;
     font-size: 1rem;
@@ -1381,7 +1427,7 @@
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   border: 3px solid var(--bevel-light);
-  box-shadow: 0 4px 0 rgba(0,0,0,0.4), inset 1px 1px 0px var(--bevel-light-soft);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4), inset 1px 1px 0px var(--bevel-light-soft);
   transition: transform 0.08s ease, box-shadow 0.08s ease;
 }
 
@@ -1400,7 +1446,7 @@
 .touch-kick-btn:active,
 .touch-shoot-btn:active {
   transform: translateY(3px);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.4), inset 1px 1px 0px var(--bevel-light-soft);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4), inset 1px 1px 0px var(--bevel-light-soft);
 }
 
 .touch-kick-btn small,
@@ -1432,9 +1478,20 @@
 }
 
 @keyframes circuitPulse {
-  0% { opacity: 0.55; filter: drop-shadow(0 0 1px rgba(56, 239, 125, 0.2)); }
-  50% { opacity: 0.9; filter: drop-shadow(0 0 4px rgba(56, 239, 125, 0.45)); }
-  100% { opacity: 0.55; filter: drop-shadow(0 0 1px rgba(56, 239, 125, 0.2)); }
+  0% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 1px rgba(56, 239, 125, 0.2));
+  }
+
+  50% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 4px rgba(56, 239, 125, 0.45));
+  }
+
+  100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 1px rgba(56, 239, 125, 0.2));
+  }
 }
 
 /* Desktop Shortcut Icons (Win95/98 Wallpaper Style) */
@@ -1636,8 +1693,17 @@
 }
 
 @keyframes pulseBlink {
-  0%, 100% { opacity: 1; text-shadow: 0 0 6px #22c55e; }
-  50% { opacity: 0.3; text-shadow: none; }
+
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 6px #22c55e;
+  }
+
+  50% {
+    opacity: 0.3;
+    text-shadow: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1655,5 +1721,3 @@
     display: none;
   }
 }
-
-
