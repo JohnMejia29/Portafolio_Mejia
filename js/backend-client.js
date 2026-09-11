@@ -4,6 +4,10 @@
 
 export function getApiBase() {
   if (typeof window === 'undefined') return 'http://localhost:3000';
+  if (window.__API_BASE__) return window.__API_BASE__.replace(/\/$/, '');
+  if (window.location.hostname.endsWith('github.io')) {
+    return 'https://portafolio-mejia-api.onrender.com';
+  }
   if (window.location.port === '3000' || (window.location.protocol.startsWith('http') && window.location.port === '')) {
     return '';
   }

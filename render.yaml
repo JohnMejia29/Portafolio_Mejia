@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: portafolio-mejia-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/system/stats
+    envVars:
+      - key: NODE_ENV
+        value: production
