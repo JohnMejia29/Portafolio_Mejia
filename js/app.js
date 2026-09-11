@@ -3,7 +3,6 @@
    ========================================================================== */
 
 import { SoundFX } from './sound-fx.js';
-import { initBootScreen } from './boot-screen.js';
 import { WindowManager } from './window-manager.js';
 import { initTerminal } from './terminal.js';
 import { initProjectFilters } from './filters.js';
@@ -20,9 +19,8 @@ import { initAdminPanel } from './admin.js';
 import { BackendClient } from './backend-client.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // 1. Initialize Audio Engine & Boot Screen
+  // 1. Initialize Audio Engine
   SoundFX.init();
-  initBootScreen();
 
   // 2. Initialize Window Manager
   WindowManager.init();
