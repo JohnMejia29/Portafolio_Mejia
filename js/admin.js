@@ -85,11 +85,11 @@ function bindAdminEvents() {
         if (data.ok && data.token) {
           adminToken = data.token;
           sessionStorage.setItem('portfolio_admin_token', adminToken);
-          try { SoundFX.playSuccess(); } catch {}
+          try { SoundFX.playSuccess(); } catch { }
           if (loginMsg) loginMsg.textContent = '¡Acceso concedido!';
           setTimeout(() => showDashboardView(), 300);
         } else {
-          try { SoundFX.playGameOver(); } catch {}
+          try { SoundFX.playGameOver(); } catch { }
           if (loginMsg) loginMsg.textContent = data.error || 'PIN incorrecto';
         }
       } catch (err) {

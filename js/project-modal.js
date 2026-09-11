@@ -219,6 +219,9 @@ export function initProjectModal() {
   const titleEl = document.getElementById('modal-project-title');
   const statusBadge = document.getElementById('modal-status-badge');
   const coverImg = document.getElementById('modal-main-image');
+  const galleryPrev = document.getElementById('modal-gallery-prev');
+  const galleryNext = document.getElementById('modal-gallery-next');
+  const galleryThumbnails = document.getElementById('modal-gallery-thumbnails');
   const descEl = document.getElementById('modal-project-desc');
   const archEl = document.getElementById('modal-project-arch');
   const featuresList = document.getElementById('modal-features-list');
@@ -226,6 +229,33 @@ export function initProjectModal() {
   const repoLink = document.getElementById('modal-repo-link');
   const demoLink = document.getElementById('modal-demo-link');
   const closeBtns = modal.querySelectorAll('.btn-close, #modal-close-btn, #modal-close-footer');
+  let activeGalleryImages = [];
+  let activeGalleryIndex = 0;
+
+  function renderGallery() {
+    if (!coverImg) return;
+    coverImg.src = activeGalleryImages[activeGalleryIndex] || '';
+    coverImg.alt = `Imagen ${activeGalleryIndex + 1} del proyecto`;
+
+    if (galleryThumbnails) {
+      galleryThumbnails.innerHTML = activeGalleryImages.map((src, index) => `
+        <button type="button" class="modal-gallery-thumb ${index === activeGalleryIndex ? 'active' : ''}" data-gallery-index="${index}" aria-label="Ver imagen ${index + 1}">
+          <img src="${src}" alt="Miniatura ${index + 1}">
+        </button>
+      `).join('');
+      galleryThumbnails.querySelectorAll('[data-gallery-index]').forEach(button => {
+        button.addEventListener('click', () => {
+          activeGalleryIndex = Number(button.dataset.galleryIndex);
+          renderGallery();
+        });
+      });
+    }
+
+    const hasMultipleImages = activeGalleryImages.length > 1;
+    [galleryPrev, galleryNext].forEach(button => {
+      if (button) button.style.display = hasMultipleImages ? 'flex' : 'none';
+    });
+  }
 
   function openProject(projectId) {
     const project = PROJECTS_DATA[projectId];
@@ -234,7 +264,9 @@ export function initProjectModal() {
     if (windowTitleEl) windowTitleEl.textContent = project.exeName;
     if (titleEl) titleEl.textContent = project.title;
     if (statusBadge) statusBadge.textContent = project.status || 'ONLINE';
-    if (coverImg) coverImg.src = getProjectImages(project)[0] || '';
+    activeGalleryImages = getProjectImages(project);
+    activeGalleryIndex = 0;
+    renderGallery();
     if (descEl) descEl.textContent = project.summary;
     if (archEl) archEl.textContent = project.architecture;
 
@@ -267,6 +299,22 @@ export function initProjectModal() {
     }, 150);
   }
 
+  if (galleryPrev) {
+    galleryPrev.addEventListener('click', () => {
+      if (!activeGalleryImages.length) return;
+      activeGalleryIndex = (activeGalleryIndex - 1 + activeGalleryImages.length) % activeGalleryImages.length;
+      renderGallery();
+    });
+  }
+
+  if (galleryNext) {
+    galleryNext.addEventListener('click', () => {
+      if (!activeGalleryImages.length) return;
+      activeGalleryIndex = (activeGalleryIndex + 1) % activeGalleryImages.length;
+      renderGallery();
+    });
+  }
+
   function renderProjectsGrid(projectsArray) {
     const grid = document.getElementById('projects-grid');
     if (!grid || !projectsArray || !projectsArray.length) return;
@@ -297,10 +345,10 @@ export function initProjectModal() {
             <p class="project-desc">${escapeHtml(p.summary || '')}</p>
             <div class="project-tags">
               ${(p.stack || []).slice(0, 3).map(s => {
-                const sName = typeof s === 'string' ? s : s.name;
-                const sIcon = (typeof s === 'object' && s.icon) ? s.icon : './stack_icons/node.svg';
-                return `<span class="tag-pill"><img src="${sIcon}" width="14" height="14" alt="" style="vertical-align: middle;"> ${escapeHtml(sName)}</span>`;
-              }).join('')}
+        const sName = typeof s === 'string' ? s : s.name;
+        const sIcon = (typeof s === 'object' && s.icon) ? s.icon : './stack_icons/node.svg';
+        return `<span class="tag-pill"><img src="${sIcon}" width="14" height="14" alt="" style="vertical-align: middle;"> ${escapeHtml(sName)}</span>`;
+      }).join('')}
               <span class="tag-pill">${p.category === 'movil' ? 'Offline-First' : 'Full-Stack'}</span>
             </div>
           </div>
@@ -415,7 +463,7 @@ export function initProjectModal() {
         });
       }
     })
-    .catch(() => {});
+    .catch(() => { });
 }
 
 function escapeHtml(str) {
