@@ -200,9 +200,12 @@ router.post('/upload', requireAdmin, (req, res) => {
     fs.writeFileSync(destPath, buffer);
 
     const publicUrl = `/uploads/${safeName}`;
+    const protocol = req.get('x-forwarded-proto') || req.protocol;
+    const absoluteUrl = `${protocol}://${req.get('host')}${publicUrl}`;
     res.json({
       ok: true,
-      url: publicUrl,
+      url: absoluteUrl,
+      path: publicUrl,
       filename: safeName,
       mimeType: mimeType
     });

@@ -1670,12 +1670,14 @@
             <label class="retro-btn"
               style="cursor: pointer; padding: 4px 8px; font-size: 0.85rem; white-space: nowrap;">
               📁 Subir Imagen
-              <input type="file" id="proj-img-file" accept="image/*" style="display: none;">
+              <input type="file" id="proj-img-file" accept="image/*" multiple style="display: none;">
             </label>
           </div>
           <div style="background: #061511; border: 1px dashed #175244; padding: 6px; text-align: center;">
-            <img id="proj-cover-preview" src="" style="max-height: 120px; object-fit: contain; max-width: 100%;">
+            <div id="proj-cover-preview-list" style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;"></div>
+            <img id="proj-cover-preview" src="" alt="" style="display: none;">
           </div>
+          <input type="hidden" id="proj-edit-images" value="[]">
         </div>
         <div>
           <label class="form-label">Características (una por línea):</label>

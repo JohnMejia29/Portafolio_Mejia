@@ -5,9 +5,15 @@
 
 import { SoundFX } from './sound-fx.js';
 import { WindowManager } from './window-manager.js';
-import { getApiBase } from './backend-client.js';
+import { getApiBase, resolveAssetUrl } from './backend-client.js';
 
 const API_BASE = getApiBase();
+const projectRotationTimers = new Map();
+
+function getProjectImages(project) {
+  const images = Array.isArray(project.images) && project.images.length ? project.images : [project.cover];
+  return images.filter(Boolean).map(resolveAssetUrl);
+}
 
 export const PROJECTS_DATA = {
   colegio: {
@@ -228,7 +234,7 @@ export function initProjectModal() {
     if (windowTitleEl) windowTitleEl.textContent = project.exeName;
     if (titleEl) titleEl.textContent = project.title;
     if (statusBadge) statusBadge.textContent = project.status || 'ONLINE';
-    if (coverImg) coverImg.src = project.cover;
+    if (coverImg) coverImg.src = getProjectImages(project)[0] || '';
     if (descEl) descEl.textContent = project.summary;
     if (archEl) archEl.textContent = project.architecture;
 
@@ -265,7 +271,9 @@ export function initProjectModal() {
     const grid = document.getElementById('projects-grid');
     if (!grid || !projectsArray || !projectsArray.length) return;
 
-    grid.innerHTML = projectsArray.map(p => `
+    grid.innerHTML = projectsArray.map(p => {
+      const images = getProjectImages(p);
+      return `
       <article class="retro-window project-card" data-category="${p.category || 'web'}">
         <div class="retro-titlebar">
           <div class="titlebar-left">
@@ -280,7 +288,7 @@ export function initProjectModal() {
           </div>
         </div>
         <div class="project-preview">
-          <img src="${p.cover || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=600&q=80'}" alt="${escapeHtml(p.title)}" loading="lazy">
+          <img src="${images[0] || 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=600&q=80'}" alt="${escapeHtml(p.title)}" loading="lazy" data-project-images='${JSON.stringify(images)}'>
           <span class="project-badge" style="${p.demoUrl ? 'background: #1e3a8a; color: #93c5fd;' : ''}">${p.category === 'movil' ? 'Móvil' : 'Web'}${p.demoUrl ? ' · En Producción' : ''}</span>
         </div>
         <div class="project-body">
@@ -313,7 +321,21 @@ export function initProjectModal() {
           </div>
         </div>
       </article>
-    `).join('');
+    `;
+    }).join('');
+
+    grid.querySelectorAll('.project-card').forEach(card => {
+      const image = card.querySelector('.project-preview img');
+      const images = JSON.parse(image?.dataset.projectImages || '[]');
+      if (!image || images.length < 2) return;
+      const id = card.querySelector('.view-project-trigger')?.dataset.projectId;
+      if (projectRotationTimers.has(id)) clearInterval(projectRotationTimers.get(id));
+      let index = 0;
+      projectRotationTimers.set(id, setInterval(() => {
+        index = (index + 1) % images.length;
+        image.src = images[index];
+      }, 4000));
+    });
 
     // Re-bind trigger buttons on newly rendered cards
     grid.querySelectorAll('.view-project-trigger').forEach(btn => {

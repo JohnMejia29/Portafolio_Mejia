@@ -16,6 +16,12 @@ export function getApiBase() {
 
 const API_BASE = getApiBase();
 
+export function resolveAssetUrl(value) {
+  if (!value || value.startsWith('data:') || /^https?:\/\//i.test(value)) return value;
+  if (value.startsWith('/')) return `${API_BASE}${value}`;
+  return value;
+}
+
 export const BackendClient = {
   // --- STATS & TELEMETRY ---
   async getStats() {

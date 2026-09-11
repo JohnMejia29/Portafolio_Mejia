@@ -8,7 +8,7 @@
 
 import { SoundFX } from './sound-fx.js';
 import { WindowManager } from './window-manager.js';
-import { getApiBase } from './backend-client.js';
+import { getApiBase, resolveAssetUrl } from './backend-client.js';
 
 const API_BASE = getApiBase();
 let adminToken = sessionStorage.getItem('portfolio_admin_token') || null;
@@ -379,8 +379,12 @@ function openProjectEditor(project) {
   document.getElementById('proj-edit-status').value = isEdit ? (project.status || 'ONLINE') : 'ONLINE';
   document.getElementById('proj-edit-summary').value = isEdit ? project.summary : '';
   document.getElementById('proj-edit-architecture').value = isEdit ? (project.architecture || '') : '';
-  document.getElementById('proj-edit-cover').value = isEdit ? project.cover : '';
-  document.getElementById('proj-cover-preview').src = isEdit ? project.cover : '';
+  const projectImages = isEdit && Array.isArray(project.images) && project.images.length
+    ? project.images
+    : (isEdit && project.cover ? [project.cover] : []);
+  document.getElementById('proj-edit-cover').value = projectImages[0] || '';
+  document.getElementById('proj-edit-images').value = JSON.stringify(projectImages);
+  renderProjectImagePreviews(projectImages);
   document.getElementById('proj-edit-features').value = isEdit && Array.isArray(project.features) ? project.features.join('\n') : '';
   document.getElementById('proj-edit-stack').value = isEdit && Array.isArray(project.stack) ? project.stack.map(s => typeof s === 'string' ? s : s.name).join(', ') : '';
   document.getElementById('proj-edit-demo').value = isEdit ? (project.demoUrl || '') : '';
@@ -398,37 +402,56 @@ function openProjectEditor(project) {
   }
 }
 
-function handleImageUploadPreview(e) {
-  const file = e.target.files[0];
-  if (!file) return;
+function renderProjectImagePreviews(images) {
+  const previewList = document.getElementById('proj-cover-preview-list');
+  if (!previewList) return;
+  previewList.innerHTML = images.map((src, index) => `
+    <img src="${resolveAssetUrl(src)}" alt="Imagen ${index + 1}" style="width: 96px; height: 64px; object-fit: cover; border: 1px solid #38ef7d;">
+  `).join('');
+}
 
-  const reader = new FileReader();
-  reader.onload = async (event) => {
-    const base64 = event.target.result;
-    document.getElementById('proj-cover-preview').src = base64;
+async function uploadProjectImage(file, index) {
+  const base64 = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
 
-    try {
-      const res = await fetch(`${API_BASE}/api/admin/upload`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${adminToken}`
-        },
-        body: JSON.stringify({
-          imageBase64: base64,
-          filename: 'proj_' + Date.now()
-        })
-      });
-      const data = await res.json();
-      if (data.ok && data.url) {
-        document.getElementById('proj-edit-cover').value = data.url;
-        SoundFX.playSuccess();
-      }
-    } catch (err) {
-      console.error('Error subiendo imagen:', err);
-    }
-  };
-  reader.readAsDataURL(file);
+  const res = await fetch(`${API_BASE}/api/admin/upload`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${adminToken}`
+    },
+    body: JSON.stringify({
+      imageBase64: base64,
+      filename: `proj_${Date.now()}_${index}`
+    })
+  });
+  const data = await res.json();
+  if (!data.ok || !data.url) throw new Error(data.error || 'No se pudo subir la imagen');
+  return data.url;
+}
+
+async function handleImageUploadPreview(e) {
+  const files = [...e.target.files];
+  if (!files.length) return;
+
+  const currentImages = JSON.parse(document.getElementById('proj-edit-images').value || '[]');
+  try {
+    const uploadedImages = await Promise.all(files.map((file, index) => uploadProjectImage(file, index)));
+    const images = [...currentImages, ...uploadedImages];
+    document.getElementById('proj-edit-images').value = JSON.stringify(images);
+    document.getElementById('proj-edit-cover').value = images[0] || '';
+    renderProjectImagePreviews(images);
+    SoundFX.playSuccess();
+  } catch (err) {
+    console.error('Error subiendo imágenes:', err);
+    alert('No se pudieron subir una o más imágenes.');
+  } finally {
+    e.target.value = '';
+  }
 }
 
 async function handleSaveProject(e) {
@@ -442,6 +465,7 @@ async function handleSaveProject(e) {
   const summary = document.getElementById('proj-edit-summary').value.trim();
   const architecture = document.getElementById('proj-edit-architecture').value.trim();
   const cover = document.getElementById('proj-edit-cover').value.trim();
+  const images = JSON.parse(document.getElementById('proj-edit-images').value || '[]');
   const featuresRaw = document.getElementById('proj-edit-features').value;
   const stackRaw = document.getElementById('proj-edit-stack').value;
   const demoUrl = document.getElementById('proj-edit-demo').value.trim();
@@ -462,6 +486,7 @@ async function handleSaveProject(e) {
     summary,
     architecture,
     cover,
+    images: images.length ? images : (cover ? [cover] : []),
     features,
     stack,
     demoUrl,
