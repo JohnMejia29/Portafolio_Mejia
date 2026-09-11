@@ -1,0 +1,404 @@
+{
+  "stats": {
+    "totalVisits": 1482,
+    "commandsExecuted": 1,
+    "messagesReceived": 2,
+    "guestbookEntries": 3,
+    "startTime": "2026-09-10T15:30:29.824Z"
+  },
+  "config": {
+    "profileName": "John Franklin Mejia Chamaya",
+    "titleBadge": "Ingeniero de Sistemas",
+    "statusText": "Disponible para nuevos proyectos",
+    "bio": "Ingeniero de Sistemas con sólida experiencia en el desarrollo de soluciones empresariales e institucionales reales (Plataforma Académica Colegio Jesús Divino Maestro, Sistemas POS Móvil, Minimarket, Hotelería, Restaurantes, Gimnasios y Panaderías). Especializado en arquitectura Full-Stack, bases de datos SQL y software robusto de alto rendimiento.",
+    "githubUrl": "https://github.com/JohnFranklinMejia",
+    "linkedinUrl": "https://www.linkedin.com/in/john-franklin-mejia-chamaya/",
+    "email": "johnmejia@example.com",
+    "whatsapp": "+51 900 000 000",
+    "avatarUrl": "./images/personaje.webp",
+    "cvUrl": "./CV_Damian_Alexander_Aceves_Navarrete.pdf",
+    "adminPin": "1995"
+  },
+  "projects": [
+    {
+      "id": "colegio",
+      "title": "Colegio Jesús Divino Maestro - Plataforma Académica & Aula Virtual",
+      "exeName": "COLEGIO_JESUS_DIVINO_MAESTRO.EXE",
+      "status": "ONLINE",
+      "category": "web",
+      "summary": "Plataforma institucional integral y aula virtual para la I.E. Nº 16957 \"Jesús Divino Maestro\", con gestión de calificaciones, asistencias, tareas, comunicados y roles multi-usuario.",
+      "cover": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=900&q=80",
+      "architecture": "Arquitectura web modular cliente-servidor con autenticación robusta, control de acceso basado en roles (RBAC: Administrador, Docentes, Estudiantes, Padres de Familia), base de datos relacional MySQL/PostgreSQL y generación dinámica de boletas de notas y reportes académicos.",
+      "features": [
+        "Módulo integral de calificaciones y libreta de notas por periodos académicos.",
+        "Control diario de asistencia escolar con reportes y porcentajes automáticos.",
+        "Aula virtual interactiva para asignación, entrega y retroalimentación de tareas.",
+        "Tablero de comunicados institucionales, avisos a padres y mensajería escolar.",
+        "Panel administrativo central con control de matrículas, docentes y auditoría."
+      ],
+      "stack": [
+        {
+          "name": "PHP / Laravel",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "MySQL / Postgres",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "HTML5 / CSS3",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "./stack_icons/node.svg"
+        }
+      ],
+      "repoUrl": "https://github.com/JohnFranklinMejia",
+      "demoUrl": "https://www.colegiojesusdivinomaestro.com/",
+      "order": 1
+    },
+    {
+      "id": "pos_movil",
+      "title": "Sistema POS Móvil - Punto de Venta & Facturación",
+      "exeName": "SISTEMA_POS_MOVIL.EXE",
+      "status": "ONLINE",
+      "category": "movil",
+      "summary": "Aplicación móvil para punto de venta ágil, emisión de comprobantes, control de stock en tiempo real y sincronización offline/online.",
+      "cover": "./projects/gasto/cover.webp",
+      "architecture": "Arquitectura móvil Offline-First con base de datos local SQLite/WatermelonDB, sincronización bidireccional en segundo plano contra API RESTful en Node.js y conexión Bluetooth para impresión de tickets térmicos.",
+      "features": [
+        "Venta rápida al paso con escaneo de código de barras mediante cámara móvil.",
+        "Impresión inalámbrica de tickets de venta por Bluetooth / Wi-Fi térmico.",
+        "Sincronización automática de inventario y transacciones al recuperar conexión.",
+        "Arqueo de caja, turnos de vendedores y reportes de facturación diaria."
+      ],
+      "stack": [
+        {
+          "name": "React Native",
+          "icon": "./stack_icons/react.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "./stack_icons/typescript.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "./stack_icons/postgresql.svg"
+        },
+        {
+          "name": "SQLite",
+          "icon": "./stack_icons/sql.svg"
+        }
+      ],
+      "repoUrl": "https://github.com/JohnFranklinMejia",
+      "demoUrl": "https://www.colegiojesusdivinomaestro.com/",
+      "order": 2
+    },
+    {
+      "id": "minimarket",
+      "title": "Sistema Comercial & Control de Inventarios Minimarket",
+      "exeName": "SISTEMA_MINIMARKET.EXE",
+      "status": "ONLINE",
+      "category": "web",
+      "summary": "Software comercial integral de punto de venta, compras a proveedores, control de stock por lotes y código de barras, caja diaria y análisis de ventas.",
+      "cover": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=900&q=80",
+      "architecture": "Arquitectura SPA cliente-servidor con Next.js/React, backend RESTful en Node.js/Express, base de datos relacional PostgreSQL con transacciones ACID para cobros seguros y auditoría continua de kardex.",
+      "features": [
+        "Punto de venta ultra-rápido optimizado para teclado y lector óptico de código de barras.",
+        "Control de inventario con alertas automáticas de stock mínimo y vencimiento de productos.",
+        "Gestión de cuentas por cobrar a clientes (fiados) y pagos a distribuidores.",
+        "Reportes analíticos de rentabilidad, margen de ganancia y productos más vendidos."
+      ],
+      "stack": [
+        {
+          "name": "Next.js",
+          "icon": "./stack_icons/nextjs.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "./stack_icons/postgresql.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "./stack_icons/typescript.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "./stack_icons/tailwind.svg"
+        }
+      ],
+      "repoUrl": "https://github.com/JohnFranklinMejia",
+      "demoUrl": "https://www.colegiojesusdivinomaestro.com/",
+      "order": 3
+    },
+    {
+      "id": "restaurante",
+      "title": "Sistema para Restaurante - Comandera Digital & KDS",
+      "exeName": "SISTEMA_RESTAURANTE.EXE",
+      "status": "ONLINE",
+      "category": "web",
+      "summary": "Solución gastronómica completa con comandas digitales para meseros, pantalla de cocina en tiempo real (KDS), mapa de mesas, recetas y facturación dividida.",
+      "cover": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+      "architecture": "Arquitectura distribuida con WebSockets en tiempo real sincronizando dispositivos de salón (mozos), pantallas de cocina/barra (KDS) y caja central con persistencia relacional.",
+      "features": [
+        "Plano visual de salón y terrazas con tiempos de ocupación y estado de atención.",
+        "Comandera táctil con modificadores de platos (términos, sin cebolla, salsas extras).",
+        "Pantalla KDS de cocina con alertas sonoras y orden cronológico de pedidos.",
+        "División de cuentas entre comensales, múltiples métodos de pago y propinas."
+      ],
+      "stack": [
+        {
+          "name": "Next.js",
+          "icon": "./stack_icons/nextjs.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "./stack_icons/postgresql.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "./stack_icons/typescript.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "./stack_icons/tailwind.svg"
+        }
+      ],
+      "repoUrl": "https://github.com/JohnFranklinMejia",
+      "demoUrl": "https://www.colegiojesusdivinomaestro.com/",
+      "order": 4
+    },
+    {
+      "id": "hotel",
+      "title": "Sistema de Gestión Hotelera & Reservas (PMS)",
+      "exeName": "SISTEMA_HOTEL.EXE",
+      "status": "ONLINE",
+      "category": "web",
+      "summary": "Plataforma para administración hotelera con calendario interactivo de reservas, control de ocupación de habitaciones, estados de limpieza, consumos extras y check-in/out.",
+      "cover": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
+      "architecture": "Arquitectura reactiva con panel interactivo en tiempo real con WebSockets para visualización instantánea del estado de habitaciones, backend RESTful modular y liquidación automática de consumos.",
+      "features": [
+        "Mapa gráfico de pisos y habitaciones con estados en tiempo real (Disponible, Ocupada, Limpieza, Mantenimiento).",
+        "Flujo rápido de Check-in con registro de huéspedes y Check-out con liquidación automática.",
+        "Cargos a la habitación de consumos en restaurante, frigobar y servicios adicionales.",
+        "Historial de huéspedes, tarifas dinámicas por temporada y tasa de ocupación."
+      ],
+      "stack": [
+        {
+          "name": "React",
+          "icon": "./stack_icons/react.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "./stack_icons/typescript.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "./stack_icons/postgresql.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "./stack_icons/tailwind.svg"
+        }
+      ],
+      "repoUrl": "https://github.com/JohnFranklinMejia",
+      "demoUrl": "https://www.colegiojesusdivinomaestro.com/",
+      "order": 5
+    },
+    {
+      "id": "gym",
+      "title": "Sistema de Gestión de Gimnasios & Membresías",
+      "exeName": "SISTEMA_GYM.EXE",
+      "status": "ONLINE",
+      "category": "web",
+      "summary": "Plataforma para control de socios, cobro de membresías y suscripciones periódicas, control de acceso peatonal, planes de entrenamiento y caja diaria.",
+      "cover": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80",
+      "architecture": "Arquitectura web escalable con gestión de membresías temporales, integración con lectores de código de barras/biometría y alertas automáticas de vencimiento.",
+      "features": [
+        "Control de acceso con validación visual inmediata de membresía (Activa / Vencida / Congelada).",
+        "Gestión de planes personalizados (mensual, trimestral, anual, pase libre, disciplinas).",
+        "Módulo de venta de suplementos, bebidas e indumentaria deportiva en recepción.",
+        "Dashboard con métricas de afluencia por horarios pico, renovaciones y retención."
+      ],
+      "stack": [
+        {
+          "name": "React",
+          "icon": "./stack_icons/react.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "./stack_icons/typescript.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "./stack_icons/postgresql.svg"
+        },
+        {
+          "name": "Express",
+          "icon": "./stack_icons/express.svg"
+        }
+      ],
+      "repoUrl": "https://github.com/JohnFranklinMejia",
+      "demoUrl": "https://www.colegiojesusdivinomaestro.com/",
+      "order": 6
+    },
+    {
+      "id": "panaderia",
+      "title": "Sistema para Panaderías & Costeo de Producción",
+      "exeName": "SISTEMA_PANADERIA.EXE",
+      "status": "ONLINE",
+      "category": "web",
+      "summary": "Software especializado para panaderías y pastelerías con costeo de recetas e insumos, control de turnos de producción diaria, punto de venta y control de mermas.",
+      "cover": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+      "architecture": "Arquitectura transaccional de inventario con conversión automática de unidades (kg, gramos, unidades), cálculo de costo estándar por fórmula y punto de venta de alta rotación.",
+      "features": [
+        "Fórmulas y recetas con deducción automática de insumos (harina, levadura, mantequilla, etc.).",
+        "Programación de lotes de producción por turnos (mañana, tarde, noche) y horneadas.",
+        "Venta rápida al mostrador con combos, pesaje y promociones del día.",
+        "Control de mermas y balance de rendimiento por quintal de harina."
+      ],
+      "stack": [
+        {
+          "name": "React",
+          "icon": "./stack_icons/react.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "./stack_icons/node.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "./stack_icons/postgresql.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "./stack_icons/typescript.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "./stack_icons/tailwind.svg"
+        }
+      ],
+      "repoUrl": "https://github.com/JohnFranklinMejia",
+      "demoUrl": "https://www.colegiojesusdivinomaestro.com/",
+      "order": 7
+    },
+    {
+      "id": "gasto",
+      "title": "Gasto - App Móvil de Finanzas Personales Offline-First",
+      "exeName": "GASTO.EXE",
+      "status": "ONLINE",
+      "category": "movil",
+      "summary": "Aplicación multiplataforma de finanzas personales con funcionamiento offline y sincronización automática.",
+      "cover": "./projects/gasto/cover.webp",
+      "architecture": "Arquitectura Offline-First con base de datos local SQLite, sincronización determinista en segundo plano contra Supabase / PostgreSQL y gestión de estado reactivo.",
+      "features": [
+        "Registro rápido de ingresos y gastos con categorización inteligente personalizada.",
+        "Persistencia y funcionamiento offline completo con sincronización al reconectar.",
+        "Dashboard interactivo con balance en tiempo real y gráficas de consumo mensual.",
+        "Sincronización segura en la nube con Supabase Auth y Row Level Security."
+      ],
+      "stack": [
+        {
+          "name": "React Native",
+          "icon": "./stack_icons/react.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "./stack_icons/typescript.svg"
+        },
+        {
+          "name": "Supabase",
+          "icon": "./stack_icons/supabase.svg"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "./stack_icons/postgresql.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": "./stack_icons/tailwind.svg"
+        }
+      ],
+      "repoUrl": "https://github.com/JohnFranklinMejia",
+      "demoUrl": "https://www.colegiojesusdivinomaestro.com/",
+      "order": 8
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg_1789054436396_r194",
+      "name": "Ada Lovelace",
+      "email": "ada@lovelace.io",
+      "subject": "Colaboracion FullStack",
+      "message": "Excelente trabajo con la integracion del backend!",
+      "ip": "::1",
+      "status": "unread",
+      "createdAt": "2026-09-10T15:33:56.396Z"
+    },
+    {
+      "id": "msg_1789078454314_k7d4",
+      "name": "Empresa Tech Global",
+      "email": "contacto@techglobal.com",
+      "subject": "Propuesta de desarrollo de Software a medida",
+      "message": "Hola John, vimos tus sistemas de gestión escolar y punto de venta. Queremos contratar tus servicios para un proyecto.",
+      "ip": "::1",
+      "status": "unread",
+      "createdAt": "2026-09-10T22:14:14.314Z"
+    }
+  ],
+  "guestbook": [
+    {
+      "id": "gb_seed_1",
+      "name": "Ada Lovelace",
+      "avatar": "👩‍💻",
+      "badge": "Pionera",
+      "message": "¡Excelente diseño retro! La estética 90s con terminal interactiva quedó genial.",
+      "createdAt": "2026-09-08T15:30:29.825Z",
+      "likes": 5
+    },
+    {
+      "id": "gb_seed_2",
+      "name": "Linus T.",
+      "avatar": "🐧",
+      "badge": "Open Source",
+      "message": "Me encanta ver proyectos que combinan estética clásica con backend en tiempo real.",
+      "createdAt": "2026-09-09T15:30:29.825Z",
+      "likes": 12
+    },
+    {
+      "id": "gb_1789054455369_jlms",
+      "name": "Grace Hopper",
+      "avatar": "🚀",
+      "badge": "Compiler Dev",
+      "message": "The compiler is alive and fast!",
+      "createdAt": "2026-09-10T15:34:15.369Z",
+      "likes": 2
+    }
+  ]
+}

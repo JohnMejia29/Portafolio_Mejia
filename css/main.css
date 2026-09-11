@@ -1,0 +1,152 @@
+/* ==========================================================================
+   PORTFOLIO.EXE - MAIN DESIGN SYSTEM & VARIABLES
+   Custom Retro OS Design for John Franklin Mejia Chamaya
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=VT323&display=swap');
+
+:root {
+  /* Vintage / Retro OS Color Palette */
+  --bg-desktop: #2e4a42; /* Classic dark teal/slate background */
+  --bg-desktop-subtle: #243c35;
+  --bg-pattern-dot: rgba(255, 255, 255, 0.04);
+  
+  /* Retro Windows Window & Panel Colors */
+  --retro-surface: #d8cdb8; /* Classic warm beige / retro light grey */
+  --retro-surface-light: #ece3d3;
+  --retro-surface-dark: #b8ac96;
+  --retro-surface-card: #f4ecdf;
+  
+  /* Bevel Highlights & Shadows */
+  --bevel-light: #ffffff;
+  --bevel-light-soft: #fbf8f2;
+  --bevel-dark: #7a705e;
+  --bevel-darker: #3e382e;
+  --bevel-inset-bg: #c9bea6;
+  
+  /* Accent Colors */
+  --accent-teal-dark: #123d33;
+  --accent-teal: #1a5346;
+  --accent-teal-light: #257865;
+  --accent-green-bright: #22c55e;
+  --accent-green-glow: #4ade80;
+  --accent-green-neon: #00ff88;
+  
+  /* Header / Titlebar Themes */
+  --titlebar-primary: #123d33;
+  --titlebar-primary-text: #e6fcf5;
+  --titlebar-purple: #3b2064;
+  --titlebar-crimson: #631922;
+  --titlebar-blue: #1a3c68;
+  
+  /* Typography */
+  --font-mono: 'Fira Code', 'Courier New', Courier, monospace;
+  --font-pixel: 'Pixelify Sans', 'VT323', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Text Colors */
+  --text-main: #1f2923;
+  --text-muted: #5c6861;
+  --text-light: #e6fcf5;
+  --text-amber: #eab308;
+  --text-cyan: #38bdf8;
+  
+  /* Shadows & Depth */
+  --shadow-retro-window: 4px 4px 0px rgba(0, 0, 0, 0.45);
+  --shadow-retro-window-hover: 6px 6px 0px rgba(0, 0, 0, 0.55);
+  --shadow-retro-card: 3px 3px 0px rgba(0, 0, 0, 0.35);
+  --shadow-inset: inset 2px 2px 0px var(--bevel-dark), inset -2px -2px 0px var(--bevel-light);
+  --shadow-outset: inset 2px 2px 0px var(--bevel-light), inset -2px -2px 0px var(--bevel-dark);
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color-scheme: dark light;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-desktop);
+  background-image: 
+    linear-gradient(rgba(18, 61, 51, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(circle at 1px 1px, var(--bg-pattern-dot) 1px, transparent 0),
+    linear-gradient(to bottom, #162a24 0%, #2e4a42 35%, #203831 100%);
+  background-size: 100% 4px, 32px 32px, 32px 32px, 16px 16px, 100% 100%;
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+  padding-bottom: 50px; /* Space for bottom Taskbar */
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--accent-teal);
+  color: #fff;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--retro-surface-dark);
+  box-shadow: inset 1px 1px 0px #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--retro-surface);
+  border: 2px outset #fff;
+  box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #7a705e;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--retro-surface-dark);
+  border: 2px inset #000;
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Utility Links & Buttons */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/* Retro Pixel Font Helper */
+.pixel-text {
+  font-family: var(--font-pixel);
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+.mono-text {
+  font-family: var(--font-mono);
+}

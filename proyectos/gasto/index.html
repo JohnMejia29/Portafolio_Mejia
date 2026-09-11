@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalle del proyecto Gasto - Finanzas Personales Offline First por John Franklin Mejia Chamaya">
+  <title>Gasto.exe | John Franklin Mejia Chamaya</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/retro-ui.css">
+  <link rel="stylesheet" href="../../css/sections.css">
+  <link rel="stylesheet" href="../../css/modal-project.css">
+</head>
+<body style="padding-top: 2rem;">
+
+  <div class="container" style="max-width: 960px;">
+    
+    <!-- Top Back Navigation -->
+    <div style="margin-bottom: 1.5rem;">
+      <a href="../../index.html#proyectos" class="retro-btn btn-primary">
+        ◀ Volver al Portafolio
+      </a>
+    </div>
+
+    <!-- Main Project Viewer Window -->
+    <div class="retro-window">
+      <div class="retro-titlebar">
+        <div class="titlebar-left">
+          <span class="titlebar-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </span>
+          <span class="titlebar-title">GASTO.EXE - DETALLE DEL PROYECTO</span>
+        </div>
+        <div class="titlebar-controls">
+          <button class="window-btn btn-minimize">_</button>
+          <button class="window-btn btn-maximize">□</button>
+          <a href="../../index.html#proyectos" class="window-btn btn-close" style="text-decoration:none;">✕</a>
+        </div>
+      </div>
+
+      <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <!-- Image Viewer Box -->
+        <div class="modal-gallery-box">
+          <div class="modal-gallery-header">
+            <span>VISOR_DE_IMÁGENES.EXE</span>
+            <span class="pixel-text">MODO PANTALLA COMPLETA</span>
+          </div>
+          <div class="modal-main-image-frame" style="height: 420px;">
+            <img id="detail-main-img" class="modal-main-image" src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1000&q=80" alt="Gasto App Screenshot">
+          </div>
+          <div class="modal-thumbnails-strip">
+            <img class="modal-thumb active" src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=300&q=80" onclick="document.getElementById('detail-main-img').src=this.src" alt="Thumbnail 1">
+            <img class="modal-thumb" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300&q=80" onclick="document.getElementById('detail-main-img').src=this.src" alt="Thumbnail 2">
+            <img class="modal-thumb" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=300&q=80" onclick="document.getElementById('detail-main-img').src=this.src" alt="Thumbnail 3">
+          </div>
+        </div>
+
+        <!-- Details Grid -->
+        <div class="modal-details-grid">
+          <div class="modal-readme-box">
+            <h3 style="font-family: var(--font-pixel); font-size: 1.8rem; color: var(--accent-teal-dark); margin-bottom: 8px;">
+              Gasto - Finanzas Personales Offline First
+            </h3>
+            <p class="modal-readme-desc">
+              Gasto es una solución moderna para la gestión de finanzas personales desarrollada bajo el paradigma offline-first. Permite a los usuarios registrar transacciones financieras al instante sin depender de conectividad, sincronizando los datos automáticamente con la nube una vez restablecida la conexión.
+            </p>
+            <h4 class="modal-features-title">Características Principales:</h4>
+            <ol class="modal-features-list">
+              <li>Arquitectura Offline-First con almacenamiento y caché local en el dispositivo.</li>
+              <li>Sincronización en segundo plano con Supabase y PostgreSQL.</li>
+              <li>Módulo de analítica con gráficos interactivos y desglose por categorías.</li>
+              <li>Exportación de reportes en PDF y formato Excel.</li>
+              <li>Seguridad biométrica y cifrado local de datos sensibles.</li>
+            </ol>
+          </div>
+
+          <div class="modal-sidebar-box">
+            <div class="modal-stack-box">
+              <h4 class="modal-stack-title">STACK.INI</h4>
+              <div class="modal-tech-pills">
+                <span class="tag-pill">React Native</span>
+                <span class="tag-pill">Expo</span>
+                <span class="tag-pill">TypeScript</span>
+                <span class="tag-pill">Supabase</span>
+                <span class="tag-pill">PostgreSQL</span>
+                <span class="tag-pill">Tailwind CSS</span>
+              </div>
+            </div>
+
+            <div class="modal-action-buttons">
+              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn btn-primary">
+                ▶ Ver Demo en Vivo
+              </a>
+              <a href="https://github.com/JohnFranklinMejia" target="_blank" rel="noopener noreferrer" class="retro-btn">
+                ⌘ Ver Repositorio
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

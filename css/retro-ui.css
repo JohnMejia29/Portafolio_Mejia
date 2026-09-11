@@ -1,0 +1,1297 @@
+/* ==========================================================================
+   RETRO UI - WINDOWS 95 / RETRO OS COMPONENTS
+   ========================================================================== */
+
+/* 3D Bevel Utility Classes */
+.bevel-outset {
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft), inset -1px -1px 0px var(--bevel-dark);
+}
+
+.bevel-inset {
+  border-top: 2px solid var(--bevel-darker);
+  border-left: 2px solid var(--bevel-darker);
+  border-right: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0px #1a1a1a, inset -1px -1px 0px var(--bevel-light-soft);
+  background-color: var(--bevel-inset-bg);
+}
+
+/* Retro Window Container */
+.retro-window {
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: 
+    inset 1px 1px 0px var(--bevel-light-soft), 
+    inset -1px -1px 0px var(--bevel-dark),
+    var(--shadow-retro-window);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Retro Titlebar */
+.retro-titlebar {
+  background: linear-gradient(90deg, var(--titlebar-primary) 0%, #1c5e4f 100%);
+  color: var(--titlebar-primary-text);
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-pixel);
+  font-size: 1.15rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+.retro-titlebar.titlebar-purple {
+  background: linear-gradient(90deg, var(--titlebar-purple) 0%, #583391 100%);
+}
+
+.retro-titlebar.titlebar-crimson {
+  background: linear-gradient(90deg, var(--titlebar-crimson) 0%, #8b2330 100%);
+}
+
+.retro-titlebar.titlebar-blue {
+  background: linear-gradient(90deg, var(--titlebar-blue) 0%, #295c9c 100%);
+}
+
+.titlebar-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.titlebar-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titlebar-icon svg,
+.header-brand svg,
+.start-menu-item svg,
+.retro-btn svg,
+.icon-svg {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-svg-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.titlebar-title {
+  text-shadow: 1px 1px 0px #000;
+}
+
+.titlebar-controls {
+  display: flex;
+  gap: 3px;
+}
+
+.window-btn {
+  width: 18px;
+  height: 16px;
+  background-color: var(--retro-surface);
+  border-top: 1px solid var(--bevel-light);
+  border-left: 1px solid var(--bevel-light);
+  border-right: 1px solid var(--bevel-darker);
+  border-bottom: 1px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft), inset -1px -1px 0px var(--bevel-dark);
+  color: #000;
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+}
+
+.window-btn:active {
+  border-top: 1px solid var(--bevel-darker);
+  border-left: 1px solid var(--bevel-darker);
+  border-right: 1px solid var(--bevel-light);
+  border-bottom: 1px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0px #000;
+  transform: translate(1px, 1px);
+}
+
+.window-btn.btn-close:hover {
+  background-color: #d14949;
+  color: #fff;
+}
+
+/* Retro Top App Bar / Header Navigation */
+.retro-header-window {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin-bottom: 2rem;
+  background-color: var(--retro-surface);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.retro-header-window .retro-titlebar {
+  background: linear-gradient(90deg, var(--titlebar-primary) 0%, #1c5e4f 100%);
+  color: var(--titlebar-primary-text);
+  padding: 4px 8px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.retro-header-window .titlebar-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.retro-header-window .titlebar-controls {
+  gap: 3px;
+}
+
+.retro-header-window .window-btn {
+  width: 18px;
+  height: 16px;
+  background-color: var(--retro-surface);
+  border-top: 1px solid var(--bevel-light);
+  border-left: 1px solid var(--bevel-light);
+  border-right: 1px solid var(--bevel-darker);
+  border-bottom: 1px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft), inset -1px -1px 0px var(--bevel-dark);
+  color: #000;
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.retro-header-window .window-btn:active {
+  border-top: 1px solid var(--bevel-darker);
+  border-left: 1px solid var(--bevel-darker);
+  border-right: 1px solid var(--bevel-light);
+  border-bottom: 1px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0px #000;
+  transform: translate(1px, 1px);
+}
+
+.retro-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px clamp(12px, 2.5vw, 36px);
+  min-height: 72px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  width: 100%;
+  max-width: 100%;
+  gap: clamp(8px, 1.2vw, 20px);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-pixel);
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+  font-weight: 700;
+  color: var(--accent-teal-dark);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.brand-name-accent {
+  color: #923a24;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(4px, 0.8vw, 10px);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  flex-shrink: 1;
+}
+
+.nav-link {
+  font-family: var(--font-pixel);
+  font-size: clamp(1.1rem, 1.3vw, 1.35rem);
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 6px clamp(8px, 0.9vw, 12px);
+  min-height: 40px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.nav-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.nav-link:hover {
+  background-color: var(--retro-surface-light);
+  border-top: 1px solid var(--bevel-light);
+  border-left: 1px solid var(--bevel-light);
+  border-right: 1px solid var(--bevel-darker);
+  border-bottom: 1px solid var(--bevel-darker);
+}
+
+.nav-link.active {
+  background-color: #d1c7b2;
+  border-top: 2px solid #5a5244;
+  border-left: 2px solid #5a5244;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+  font-weight: bold;
+}
+
+/* Language Toggle Button */
+.lang-toggle-btn {
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft), inset -1px -1px 0px var(--bevel-dark);
+  font-family: var(--font-pixel);
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-main);
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.lang-flag-icon {
+  width: 22px;
+  height: 16px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(1px 1px rgba(0, 0, 0, 0.3));
+}
+
+.lang-toggle-btn:hover {
+  background-color: #dfd0ad;
+}
+
+.lang-toggle-btn:active {
+  border-top: 2px solid var(--bevel-darker);
+  border-left: 2px solid var(--bevel-darker);
+  border-right: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0px #000;
+  transform: translate(1px, 1px);
+}
+
+.section-pixel-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.contact-bit-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  margin-bottom: 8px;
+}
+
+/* Retro Standard 3D Buttons */
+.retro-btn {
+  font-family: var(--font-pixel);
+  font-size: 1.25rem;
+  padding: 6px 14px;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft), inset -1px -1px 0px var(--bevel-dark);
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.05s ease, background-color 0.15s ease;
+}
+
+.retro-btn:hover {
+  background-color: var(--retro-surface-light);
+}
+
+.retro-btn:active, .retro-btn.active {
+  border-top: 2px solid var(--bevel-darker);
+  border-left: 2px solid var(--bevel-darker);
+  border-right: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0px #000;
+  transform: translate(1px, 1px);
+}
+
+.btn-primary {
+  background-color: #175244;
+  color: #e6fcf5;
+  border-top: 2px solid #3fa48a;
+  border-left: 2px solid #3fa48a;
+  border-right: 2px solid #08211b;
+  border-bottom: 2px solid #08211b;
+  box-shadow: inset 1px 1px 0px #5ec4aa, inset -1px -1px 0px #0c2b23;
+}
+
+.btn-primary:hover {
+  background-color: #1e6654;
+}
+
+.btn-primary:active {
+  background-color: #123d33;
+  border-top: 2px solid #08211b;
+  border-left: 2px solid #08211b;
+  border-right: 2px solid #3fa48a;
+  border-bottom: 2px solid #3fa48a;
+}
+
+/* Filter Buttons (Todos, Web, Móvil) */
+.filter-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: var(--font-pixel);
+  font-size: 1.2rem;
+  padding: 6px 14px;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft), inset -1px -1px 0px var(--bevel-dark);
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-btn:hover {
+  background-color: var(--retro-surface-light);
+}
+
+.filter-btn.active {
+  background-color: var(--accent-teal-dark);
+  color: #e6fcf5;
+  border-top: 2px solid #08211b;
+  border-left: 2px solid #08211b;
+  border-right: 2px solid #2d7a67;
+  border-bottom: 2px solid #2d7a67;
+  box-shadow: inset 2px 2px 0px #061814;
+}
+
+.filter-btn .play-icon {
+  display: none;
+  color: var(--accent-green-bright);
+  font-size: 0.9rem;
+}
+
+.filter-btn.active .play-icon {
+  display: inline-block;
+}
+
+/* ==========================================================================
+   WINDOWS 95 TASKBAR & START MENU
+   ========================================================================== */
+
+.retro-taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  box-shadow: inset 0 1px 0 var(--bevel-light-soft), 0 -2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 6px;
+  z-index: 1000;
+  user-select: none;
+}
+
+.taskbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.start-btn {
+  font-family: var(--font-pixel);
+  font-size: 1.35rem;
+  font-weight: bold;
+  padding: 3px 10px;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft), inset -1px -1px 0px var(--bevel-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.start-btn:active, .start-btn.active {
+  border-top: 2px solid var(--bevel-darker);
+  border-left: 2px solid var(--bevel-darker);
+  border-right: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0px #000;
+  background-color: var(--bevel-inset-bg);
+}
+
+.start-logo {
+  width: 18px;
+  height: 18px;
+}
+
+.taskbar-divider {
+  width: 2px;
+  height: 24px;
+  border-left: 1px solid var(--bevel-dark);
+  border-right: 1px solid var(--bevel-light);
+}
+
+.taskbar-status {
+  font-family: var(--font-pixel);
+  font-size: 1.15rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.taskbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.system-tray {
+  border-top: 1px solid var(--bevel-darker);
+  border-left: 1px solid var(--bevel-darker);
+  border-right: 1px solid var(--bevel-light);
+  border-bottom: 1px solid var(--bevel-light);
+  padding: 2px 8px;
+  background-color: var(--bevel-inset-bg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-pixel);
+  font-size: 1.15rem;
+}
+
+.tray-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#clock-display {
+  min-width: 65px;
+  text-align: right;
+  letter-spacing: 0.5px;
+}
+
+/* Start Menu Popup */
+.start-menu-popup {
+  position: fixed;
+  bottom: 42px;
+  left: 6px;
+  width: 260px;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: 
+    inset 1px 1px 0px var(--bevel-light-soft), 
+    inset -1px -1px 0px var(--bevel-dark),
+    4px -4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  display: none;
+  flex-direction: row;
+}
+
+.start-menu-popup.open {
+  display: flex;
+}
+
+.start-menu-sidebar {
+  background: linear-gradient(to top, #123d33 0%, #206d5b 100%);
+  width: 32px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12px;
+}
+
+.start-menu-banner {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-pixel);
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.start-menu-items {
+  flex: 1;
+  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.start-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  font-family: var(--font-pixel);
+  font-size: 1.25rem;
+  color: var(--text-main);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.start-menu-item:hover {
+  background-color: #175244;
+  color: #fff;
+}
+
+.start-menu-item-divider {
+  height: 1px;
+  background-color: var(--bevel-dark);
+  border-bottom: 1px solid var(--bevel-light);
+  margin: 4px 6px;
+}
+
+/* ==========================================================================
+   INTERACTIVE WINDOW MANAGER STATES & DRAGGING
+   ========================================================================== */
+.retro-window.is-dragging {
+  opacity: 0.92;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+  user-select: none;
+}
+
+.retro-window.window-focused {
+  border-color: var(--bevel-light);
+}
+
+.retro-window.window-opening {
+  animation: retroWindowOpen 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.retro-window.window-closing {
+  animation: retroWindowClose 0.15s ease-in forwards;
+}
+
+@keyframes retroWindowOpen {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes retroWindowClose {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+}
+
+.retro-window.is-maximized {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 40px) !important;
+  max-width: 100vw !important;
+  max-height: calc(100vh - 40px) !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  z-index: 999 !important;
+}
+
+.floating-window {
+  position: fixed;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 680px);
+  max-height: 85vh;
+  z-index: 500;
+  box-shadow: 
+    inset 1px 1px 0px var(--bevel-light-soft), 
+    inset -1px -1px 0px var(--bevel-dark),
+    0 16px 32px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Taskbar Windows List */
+#taskbar-windows-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow-x: auto;
+  max-width: 45vw;
+}
+
+.taskbar-window-btn {
+  font-family: var(--font-pixel);
+  font-size: 1.05rem;
+  padding: 3px 8px;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft);
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.taskbar-window-btn.active {
+  border-top: 2px solid var(--bevel-darker);
+  border-left: 2px solid var(--bevel-darker);
+  border-right: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-light);
+  background-color: var(--bevel-inset-bg);
+  box-shadow: inset 1px 1px 2px #000;
+  color: #38ef7d;
+}
+
+/* ==========================================================================
+   BOOT SCREEN (BIOS POST OVERLAY)
+   ========================================================================== */
+#boot-screen-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #000000;
+  color: #f1f5f9;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2.5rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.boot-fade-out {
+  opacity: 0;
+  transition: opacity 0.35s ease-out;
+  pointer-events: none;
+}
+
+.boot-screen-content {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.boot-line {
+  margin: 2px 0;
+}
+
+.boot-skip-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   ARCADE.EXE & RETRO GAMES UI
+   ========================================================================== */
+.arcade-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 8px 12px;
+  background-color: #17382f;
+  border-bottom: 2px solid #0f241e;
+}
+
+.arcade-tab-btn {
+  font-family: var(--font-pixel);
+  font-size: 1.15rem;
+  padding: 4px 12px;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.arcade-tab-btn.active {
+  background-color: #38ef7d;
+  color: #04100c;
+  border-top: 2px solid #04100c;
+  border-left: 2px solid #04100c;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  font-weight: bold;
+}
+
+.arcade-body {
+  background-color: #061511;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arcade-score-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 440px;
+  margin-bottom: 10px;
+  font-family: var(--font-pixel);
+  font-size: 1.15rem;
+  color: #38ef7d;
+  background: #0b1f19;
+  padding: 6px 12px;
+  border: 1px inset #175244;
+}
+
+.arcade-canvas-wrap {
+  border: 3px inset #175244;
+  box-shadow: 0 0 12px rgba(56, 239, 125, 0.2);
+  display: flex;
+  justify-content: center;
+}
+
+.arcade-canvas-wrap canvas {
+  display: block;
+  image-rendering: pixelated;
+  background-color: #000;
+  max-width: 100%;
+  height: auto;
+}
+
+.arcade-instructions {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #8dafa4;
+  text-align: center;
+}
+
+/* ==========================================================================
+   ADMIN_CONTROL_PANEL.EXE UI & CMS
+   ========================================================================== */
+.admin-window-body {
+  background-color: #0b1f19;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 420px;
+}
+
+.admin-tabs {
+  display: flex;
+  background-color: #061511;
+  padding: 6px;
+  gap: 6px;
+  border-bottom: 2px solid #175244;
+  overflow-x: auto;
+}
+
+.admin-tab-btn {
+  background-color: #102620;
+  color: #a7f3d0;
+  border: 1px solid #286053;
+  padding: 6px 14px;
+  font-family: var(--font-pixel);
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.admin-tab-btn.active {
+  background-color: #38ef7d;
+  color: #04100c;
+  border: 1px solid #fff;
+  font-weight: bold;
+}
+
+.admin-tab-btn:hover:not(.active) {
+  background-color: #175244;
+  color: #fff;
+}
+
+.admin-tab-content {
+  background-color: #061511;
+  border: 2px inset #175244;
+  padding: 1rem;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.admin-message-card {
+  transition: all 0.2s ease;
+}
+
+.admin-message-card:hover {
+  border-color: #38ef7d !important;
+}
+
+.admin-message-card.unread {
+  background: #0d3326 !important;
+  border-color: #38ef7d !important;
+  box-shadow: 0 0 8px rgba(56, 239, 125, 0.15);
+}
+
+.admin-editor-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(3px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* ==========================================================================
+   SYSTEM_LOGS.EXE UI
+   ========================================================================== */
+.system-logs-body {
+  background-color: #0b1f19;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.system-logs-telemetry {
+  background-color: #061511;
+  border: 1px inset #175244;
+  padding: 8px 12px;
+  font-family: var(--font-pixel);
+  font-size: 1.1rem;
+  color: #38ef7d;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.system-logs-scroll {
+  background-color: #061511;
+  border: 2px inset #000;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+/* ==========================================================================
+   GLOBAL RESPONSIVE ADJUSTMENTS FOR RETRO UI
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .retro-header-bar {
+    padding: 6px 12px;
+    gap: 8px;
+  }
+  .header-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+  }
+  .header-nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-brand {
+    font-size: 1.35rem;
+    gap: 6px;
+  }
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .nav-link {
+    font-size: 1rem;
+    padding: 4px 8px;
+    min-height: 34px;
+    gap: 4px;
+  }
+  .nav-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .lang-toggle-btn {
+    font-size: 1rem;
+    padding: 3px 8px;
+    min-height: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .retro-taskbar {
+    height: 38px;
+    padding: 2px 4px;
+  }
+  .start-btn {
+    font-size: 1.15rem;
+    padding: 2px 6px;
+  }
+  .taskbar-status {
+    display: none;
+  }
+  .system-tray {
+    padding: 2px 4px;
+    gap: 6px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ==========================================================================
+   RETRO OS DESKTOP AMBIENT & TECH ENVIRONMENT
+   ========================================================================== */
+
+/* Fixed Ambient Circuit Grid */
+.desktop-ambient-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.desktop-circuit-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  animation: circuitPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes circuitPulse {
+  0% { opacity: 0.55; filter: drop-shadow(0 0 1px rgba(56, 239, 125, 0.2)); }
+  50% { opacity: 0.9; filter: drop-shadow(0 0 4px rgba(56, 239, 125, 0.45)); }
+  100% { opacity: 0.55; filter: drop-shadow(0 0 1px rgba(56, 239, 125, 0.2)); }
+}
+
+/* Desktop Shortcut Icons (Win95/98 Wallpaper Style) */
+.desktop-shortcuts-bar {
+  position: fixed;
+  top: 90px;
+  left: 16px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  pointer-events: auto;
+}
+
+.desktop-shortcut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  padding: 4px 2px;
+  text-decoration: none;
+  cursor: pointer;
+  background: transparent;
+  border: 1px dotted transparent;
+  transition: background 0.1s ease;
+  user-select: none;
+}
+
+.desktop-shortcut:hover,
+.desktop-shortcut:focus {
+  background: rgba(18, 61, 51, 0.6);
+  border: 1px dotted rgba(74, 222, 128, 0.6);
+}
+
+.desktop-shortcut:active {
+  background: rgba(26, 83, 70, 0.85);
+  border: 1px dotted #ffffff;
+}
+
+.shortcut-icon-box {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.shortcut-icon-box img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.6));
+}
+
+.shortcut-label {
+  font-family: var(--font-pixel);
+  font-size: 0.92rem;
+  color: #e6fcf5;
+  text-align: center;
+  line-height: 1.1;
+  text-shadow: 1px 1px 2px #000;
+  word-break: break-all;
+}
+
+/* Responsive adjustments for desktop icons */
+@media (max-width: 1200px) {
+  .desktop-shortcuts-bar {
+    left: 8px;
+    gap: 10px;
+    transform: scale(0.9);
+    transform-origin: top left;
+  }
+}
+
+@media (max-width: 900px) {
+  .desktop-shortcuts-bar {
+    display: none;
+  }
+}
+
+/* System Status Telemetry Widget (SYSTEM_STATUS.SYS) */
+.desktop-system-status-widget {
+  position: fixed;
+  right: 18px;
+  bottom: 52px;
+  z-index: 95;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.4);
+  width: 210px;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.status-widget-header {
+  background: linear-gradient(90deg, #123d33 0%, #1a5346 100%);
+  color: #e6fcf5;
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.status-widget-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.status-widget-icon {
+  color: #facc15;
+  font-size: 0.85rem;
+}
+
+.status-widget-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.status-minimize-btn {
+  width: 16px;
+  height: 14px;
+  background: var(--retro-surface);
+  border-top: 1px solid var(--bevel-light);
+  border-left: 1px solid var(--bevel-light);
+  border-right: 1px solid var(--bevel-darker);
+  border-bottom: 1px solid var(--bevel-darker);
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.status-widget-body {
+  background-color: #071713;
+  color: #38ef7d;
+  padding: 8px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px inset #000;
+}
+
+.status-widget-body.collapsed {
+  display: none;
+}
+
+.status-metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.metric-tag {
+  color: #38bdf8;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.metric-meter {
+  color: #4ade80;
+  letter-spacing: -1px;
+  font-size: 0.78rem;
+}
+
+.metric-val {
+  color: #facc15;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.metric-status-online {
+  color: #4ade80;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.metric-live-blink {
+  color: #22c55e;
+  font-size: 0.75rem;
+  animation: pulseBlink 1.2s infinite;
+}
+
+@keyframes pulseBlink {
+  0%, 100% { opacity: 1; text-shadow: 0 0 6px #22c55e; }
+  50% { opacity: 0.3; text-shadow: none; }
+}
+
+@media (max-width: 768px) {
+  .desktop-system-status-widget {
+    bottom: 46px;
+    right: 8px;
+    width: 180px;
+    transform: scale(0.9);
+    transform-origin: bottom right;
+  }
+}
+
+@media (max-width: 480px) {
+  .desktop-system-status-widget {
+    display: none;
+  }
+}
+
+
