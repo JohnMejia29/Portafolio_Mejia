@@ -1271,6 +1271,10 @@
    FLOATING WINDOW — FULL SCREEN ON MOBILE
    ========================================================================== */
 @media (max-width: 860px) {
+  .mobile-overlay-hidden {
+    display: none !important;
+  }
+
   .floating-window {
     position: fixed !important;
     top: 0 !important;

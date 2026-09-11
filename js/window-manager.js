@@ -237,6 +237,7 @@ class WindowManagerClass {
     if (!winData) return;
 
     if (winData.isFloating && window.innerWidth <= 860) {
+      this.setMobileBackgroundWindowsHidden(true);
       this.windows.forEach((otherWin) => {
         if (otherWin.id === winData.id || !otherWin.isFloating || otherWin.isClosed) return;
         otherWin.el.classList.remove('window-opening', 'window-focused', 'window-inactive', 'is-minimized');
@@ -292,6 +293,7 @@ class WindowManagerClass {
       if (winData.isFloating) {
         winData.el.style.display = 'none';
         winData.isClosed = true;
+        this.setMobileBackgroundWindowsHidden(false);
       }
       this.updateTaskbar();
     }, 150);
@@ -311,6 +313,7 @@ class WindowManagerClass {
 
     if (winData.isFloating) {
       winData.el.style.display = 'none';
+      this.setMobileBackgroundWindowsHidden(false);
     }
 
     if (this.activeWindowId === id) {
@@ -318,6 +321,14 @@ class WindowManagerClass {
     }
 
     this.updateTaskbar();
+  }
+
+  setMobileBackgroundWindowsHidden(hidden) {
+    if (window.innerWidth > 860) return;
+    document.querySelectorAll('.terminal-window').forEach((terminal) => {
+      const windowElement = terminal.closest('.retro-window');
+      if (windowElement) windowElement.classList.toggle('mobile-overlay-hidden', hidden);
+    });
   }
 
   restoreWindow(id) {
