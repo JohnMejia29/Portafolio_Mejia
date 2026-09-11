@@ -55,6 +55,10 @@
   align-items: stretch;
 }
 
+.hero-grid>* {
+  min-width: 0;
+}
+
 @media (max-width: 960px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -67,7 +71,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: auto;
 }
 
 .profile-header {
@@ -100,6 +104,13 @@
   image-rendering: pixelated;
 }
 
+.profile-info {
+  min-width: 0;
+  /* Allows flex child to shrink below its content size */
+  flex: 1;
+  overflow: hidden;
+}
+
 .profile-info h1 {
   font-family: var(--font-pixel);
   font-size: clamp(2.2rem, 2.8vw, 2.7rem);
@@ -107,6 +118,9 @@
   color: var(--accent-teal-dark);
   margin-bottom: 6px;
   letter-spacing: 0.5px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .profile-title-badge {
@@ -129,6 +143,13 @@
   font-size: 1.25rem;
   color: #175244;
   font-weight: 600;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.profile-status>span:last-child {
+  min-width: 0;
 }
 
 .status-dot {
@@ -141,8 +162,17 @@
 }
 
 @keyframes pulseStatus {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
 }
 
 .profile-bio {
@@ -151,6 +181,9 @@
   line-height: 1.65;
   margin-bottom: 1.5rem;
   font-family: var(--font-sans);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .hero-actions {
@@ -192,6 +225,30 @@
   border-right: 2px solid var(--bevel-light);
   border-bottom: 2px solid var(--bevel-light);
   box-shadow: inset 2px 2px 0px #020706;
+  overflow-x: hidden;
+  overflow-y: auto;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.terminal-output,
+.terminal-banner {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.terminal-banner {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.terminal-input-line {
+  min-width: 0;
+}
+
+.terminal-input-line input {
+  min-width: 0;
 }
 
 .terminal-line {
@@ -232,8 +289,16 @@
 }
 
 @keyframes blinkCursor {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Secondary Desktop Artifacts: Sticky Note & Image Window */
@@ -477,7 +542,7 @@
   background-color: #f7f3e8;
   border: 1px solid #d4c8af;
   padding: 1rem;
-  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.15);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .floppy-label h3 {
@@ -599,7 +664,9 @@
 }
 
 @keyframes spinSpool {
-  100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .spool-inner {
@@ -761,6 +828,7 @@
 .pegboard-item:nth-child(odd) {
   transform: rotate(-1.5deg);
 }
+
 .pegboard-item:nth-child(even) {
   transform: rotate(2deg);
 }
@@ -827,12 +895,29 @@
 }
 
 @keyframes swingPendulum {
-  0% { transform: rotate(0deg); }
-  20% { transform: rotate(8deg); }
-  40% { transform: rotate(-6deg); }
-  60% { transform: rotate(4deg); }
-  80% { transform: rotate(-2deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(8deg);
+  }
+
+  40% {
+    transform: rotate(-6deg);
+  }
+
+  60% {
+    transform: rotate(4deg);
+  }
+
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /* ==========================================================================
@@ -851,8 +936,8 @@
   border-left: 2px solid var(--bevel-light);
   border-right: 2px solid var(--bevel-darker);
   border-bottom: 2px solid var(--bevel-darker);
-  box-shadow: 
-    inset 1px 1px 0px var(--bevel-light-soft), 
+  box-shadow:
+    inset 1px 1px 0px var(--bevel-light-soft),
     inset -1px -1px 0px var(--bevel-dark),
     var(--shadow-retro-window);
   border-radius: 2px;
@@ -969,15 +1054,18 @@
   .timeline::before {
     left: 14px;
   }
+
   .timeline-item {
     grid-template-columns: 32px 1fr;
     grid-template-rows: auto auto;
     gap: 0.75rem;
   }
+
   .date-stamp {
     grid-column: 2;
     width: fit-content;
   }
+
   .timeline-card {
     grid-column: 2;
   }
@@ -1021,7 +1109,7 @@
   border-left: 2px solid #ffffff;
   border-right: 2px solid #7a705e;
   border-bottom: 2px solid #7a705e;
-  box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #7a705e, 2px 2px 4px rgba(0,0,0,0.15);
+  box-shadow: inset 1px 1px 0px #fff, inset -1px -1px 0px #7a705e, 2px 2px 4px rgba(0, 0, 0, 0.15);
   padding: 7px 14px;
   display: inline-flex;
   align-items: center;
@@ -1443,3 +1531,212 @@
   letter-spacing: 1px;
 }
 
+/* ==========================================================================
+   GLOBAL MOBILE OVERFLOW PREVENTION
+   Prevents any element from causing horizontal scroll on small screens.
+   ========================================================================== */
+@media (max-width: 860px) {
+
+  /* Force all major containers to stay within viewport */
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* All top-level sections */
+  main,
+  section,
+  article,
+  aside,
+  .section-wrapper,
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Collapse hero grid to 1 column */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Profile header stacks on very small screens */
+  .profile-header {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .profile-info {
+    width: 100%;
+  }
+
+  .profile-info h1 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  /* Smaller section titles */
+  .section-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .section-number {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+  }
+
+  /* Hero action buttons wrap */
+  .hero-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero-actions .retro-btn {
+    flex: 1 1 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 6px 12px;
+    min-height: 40px;
+  }
+
+  /* Projects grid: 1 column on mobile */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Mini desktop grid: 1 column */
+  .desktop-mini-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack/tech grid collapses */
+  .stack-category-grid,
+  .tech-grid,
+  .skill-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 120px), 1fr)) !important;
+  }
+
+  /* Cassette / Pegboard sections */
+  .cassette-grid,
+  .pegboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Timeline entries */
+  .timeline-entry {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Contact form */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Prevent any image from overflowing */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Table scroll wrapper (if any table exists) */
+  table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  /* Remove horizontal margin/padding on hero card for mobile */
+  .hero-card {
+    padding: 1rem;
+  }
+
+  /* Filter buttons wrap */
+  .filter-bar {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+/* Extra small screens (≤480px — Pixel 9, iPhone SE, etc.) */
+@media (max-width: 480px) {
+  body {
+    padding-bottom: 60px;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .section-wrapper {
+    margin-bottom: 2.5rem;
+  }
+
+  /* Stack avatar above text on tiny screens */
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .profile-avatar-frame {
+    width: 72px;
+    height: 72px;
+  }
+
+  /* Name: smaller and wraps */
+  .profile-info h1 {
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  /* Status line wraps */
+  .profile-status {
+    align-items: flex-start;
+    font-size: 1rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Bio text smaller */
+  .profile-bio {
+    font-size: 0.95rem;
+  }
+
+  /* Terminal font smaller to prevent line overflow */
+  .terminal-window {
+    font-size: 0.78rem;
+    padding: 0.75rem;
+    min-height: 220px;
+  }
+
+  /* Project card text sizing */
+  .project-name {
+    font-size: 1.2rem;
+  }
+
+  /* Hero actions: full width buttons */
+  .hero-actions .retro-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  /* Status badge smaller */
+  .profile-title-badge {
+    font-size: 0.82rem;
+    padding: 3px 8px;
+  }
+
+  /* Section titles compact */
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  /* Retro window padding inside on small screens */
+  .hero-card {
+    padding: 0.85rem;
+  }
+}

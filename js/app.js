@@ -147,7 +147,73 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 4000);
   }
 
-  // 6. Register visit in local backend
+  // 7. Mobile Hamburger Menu
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileNavDropdown = document.getElementById('mobile-nav-dropdown');
+
+  if (mobileMenuBtn && mobileNavDropdown) {
+    // Toggle menu open/close
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileNavDropdown.classList.contains('open');
+      mobileNavDropdown.classList.toggle('open', !isOpen);
+      mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+      mobileNavDropdown.setAttribute('aria-hidden', String(isOpen));
+      SoundFX.playClick();
+    });
+
+    // Close when a link is clicked
+    mobileNavDropdown.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavDropdown.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileNavDropdown.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    // Close when clicking outside the header
+    document.addEventListener('click', (e) => {
+      const header = document.querySelector('.retro-header-window');
+      if (header && !header.contains(e.target) && mobileNavDropdown.classList.contains('open')) {
+        mobileNavDropdown.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileNavDropdown.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // Sync mobile lang toggle with desktop one (mirror state)
+    const mobileLangBtn = document.getElementById('lang-toggle-btn-mobile');
+    const desktopLangBtn = document.getElementById('lang-toggle-btn');
+    const mobileLangIcon = document.getElementById('lang-icon-mobile');
+    const mobileLangLabel = document.getElementById('lang-label-mobile');
+
+    if (mobileLangBtn && desktopLangBtn) {
+      // Mirror any click on mobile lang to desktop lang button
+      mobileLangBtn.addEventListener('click', () => {
+        desktopLangBtn.click();
+        // Close the mobile menu after changing language
+        mobileNavDropdown.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileNavDropdown.setAttribute('aria-hidden', 'true');
+      });
+
+      // Observe the desktop lang icon/label to keep mobile in sync
+      const syncMobileLang = () => {
+        const desktopIcon = document.getElementById('lang-icon');
+        const desktopLabel = document.getElementById('lang-label');
+        if (desktopIcon && mobileLangIcon) mobileLangIcon.src = desktopIcon.src;
+        if (desktopLabel && mobileLangLabel) mobileLangLabel.textContent = desktopLabel.textContent;
+      };
+
+      // Watch for changes on the desktop lang label
+      const langObserver = new MutationObserver(syncMobileLang);
+      const desktopLangLabel = document.getElementById('lang-label');
+      if (desktopLangLabel) {
+        langObserver.observe(desktopLangLabel, { childList: true, characterData: true, subtree: true });
+      }
+    }
+  }
+
+  // 8. Register visit in local backend
   try {
     const visitRes = await BackendClient.registerVisit();
     const visitorBadge = document.getElementById('visitor-count-badge');

@@ -40,7 +40,15 @@
         <img class="brand-icon" src="./images/icono_header.webp" alt="Computadora retro con código">
         <span class="brand-name">PORTFOLIO<span class="brand-name-accent">.EXE</span></span>
       </a>
-      <nav class="header-nav">
+
+      <!-- Hamburger Button (only visible on mobile) -->
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav-dropdown">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <nav class="header-nav" id="desktop-nav">
         <a href="#inicio" class="nav-link active">
           <img class="nav-icon" src="./header_icons/inicio.webp" alt="">
           <span data-i18n="nav_inicio">Inicio</span>
@@ -65,6 +73,35 @@
       <button id="lang-toggle-btn" class="lang-toggle-btn" title="Change language to English">
         <img id="lang-icon" class="lang-flag-icon" src="./images/USA.webp" alt="Bandera">
         <span id="lang-label">EN</span>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Dropdown (hidden by default, shown when hamburger is pressed) -->
+    <div id="mobile-nav-dropdown" class="mobile-nav-dropdown" aria-hidden="true">
+      <a href="#inicio" class="mobile-nav-link">
+        <img class="nav-icon" src="./header_icons/inicio.webp" alt="">
+        <span data-i18n="nav_inicio">Inicio</span>
+      </a>
+      <a href="#proyectos" class="mobile-nav-link">
+        <img class="nav-icon" src="./header_icons/proyectos.webp" alt="">
+        <span data-i18n="nav_proyectos">Proyectos</span>
+      </a>
+      <a href="#stack" class="mobile-nav-link">
+        <img class="nav-icon" src="./header_icons/tecnologias.webp" alt="">
+        <span data-i18n="nav_stack">Tecnologías</span>
+      </a>
+      <a href="#sobre-mi" class="mobile-nav-link">
+        <img class="nav-icon" src="./header_icons/sobre_mi.webp" alt="">
+        <span data-i18n="nav_sobre_mi">Sobre mí</span>
+      </a>
+      <a href="#contacto" class="mobile-nav-link">
+        <img class="nav-icon" src="./header_icons/contacto.webp" alt="">
+        <span data-i18n="nav_contacto">Contacto</span>
+      </a>
+      <div class="mobile-nav-divider"></div>
+      <button id="lang-toggle-btn-mobile" class="lang-toggle-btn mobile-lang-btn" title="Change language to English">
+        <img id="lang-icon-mobile" class="lang-flag-icon" src="./images/USA.webp" alt="Bandera">
+        <span id="lang-label-mobile">EN</span>
       </button>
     </div>
   </header>
@@ -1172,11 +1209,26 @@
       <div class="arcade-canvas-wrap">
         <canvas id="snake-canvas" width="320" height="320"></canvas>
       </div>
-      <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
-        <button id="snake-restart-btn" class="retro-btn btn-primary" style="padding: 4px 12px; font-size: 0.95rem;">
+      <div class="arcade-controls-row">
+        <button id="snake-restart-btn" class="retro-btn btn-primary arcade-action-btn">
           ▶ Iniciar / Reiniciar
         </button>
-        <span class="arcade-instructions">Controles: Flechas o WASD | Espacio: Pausa</span>
+        <span class="arcade-instructions desktop-only">Flechas o WASD | Espacio: Pausa</span>
+        <span class="arcade-instructions mobile-only">Usa los controles de pantalla</span>
+      </div>
+      <!-- Mobile D-Pad for Snake -->
+      <div id="snake-dpad" class="game-dpad mobile-only">
+        <div class="dpad-row">
+          <button class="dpad-btn dpad-up" data-dir="up" aria-label="Arriba">▲</button>
+        </div>
+        <div class="dpad-row dpad-middle">
+          <button class="dpad-btn dpad-left" data-dir="left" aria-label="Izquierda">◀</button>
+          <div class="dpad-center"></div>
+          <button class="dpad-btn dpad-right" data-dir="right" aria-label="Derecha">▶</button>
+        </div>
+        <div class="dpad-row">
+          <button class="dpad-btn dpad-down" data-dir="down" aria-label="Abajo">▼</button>
+        </div>
       </div>
     </div>
 
@@ -1190,17 +1242,38 @@
       <div class="arcade-canvas-wrap">
         <canvas id="football-canvas" width="400" height="280"></canvas>
       </div>
-      <div style="display: flex; gap: 8px; align-items: center; margin-top: 10px; flex-wrap: wrap;">
-        <button id="football-restart-btn" class="retro-btn btn-primary" style="padding: 4px 12px; font-size: 0.95rem;">
+      <div class="arcade-controls-row">
+        <button id="football-restart-btn" class="retro-btn btn-primary arcade-action-btn">
           ▶ Iniciar Partido
         </button>
-        <button id="football-pause-btn" class="retro-btn" style="padding: 4px 10px; font-size: 0.95rem;">
+        <button id="football-pause-btn" class="retro-btn arcade-action-btn">
           ⏸ Pausar
         </button>
-        <button id="football-end-btn" class="retro-btn" style="padding: 4px 10px; font-size: 0.95rem; color: #ff6b6b;">
-          ⏹ Finalizar Partido
+        <button id="football-end-btn" class="retro-btn arcade-action-btn" style="color: #ff6b6b;">
+          ⏹ Finalizar
         </button>
-        <span class="arcade-instructions">WASD: Mover | Espacio (Mantener): Cargar Tiro | K/Click: Patear | P: Pausa</span>
+        <span class="arcade-instructions desktop-only">WASD: Mover | Espacio: Cargar Tiro | K: Patear | P: Pausa</span>
+        <span class="arcade-instructions mobile-only">D-Pad: Mover | KICK: Patear</span>
+      </div>
+      <!-- Mobile Touch Controls for Football -->
+      <div id="football-touch-controls" class="football-touch-controls mobile-only">
+        <div class="touch-dpad">
+          <div class="dpad-row">
+            <button class="dpad-btn dpad-up" data-key="arrowup" aria-label="Arriba">▲</button>
+          </div>
+          <div class="dpad-row dpad-middle">
+            <button class="dpad-btn dpad-left" data-key="arrowleft" aria-label="Izquierda">◀</button>
+            <div class="dpad-center"></div>
+            <button class="dpad-btn dpad-right" data-key="arrowright" aria-label="Derecha">▶</button>
+          </div>
+          <div class="dpad-row">
+            <button class="dpad-btn dpad-down" data-key="arrowdown" aria-label="Abajo">▼</button>
+          </div>
+        </div>
+        <div class="touch-action-btns">
+          <button id="football-kick-btn" class="touch-kick-btn" aria-label="Patear">⚽<br><small>KICK</small></button>
+          <button id="football-shoot-btn" class="touch-shoot-btn" aria-label="Cargar Tiro">💥<br><small>SHOOT</small></button>
+        </div>
       </div>
     </div>
   </div>

@@ -136,6 +136,8 @@ class WindowManagerClass {
     const onPointerDown = (e) => {
       // Don't drag if clicking buttons
       if (e.target.closest('button, .window-btn, .window-control, a')) return;
+      // Don't drag on mobile/touch devices — windows are full-screen there
+      if (window.innerWidth <= 860) return;
       
       this.focusWindow(id);
       if (winData.isMaximized) return; // Don't drag while maximized
@@ -240,6 +242,18 @@ class WindowManagerClass {
     winData.el.style.display = winData.isFloating ? 'flex' : 'block';
     winData.el.classList.remove('hidden', 'is-minimized');
     winData.el.classList.add('window-opening');
+
+    // On mobile: reset any manually-dragged inline position so CSS full-screen takes effect
+    if (winData.isFloating && window.innerWidth <= 860) {
+      winData.el.style.left = '';
+      winData.el.style.top = '';
+      winData.el.style.right = '';
+      winData.el.style.bottom = '';
+      winData.el.style.transform = '';
+      winData.el.style.width = '';
+      winData.el.style.height = '';
+      winData.el.style.margin = '';
+    }
 
     setTimeout(() => {
       winData.el.classList.remove('window-opening');

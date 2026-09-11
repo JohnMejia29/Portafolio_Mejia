@@ -34,6 +34,8 @@
   border-radius: 2px;
   position: relative;
   overflow: hidden;
+  max-width: 100%;       /* never wider than container */
+  box-sizing: border-box;
 }
 
 /* Retro Titlebar */
@@ -146,11 +148,13 @@
 .retro-header-window {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   margin-bottom: 2rem;
   background-color: var(--retro-surface);
   border-bottom: 2px solid var(--bevel-darker);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  /* overflow must be visible so the mobile dropdown can escape the header */
+  overflow: visible;
 }
 
 .retro-header-window .retro-titlebar {
@@ -207,6 +211,7 @@
   width: 100%;
   max-width: 100%;
   gap: clamp(8px, 1.2vw, 20px);
+  overflow: hidden; /* prevent the bar from expanding beyond viewport */
 }
 
 .header-brand {
@@ -986,6 +991,135 @@
 }
 
 /* ==========================================================================
+   MOBILE VISIBILITY UTILITIES
+   ========================================================================== */
+.mobile-only {
+  display: none !important;
+}
+.desktop-only {
+  display: inline !important;
+}
+
+@media (max-width: 860px) {
+  .mobile-only {
+    display: flex !important;
+  }
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   HAMBURGER / MOBILE NAV MENU
+   ========================================================================== */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-darker);
+  border-bottom: 2px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft), inset -1px -1px 0px var(--bevel-dark);
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+  margin-left: auto;
+  transition: background-color 0.15s;
+}
+
+.mobile-menu-btn:active {
+  background-color: #dfd0ad;
+  border-top: 2px solid var(--bevel-darker);
+  border-left: 2px solid var(--bevel-darker);
+  border-right: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-light);
+  transform: translate(1px, 1px);
+}
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background-color: var(--text-main);
+  transition: all 0.25s ease;
+  border-radius: 1px;
+}
+
+.mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.mobile-menu-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Nav Dropdown Panel */
+.mobile-nav-dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--retro-surface);
+  border-top: 2px solid var(--bevel-darker);
+  border-bottom: 3px solid var(--bevel-darker);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  padding: 8px 0;
+  animation: slideDown 0.2s ease-out;
+}
+
+.mobile-nav-dropdown.open {
+  display: flex;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-nav-link {
+  font-family: var(--font-pixel);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 12px 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 0.1s;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+  background-color: var(--retro-surface-light);
+}
+
+.mobile-nav-divider {
+  height: 2px;
+  background-color: var(--bevel-darker);
+  margin: 6px 0;
+}
+
+.mobile-lang-btn {
+  margin: 8px 16px;
+  justify-content: center;
+  font-size: 1.15rem !important;
+}
+
+/* ==========================================================================
    GLOBAL RESPONSIVE ADJUSTMENTS FOR RETRO UI
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -1004,29 +1138,56 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .header-brand {
-    font-size: 1.35rem;
-    gap: 6px;
+    font-size: 1.2rem;
+    gap: 5px;
+    min-width: 0;
+    flex-shrink: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .brand-icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
   }
-  .nav-link {
+  .retro-header-bar {
+    min-height: 56px;
+    padding: 4px 10px;
+    flex-wrap: nowrap;
+  }
+  /* Hide desktop nav on mobile */
+  #desktop-nav {
+    display: none !important;
+  }
+  /* Hide desktop lang button on mobile */
+  .retro-header-bar > #lang-toggle-btn {
+    display: none !important;
+  }
+  /* Show hamburger button */
+  .mobile-menu-btn {
+    display: flex;
+    flex-shrink: 0;
+  }
+  .retro-header-window {
+    position: sticky;
+    overflow: visible;
+  }
+}
+
+/* Extra-small: shrink brand text even more */
+@media (max-width: 480px) {
+  .header-brand {
     font-size: 1rem;
-    padding: 4px 8px;
-    min-height: 34px;
-    gap: 4px;
   }
-  .nav-icon {
-    width: 18px;
-    height: 18px;
+  .brand-icon {
+    width: 24px;
+    height: 24px;
   }
-  .lang-toggle-btn {
-    font-size: 1rem;
-    padding: 3px 8px;
-    min-height: 34px;
+  .brand-name-accent {
+    display: none; /* Hide ".EXE" on very small screens to save space */
   }
 }
 
@@ -1047,6 +1208,207 @@
     gap: 6px;
     font-size: 0.95rem;
   }
+}
+
+/* ==========================================================================
+   FLOATING WINDOW — FULL SCREEN ON MOBILE
+   ========================================================================== */
+@media (max-width: 860px) {
+  .floating-window {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    z-index: 900 !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* ==========================================================================
+   ARCADE RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+.arcade-controls-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 440px;
+}
+
+.arcade-action-btn {
+  padding: 6px 12px;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .arcade-body {
+    padding: 0.75rem 0.5rem;
+    overflow-y: auto;
+  }
+  .arcade-score-bar {
+    font-size: 0.95rem;
+    padding: 4px 8px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .arcade-canvas-wrap {
+    width: 100%;
+  }
+  .arcade-canvas-wrap canvas {
+    width: 100%;
+    height: auto;
+  }
+  .arcade-controls-row {
+    max-width: 100%;
+  }
+  .arcade-action-btn {
+    padding: 8px 14px;
+    font-size: 1rem;
+    min-height: 40px;
+  }
+}
+
+/* ==========================================================================
+   GAME MOBILE D-PAD CONTROLS
+   ========================================================================== */
+.game-dpad {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 14px;
+  gap: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.dpad-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+
+.dpad-middle {
+  gap: 0;
+}
+
+.dpad-center {
+  width: 54px;
+  height: 54px;
+  background-color: #1a3d2e;
+  border: 2px solid #0f241e;
+}
+
+.dpad-btn {
+  width: 54px;
+  height: 54px;
+  font-size: 1.3rem;
+  font-family: var(--font-pixel);
+  font-weight: bold;
+  background-color: var(--retro-surface);
+  color: var(--text-main);
+  border-top: 3px solid var(--bevel-light);
+  border-left: 3px solid var(--bevel-light);
+  border-right: 3px solid var(--bevel-darker);
+  border-bottom: 3px solid var(--bevel-darker);
+  box-shadow: inset 1px 1px 0px var(--bevel-light-soft), inset -1px -1px 0px var(--bevel-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.dpad-btn:active,
+.dpad-btn.pressed {
+  background-color: #38ef7d;
+  color: #04100c;
+  border-top: 3px solid var(--bevel-darker);
+  border-left: 3px solid var(--bevel-darker);
+  border-right: 3px solid var(--bevel-light);
+  border-bottom: 3px solid var(--bevel-light);
+  transform: translate(1px, 1px);
+}
+
+/* Football Touch Controls Layout */
+.football-touch-controls {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 16px;
+  gap: 20px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.touch-dpad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.touch-action-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.touch-kick-btn,
+.touch-shoot-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-family: var(--font-pixel);
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  border: 3px solid var(--bevel-light);
+  box-shadow: 0 4px 0 rgba(0,0,0,0.4), inset 1px 1px 0px var(--bevel-light-soft);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.touch-kick-btn {
+  background: linear-gradient(145deg, #1b6f3a, #38ef7d);
+  color: #04100c;
+  border-color: #38ef7d;
+}
+
+.touch-shoot-btn {
+  background: linear-gradient(145deg, #7c1c1c, #ef4444);
+  color: #fff;
+  border-color: #ef4444;
+}
+
+.touch-kick-btn:active,
+.touch-shoot-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.4), inset 1px 1px 0px var(--bevel-light-soft);
+}
+
+.touch-kick-btn small,
+.touch-shoot-btn small {
+  font-size: 0.65rem;
+  font-family: var(--font-pixel);
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 /* ==========================================================================

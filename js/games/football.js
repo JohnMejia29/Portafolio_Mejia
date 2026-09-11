@@ -171,6 +171,7 @@ export class FootballGame {
     this.lastHitSoundTime = 0;
 
     this.bindControls();
+    this.bindMobileControls();
   }
 
   bindControls() {
@@ -247,6 +248,78 @@ export class FootballGame {
       this.player.isCharging = false;
       this.player.chargePower = 0;
     });
+  }
+
+  /** Mobile D-pad + KICK/SHOOT touch button wiring */
+  bindMobileControls() {
+    const touchControls = document.getElementById('football-touch-controls');
+    if (!touchControls) return;
+
+    // D-pad: simulate keydown/keyup
+    const dpadBtns = touchControls.querySelectorAll('.dpad-btn');
+    dpadBtns.forEach(btn => {
+      const key = btn.dataset.key; // e.g. 'arrowup'
+
+      btn.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        btn.classList.add('pressed');
+        this.keys[key] = true;
+        // Start game on first touch if not running
+        if (!this.isRunning) { this.start(); }
+        // Kick off if player has possession and hasn't moved yet
+        if (!this.hasKickedOff && this.possession === 'player') {
+          this.hasKickedOff = true;
+          if (this.statusEl) this.statusEl.textContent = 'PARTIDO EN CURSO';
+        }
+      });
+
+      const release = () => {
+        btn.classList.remove('pressed');
+        this.keys[key] = false;
+      };
+      btn.addEventListener('pointerup',    release);
+      btn.addEventListener('pointercancel', release);
+      btn.addEventListener('pointerleave', release);
+    });
+
+    // KICK button: instant kick
+    const kickBtn = document.getElementById('football-kick-btn');
+    if (kickBtn) {
+      kickBtn.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        if (!this.isRunning) { this.start(); return; }
+        if (!this.isPaused && !this.isGoalPause) {
+          if (!this.hasKickedOff && this.possession === 'player') {
+            this.hasKickedOff = true;
+            if (this.statusEl) this.statusEl.textContent = 'PARTIDO EN CURSO';
+          }
+          this.executeKick(this.player, 5.5);
+        }
+      });
+    }
+
+    // SHOOT button: charge shot — hold to charge, release to fire
+    const shootBtn = document.getElementById('football-shoot-btn');
+    if (shootBtn) {
+      shootBtn.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        if (!this.isRunning) { this.start(); return; }
+        if (!this.isPaused && !this.isGoalPause && !this.player.isCharging) {
+          this.player.isCharging = true;
+          this.player.chargePower = 0;
+        }
+      });
+      const shootRelease = () => {
+        if (this.isRunning && !this.isPaused && !this.isGoalPause && this.player.isCharging) {
+          this.releaseChargedShot();
+        }
+        this.player.isCharging = false;
+        this.player.chargePower = 0;
+      };
+      shootBtn.addEventListener('pointerup',    shootRelease);
+      shootBtn.addEventListener('pointercancel', shootRelease);
+      shootBtn.addEventListener('pointerleave', shootRelease);
+    }
   }
 
   releaseChargedShot() {
@@ -947,12 +1020,12 @@ export class FootballGame {
 
       this.ctx.fillStyle = '#f8fafc';
       this.ctx.font = '11px "Courier New", monospace';
-      this.ctx.fillText('CLIC EN "INICIAR PARTIDO" O ESPACIO', w / 2, 98);
+      this.ctx.fillText('INICIAR: Botón / Espacio / Touch', w / 2, 98);
       this.ctx.fillStyle = '#93c5fd';
-      this.ctx.fillText('WASD: MOVER | ESPACIO: CARGAR TIRO', w / 2, 122);
-      this.ctx.fillText('K / CLICK: PATEAR | P: PAUSAR', w / 2, 142);
+      this.ctx.fillText('PC: WASD + ESPACIO/K', w / 2, 122);
+      this.ctx.fillText('MOVIL: D-PAD + KICK/SHOOT', w / 2, 142);
       this.ctx.fillStyle = '#fef08a';
-      this.ctx.fillText('SOLTAR ESPACIO = DISPARO POTENTE', w / 2, 164);
+      this.ctx.fillText('SOLTAR SHOOT = DISPARO POTENTE', w / 2, 164);
       this.ctx.fillStyle = '#8dafa4';
       this.ctx.fillText('AZUL (TÚ) vs ROJO (CPU)', w / 2, 194);
     }

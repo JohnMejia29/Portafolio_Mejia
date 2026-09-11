@@ -1,6 +1,7 @@
 /* ==========================================================================
    SNAKE.EXE - CLASSIC RETRO NOKIA SNAKE GAME (HTML5 CANVAS)
-   Supports Arrow Keys, WASD, Score Tracking, High Score, Sound FX
+   Supports Arrow Keys, WASD, Score Tracking, High Score, Sound FX,
+   Mobile D-Pad Touch Controls
    ========================================================================== */
 
 import { SoundFX } from '../sound-fx.js';
@@ -28,6 +29,8 @@ export class SnakeGame {
 
     this.initHighScore();
     this.bindControls();
+    this.bindMobileDpad();
+    this.bindCanvasTouch();
   }
 
   initHighScore() {
@@ -67,6 +70,50 @@ export class SnakeGame {
         }
       }
     });
+  }
+
+  /** Wire up the HTML D-Pad buttons injected in index.html */
+  bindMobileDpad() {
+    const dpad = document.getElementById('snake-dpad');
+    if (!dpad) return;
+
+    const handleDir = (dir) => {
+      const panel = document.getElementById('arcade-snake-panel');
+      if (panel && panel.style.display === 'none') return;
+      if (!this.isRunning) {
+        this.start();
+        return;
+      }
+      switch (dir) {
+        case 'up':    if (this.dir.y === 0) this.nextDir = { x: 0, y: -1 }; break;
+        case 'down':  if (this.dir.y === 0) this.nextDir = { x: 0, y:  1 }; break;
+        case 'left':  if (this.dir.x === 0) this.nextDir = { x: -1, y: 0 }; break;
+        case 'right': if (this.dir.x === 0) this.nextDir = { x:  1, y: 0 }; break;
+      }
+    };
+
+    dpad.querySelectorAll('.dpad-btn').forEach(btn => {
+      btn.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        handleDir(btn.dataset.dir);
+        btn.classList.add('pressed');
+      });
+      btn.addEventListener('pointerup',    () => btn.classList.remove('pressed'));
+      btn.addEventListener('pointercancel',() => btn.classList.remove('pressed'));
+      btn.addEventListener('pointerleave', () => btn.classList.remove('pressed'));
+    });
+  }
+
+  /** Tap on the canvas = start/pause on mobile */
+  bindCanvasTouch() {
+    this.canvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      if (!this.isRunning) {
+        this.start();
+      } else {
+        this.togglePause();
+      }
+    }, { passive: false });
   }
 
   start() {
@@ -165,58 +212,62 @@ export class SnakeGame {
   }
 
   draw() {
+    const W = this.canvas.width;
+    const H = this.canvas.height;
+    const gs = this.gridSize;
+
     // Vintage Green LCD display
     this.ctx.fillStyle = '#9bbc0f';
-    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.fillRect(0, 0, W, H);
 
     // Grid pattern
     this.ctx.strokeStyle = '#8bac0f';
     this.ctx.lineWidth = 0.5;
-    for (let i = 0; i < this.canvas.width; i += this.gridSize) {
+    for (let i = 0; i < W; i += gs) {
       this.ctx.beginPath();
       this.ctx.moveTo(i, 0);
-      this.ctx.lineTo(i, this.canvas.height);
+      this.ctx.lineTo(i, H);
       this.ctx.stroke();
       this.ctx.beginPath();
       this.ctx.moveTo(0, i);
-      this.ctx.lineTo(this.canvas.width, i);
+      this.ctx.lineTo(W, i);
       this.ctx.stroke();
     }
 
     // Draw Food (Pixel apple)
     this.ctx.fillStyle = '#0f380f';
     this.ctx.fillRect(
-      this.food.x * this.gridSize + 2,
-      this.food.y * this.gridSize + 2,
-      this.gridSize - 4,
-      this.gridSize - 4
+      this.food.x * gs + 2,
+      this.food.y * gs + 2,
+      gs - 4,
+      gs - 4
     );
 
     // Draw Snake
     this.snake.forEach((seg, idx) => {
       this.ctx.fillStyle = idx === 0 ? '#0f380f' : '#306230';
       this.ctx.fillRect(
-        seg.x * this.gridSize + 1,
-        seg.y * this.gridSize + 1,
-        this.gridSize - 2,
-        this.gridSize - 2
+        seg.x * gs + 1,
+        seg.y * gs + 1,
+        gs - 2,
+        gs - 2
       );
     });
 
     // Start prompt if idle
     if (!this.isRunning) {
       this.ctx.fillStyle = 'rgba(15, 56, 15, 0.85)';
-      this.ctx.fillRect(20, 110, this.canvas.width - 40, 90);
+      this.ctx.fillRect(20, H / 2 - 50, W - 40, 100);
       this.ctx.strokeStyle = '#0f380f';
-      this.ctx.strokeRect(20, 110, this.canvas.width - 40, 90);
+      this.ctx.strokeRect(20, H / 2 - 50, W - 40, 100);
 
       this.ctx.fillStyle = '#9bbc0f';
       this.ctx.font = '14px "Silkscreen", "Courier New", monospace';
       this.ctx.textAlign = 'center';
-      this.ctx.fillText('SNAKE.EXE v1.0', this.canvas.width / 2, 140);
-      this.ctx.fillText('ESPACIO / ENTER INICIA', this.canvas.width / 2, 165);
+      this.ctx.fillText('SNAKE.EXE v1.0', W / 2, H / 2 - 20);
+      this.ctx.fillText('INICIAR: Espacio/Enter/Tap', W / 2, H / 2 + 5);
       this.ctx.font = '10px "Courier New", monospace';
-      this.ctx.fillText('CONTROLES: FLECHAS O WASD', this.canvas.width / 2, 185);
+      this.ctx.fillText('FLECHAS, WASD o D-PAD', W / 2, H / 2 + 28);
     }
   }
 }
