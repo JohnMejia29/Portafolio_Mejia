@@ -1372,6 +1372,31 @@
   -webkit-user-select: none;
 }
 
+/* Snake D-Pad: superpuesto centrado en la parte inferior del canvas */
+.snake-dpad-overlay {
+  display: none; /* oculto en desktop */
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+  opacity: 0.35;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+@media (max-width: 860px) {
+  .snake-dpad-overlay {
+    display: flex;
+  }
+}
+
+.arcade-canvas-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
 .dpad-row {
   display: flex;
   justify-content: center;

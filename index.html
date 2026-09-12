@@ -1321,27 +1321,27 @@
       </div>
       <div class="arcade-canvas-wrap">
         <canvas id="snake-canvas" width="320" height="320"></canvas>
+        <!-- Mobile D-Pad for Snake — superpuesto centrado dentro del canvas -->
+        <div id="snake-dpad" class="game-dpad snake-dpad-overlay">
+          <div class="dpad-row">
+            <button class="dpad-btn dpad-up" data-dir="up" aria-label="Arriba">▲</button>
+          </div>
+          <div class="dpad-row dpad-middle">
+            <button class="dpad-btn dpad-left" data-dir="left" aria-label="Izquierda">◀</button>
+            <div class="dpad-center"></div>
+            <button class="dpad-btn dpad-right" data-dir="right" aria-label="Derecha">▶</button>
+          </div>
+          <div class="dpad-row">
+            <button class="dpad-btn dpad-down" data-dir="down" aria-label="Abajo">▼</button>
+          </div>
+        </div>
       </div>
       <div class="arcade-controls-row">
         <button id="snake-restart-btn" class="retro-btn btn-primary arcade-action-btn">
           ▶ Iniciar / Reiniciar
         </button>
         <span class="arcade-instructions desktop-only">Flechas o WASD | Espacio: Pausa</span>
-        <span class="arcade-instructions mobile-only">Usa los controles de pantalla</span>
-      </div>
-      <!-- Mobile D-Pad for Snake -->
-      <div id="snake-dpad" class="game-dpad mobile-only">
-        <div class="dpad-row">
-          <button class="dpad-btn dpad-up" data-dir="up" aria-label="Arriba">▲</button>
-        </div>
-        <div class="dpad-row dpad-middle">
-          <button class="dpad-btn dpad-left" data-dir="left" aria-label="Izquierda">◀</button>
-          <div class="dpad-center"></div>
-          <button class="dpad-btn dpad-right" data-dir="right" aria-label="Derecha">▶</button>
-        </div>
-        <div class="dpad-row">
-          <button class="dpad-btn dpad-down" data-dir="down" aria-label="Abajo">▼</button>
-        </div>
+        <span class="arcade-instructions mobile-only">D-Pad: Mover | Espacio: Pausa</span>
       </div>
     </div>
 
