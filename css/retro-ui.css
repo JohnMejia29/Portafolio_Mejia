@@ -1271,6 +1271,15 @@
    FLOATING WINDOW — FULL SCREEN ON MOBILE
    ========================================================================== */
 @media (max-width: 860px) {
+
+  body.mobile-window-mode>header,
+  body.mobile-window-mode>main,
+  body.mobile-window-mode>.desktop-shortcuts-bar,
+  body.mobile-window-mode>.desktop-system-status-widget {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
   .mobile-overlay-hidden {
     display: none !important;
   }
@@ -1415,11 +1424,12 @@
 
 /* Football Touch Controls Layout */
 .football-touch-controls {
+  display: none; /* shown via JS only when match is running */
   position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 12px;
-  height: 46px;
+  left: 9%;
+  right: 9%;
+  bottom: 11%;
+  height: auto;
   box-sizing: border-box;
   flex-direction: row;
   align-items: flex-end;

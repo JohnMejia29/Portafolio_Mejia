@@ -410,6 +410,14 @@ export class FootballGame {
     }
   }
 
+  /** Muestra u oculta los controles táctiles móviles */
+  setTouchControlsVisible(visible) {
+    const tc = document.getElementById('football-touch-controls');
+    if (!tc) return;
+    const isMobile = window.innerWidth <= 860;
+    tc.style.display = (visible && isMobile) ? 'flex' : 'none';
+  }
+
   start() {
     this.playerScore = 0;
     this.aiScore = 0;
@@ -420,6 +428,7 @@ export class FootballGame {
     this.goalBanner = null;
     this.resetPositions('player');
     this.updateScoreUI();
+    this.setTouchControlsVisible(true);
 
     const pauseBtn = document.getElementById('football-pause-btn');
     if (pauseBtn) pauseBtn.textContent = '⏸ Pausar';
@@ -461,6 +470,7 @@ export class FootballGame {
     this.isPaused = false;
     if (this.timerInterval) clearInterval(this.timerInterval);
     if (this.animId) cancelAnimationFrame(this.animId);
+    this.setTouchControlsVisible(false);
 
     const pauseBtn = document.getElementById('football-pause-btn');
     if (pauseBtn) pauseBtn.textContent = '⏸ Pausar';

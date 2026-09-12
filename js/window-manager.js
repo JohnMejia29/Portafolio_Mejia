@@ -237,6 +237,7 @@ class WindowManagerClass {
     if (!winData) return;
 
     if (winData.isFloating && window.innerWidth <= 860) {
+      document.body.classList.add('mobile-window-mode');
       this.setMobileBackgroundWindowsHidden(true);
       this.windows.forEach((otherWin) => {
         if (otherWin.id === winData.id || !otherWin.isFloating || otherWin.isClosed) return;
@@ -293,6 +294,7 @@ class WindowManagerClass {
       if (winData.isFloating) {
         winData.el.style.display = 'none';
         winData.isClosed = true;
+        document.body.classList.remove('mobile-window-mode');
         this.setMobileBackgroundWindowsHidden(false);
       }
       this.updateTaskbar();
@@ -313,6 +315,7 @@ class WindowManagerClass {
 
     if (winData.isFloating) {
       winData.el.style.display = 'none';
+      document.body.classList.remove('mobile-window-mode');
       this.setMobileBackgroundWindowsHidden(false);
     }
 
