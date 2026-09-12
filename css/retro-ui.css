@@ -1286,8 +1286,15 @@
     max-height: 100dvh !important;
     transform: none !important;
     border-radius: 0 !important;
-    z-index: 900 !important;
+    z-index: 1500 !important;
     overflow-y: auto !important;
+    overscroll-behavior: contain;
+  }
+
+  #arcade-window,
+  #arcade-window .arcade-body,
+  #arcade-window .football-game-stage {
+    touch-action: none;
   }
 }
 
@@ -1408,34 +1415,70 @@
 
 /* Football Touch Controls Layout */
 .football-touch-controls {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 12px;
+  height: 46px;
+  box-sizing: border-box;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 16px;
-  gap: 20px;
-  width: 100%;
-  max-width: 420px;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0;
+  pointer-events: none;
 }
 
-.touch-dpad {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.football-game-stage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  touch-action: none;
 }
 
 .touch-action-btns {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  flex-direction: row;
+  gap: 4px;
   align-items: center;
+  pointer-events: auto;
+}
+
+.football-joystick {
+  width: clamp(40px, 11vw, 48px);
+  aspect-ratio: 1;
+  height: auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 239, 125, 0.16) 0 42%, rgba(4, 16, 12, 0.34) 43% 100%);
+  border: 2px solid rgba(56, 239, 125, 0.42);
+  box-shadow: inset 0 0 0 3px rgba(4, 16, 12, 0.28), 0 0 7px rgba(56, 239, 125, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  opacity: 0.72;
+}
+
+.football-joystick-knob {
+  width: 40%;
+  aspect-ratio: 1;
+  height: auto;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #d8cdb8, #7a705e);
+  border: 1px solid #fff;
+  box-shadow: 0 2px 0 #04100c, inset 1px 1px 0 #fff;
+  pointer-events: none;
+  transition: transform 0.05s linear;
 }
 
 .touch-kick-btn,
 .touch-shoot-btn {
-  width: 72px;
-  height: 72px;
+  width: clamp(32px, 8vw, 38px);
+  aspect-ratio: 1;
+  height: auto;
   border-radius: 50%;
-  font-size: 1.5rem;
+  font-size: clamp(0.52rem, 2vw, 0.68rem);
   font-family: var(--font-pixel);
   font-weight: bold;
   cursor: pointer;
@@ -1446,9 +1489,16 @@
   line-height: 1.1;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  border: 3px solid var(--bevel-light);
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4), inset 1px 1px 0px var(--bevel-light-soft);
+  border: 1px solid var(--bevel-light);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.32), inset 1px 1px 0px var(--bevel-light-soft);
   transition: transform 0.08s ease, box-shadow 0.08s ease;
+  opacity: 0.72;
+}
+
+.football-touch-controls .touch-kick-btn,
+.football-touch-controls .touch-shoot-btn {
+  pointer-events: auto;
+  touch-action: none;
 }
 
 .touch-kick-btn {
@@ -1471,7 +1521,7 @@
 
 .touch-kick-btn small,
 .touch-shoot-btn small {
-  font-size: 0.65rem;
+  font-size: clamp(0.32rem, 1.2vw, 0.4rem);
   font-family: var(--font-pixel);
   font-weight: bold;
   letter-spacing: 1px;

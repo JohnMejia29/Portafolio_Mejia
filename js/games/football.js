@@ -255,32 +255,73 @@ export class FootballGame {
     const touchControls = document.getElementById('football-touch-controls');
     if (!touchControls) return;
 
-    // D-pad: simulate keydown/keyup
-    const dpadBtns = touchControls.querySelectorAll('.dpad-btn');
-    dpadBtns.forEach(btn => {
-      const key = btn.dataset.key; // e.g. 'arrowup'
+    const joystick = document.getElementById('football-joystick');
+    const joystickKnob = document.getElementById('football-joystick-knob');
+    const joystickKeys = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright'];
+    let joystickPointerId = null;
 
-      btn.addEventListener('pointerdown', (e) => {
-        e.preventDefault();
-        btn.classList.add('pressed');
-        this.keys[key] = true;
-        // Start game on first touch if not running
-        if (!this.isRunning) { this.start(); }
-        // Kick off if player has possession and hasn't moved yet
+    const updateJoystick = (event) => {
+      if (!joystick || !joystickKnob) return;
+      const rect = joystick.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const maxDistance = rect.width * 0.34;
+      let dx = event.clientX - centerX;
+      let dy = event.clientY - centerY;
+      const distance = Math.hypot(dx, dy) || 1;
+      if (distance > maxDistance) {
+        dx = (dx / distance) * maxDistance;
+        dy = (dy / distance) * maxDistance;
+      }
+      joystickKnob.style.transform = `translate(${dx}px, ${dy}px)`;
+
+      joystickKeys.forEach(key => { this.keys[key] = false; });
+      if (Math.hypot(dx, dy) > maxDistance * 0.18) {
+        if (dy < -maxDistance * 0.2) this.keys.arrowup = true;
+        if (dy > maxDistance * 0.2) this.keys.arrowdown = true;
+        if (dx < -maxDistance * 0.2) this.keys.arrowleft = true;
+        if (dx > maxDistance * 0.2) this.keys.arrowright = true;
+        if (!this.isRunning) this.start();
         if (!this.hasKickedOff && this.possession === 'player') {
           this.hasKickedOff = true;
           if (this.statusEl) this.statusEl.textContent = 'PARTIDO EN CURSO';
         }
-      });
+      }
+    };
 
-      const release = () => {
-        btn.classList.remove('pressed');
-        this.keys[key] = false;
-      };
-      btn.addEventListener('pointerup',    release);
-      btn.addEventListener('pointercancel', release);
-      btn.addEventListener('pointerleave', release);
-    });
+    const releaseJoystick = (event) => {
+      if (joystickPointerId !== null && event.pointerId !== joystickPointerId) return;
+      joystickPointerId = null;
+      joystickKeys.forEach(key => { this.keys[key] = false; });
+      if (joystickKnob) joystickKnob.style.transform = 'translate(0, 0)';
+      if (joystick && event.pointerId !== undefined) {
+        try {
+          if (joystick.hasPointerCapture?.(event.pointerId)) {
+            joystick.releasePointerCapture(event.pointerId);
+          }
+        } catch { }
+      }
+    };
+
+    if (joystick) {
+      joystick.addEventListener('pointerdown', (event) => {
+        event.preventDefault();
+        joystickPointerId = event.pointerId;
+        try {
+          joystick.setPointerCapture?.(event.pointerId);
+        } catch { }
+        updateJoystick(event);
+      });
+      joystick.addEventListener('pointermove', (event) => {
+        if (event.pointerId === joystickPointerId) {
+          event.preventDefault();
+          updateJoystick(event);
+        }
+      });
+      joystick.addEventListener('pointerup', releaseJoystick);
+      joystick.addEventListener('pointercancel', releaseJoystick);
+      joystick.addEventListener('lostpointercapture', releaseJoystick);
+    }
 
     // KICK button: instant kick
     const kickBtn = document.getElementById('football-kick-btn');
@@ -316,7 +357,7 @@ export class FootballGame {
         this.player.isCharging = false;
         this.player.chargePower = 0;
       };
-      shootBtn.addEventListener('pointerup',    shootRelease);
+      shootBtn.addEventListener('pointerup', shootRelease);
       shootBtn.addEventListener('pointercancel', shootRelease);
       shootBtn.addEventListener('pointerleave', shootRelease);
     }
@@ -496,7 +537,7 @@ export class FootballGame {
   playHitSound() {
     const now = Date.now();
     if (now - this.lastHitSoundTime > 120) {
-      try { SoundFX.playKick(); } catch {}
+      try { SoundFX.playKick(); } catch { }
       this.lastHitSoundTime = now;
     }
   }
@@ -863,13 +904,13 @@ export class FootballGame {
     let nextPossession = 'player';
     if (scorer === 'player') {
       this.playerScore++;
-      try { SoundFX.playGoal(); } catch {}
+      try { SoundFX.playGoal(); } catch { }
       this.goalBanner = '¡¡¡GOOOOOL DEL JUGADOR AZUL!!!';
       if (this.statusEl) this.statusEl.textContent = '¡¡¡GOOOOOL DEL JUGADOR AZUL!!!';
       nextPossession = 'ai';
     } else {
       this.aiScore++;
-      try { SoundFX.playGameOver(); } catch {}
+      try { SoundFX.playGameOver(); } catch { }
       this.goalBanner = '¡GOL DEL CPU ROJO!';
       if (this.statusEl) this.statusEl.textContent = '¡GOL DEL CPU ROJO!';
       nextPossession = 'player';

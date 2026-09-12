@@ -1352,8 +1352,21 @@
         <span>TIEMPO: <strong id="football-timer">60s</strong></span>
         <span id="football-status">LISTO</span>
       </div>
-      <div class="arcade-canvas-wrap">
-        <canvas id="football-canvas" width="400" height="280"></canvas>
+      <div class="football-game-stage">
+        <div class="arcade-canvas-wrap">
+          <canvas id="football-canvas" width="400" height="280"></canvas>
+        </div>
+        <!-- Mobile Touch Controls for Football -->
+        <div id="football-touch-controls" class="football-touch-controls mobile-only">
+          <div id="football-joystick" class="football-joystick" aria-label="Joystick para mover al jugador">
+            <div id="football-joystick-knob" class="football-joystick-knob"></div>
+          </div>
+          <div class="touch-action-btns">
+            <button id="football-kick-btn" class="touch-kick-btn" aria-label="Patear">⚽<br><small>KICK</small></button>
+            <button id="football-shoot-btn" class="touch-shoot-btn"
+              aria-label="Cargar Tiro">💥<br><small>SHOOT</small></button>
+          </div>
+        </div>
       </div>
       <div class="arcade-controls-row">
         <button id="football-restart-btn" class="retro-btn btn-primary arcade-action-btn">
@@ -1366,28 +1379,7 @@
           ⏹ Finalizar
         </button>
         <span class="arcade-instructions desktop-only">WASD: Mover | Espacio: Cargar Tiro | K: Patear | P: Pausa</span>
-        <span class="arcade-instructions mobile-only">D-Pad: Mover | KICK: Patear</span>
-      </div>
-      <!-- Mobile Touch Controls for Football -->
-      <div id="football-touch-controls" class="football-touch-controls mobile-only">
-        <div class="touch-dpad">
-          <div class="dpad-row">
-            <button class="dpad-btn dpad-up" data-key="arrowup" aria-label="Arriba">▲</button>
-          </div>
-          <div class="dpad-row dpad-middle">
-            <button class="dpad-btn dpad-left" data-key="arrowleft" aria-label="Izquierda">◀</button>
-            <div class="dpad-center"></div>
-            <button class="dpad-btn dpad-right" data-key="arrowright" aria-label="Derecha">▶</button>
-          </div>
-          <div class="dpad-row">
-            <button class="dpad-btn dpad-down" data-key="arrowdown" aria-label="Abajo">▼</button>
-          </div>
-        </div>
-        <div class="touch-action-btns">
-          <button id="football-kick-btn" class="touch-kick-btn" aria-label="Patear">⚽<br><small>KICK</small></button>
-          <button id="football-shoot-btn" class="touch-shoot-btn"
-            aria-label="Cargar Tiro">💥<br><small>SHOOT</small></button>
-        </div>
+        <span class="arcade-instructions mobile-only">Joystick: Mover | KICK: Patear</span>
       </div>
     </div>
   </div>
